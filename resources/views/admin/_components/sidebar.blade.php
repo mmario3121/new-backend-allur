@@ -84,7 +84,7 @@
                 </li>
                 @endrole
                 <li class="nav-item">
-                    <a href="{{ route('admin.mainPages.index') }}" class="nav-link">
+                    <a href="{{ route('admin.mainPages.edit', ['mainPage' => 1]) }}" class="nav-link">
                         <i class="far fa-fw fa-circle text-cyan"></i>
                         <p>Главная</p>
                     </a>
@@ -97,7 +97,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('admin.aboutCompanies.index') }}" class="nav-link">
+                    <a href="{{ route('admin.aboutCompanies.edit', ['aboutCompany' => 1]) }}" class="nav-link">
                         <i class="far fa-fw fa-circle text-cyan"></i>
                         <p>О компании</p>
                     </a>
