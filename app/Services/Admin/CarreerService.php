@@ -50,7 +50,7 @@ class CarreerService
             'block9_text' => $data['block9_text'],
             'block9_image' => $this->fileService->saveFile($data['block9_image'], Carreer::IMAGE_PATH),
             'block10_title' => $data['block10_title'],
-            'block10_text' => $data['block10_text'] ?? '',
+            'block10_text' => '',
             'block10_image' => $this->fileService->saveFile($data['block10_image'], Carreer::IMAGE_PATH),
             'card1_title' => $data['card1_title'],
             'card1_text' => $data['card1_text'],
