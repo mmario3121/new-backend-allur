@@ -103,13 +103,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.carreers.index') }}" class="nav-link">
+                    <a href="{{ route('admin.carreers.edit', ['carreer' => 1]) }}" class="nav-link">
                         <i class="far fa-fw fa-circle text-cyan"></i>
                         <p>Производство</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.socials.index') }}" class="nav-link">
+                    <a href="{{ route('admin.socials.edit', ['social' => 1]) }}" class="nav-link">
                         <i class="far fa-fw fa-circle text-cyan"></i>
                         <p>Соц Ответственность</p>
                     </a>
@@ -132,7 +132,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.careras.index') }}" class="nav-link">
+                            <a href="{{ route('admin.careras.edit', ['carera' => 1]) }}" class="nav-link">
                                 <i class="far fa-fw fa-circle text-cyan"></i>
                                 <p>Карьера</p>
                             </a>
