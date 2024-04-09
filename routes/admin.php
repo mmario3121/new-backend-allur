@@ -62,6 +62,7 @@ Route::prefix('admin')->name('admin.')->scopeBindings()->group(function () {
     Route::resource('specificationCategories', \App\Http\Controllers\Admin\Model\SpecificationCategoryController::class)->except('show');
     Route::resource('complectations', \App\Http\Controllers\Admin\Model\ModelComplectationController::class)->except('show');
     Route::resource('sections', \App\Http\Controllers\Admin\Model\ModelSectionController::class)->except('show');
+    Route::resource('specs', \App\Http\Controllers\Admin\SpecController::class)->except('show');
     Route::resource('sectionItems', \App\Http\Controllers\Admin\Model\ModelSectionItemController::class)->except('show');
     Route::resource('libraries', \App\Http\Controllers\Admin\LibraryController::class)->except('show');
     Route::resource('dealers', \App\Http\Controllers\Admin\DealerController::class)->except('show');
@@ -71,6 +72,12 @@ Route::prefix('admin')->name('admin.')->scopeBindings()->group(function () {
     Route::resource('worlds', \App\Http\Controllers\Admin\WorldController::class)->except('show');
     Route::resource('rnds', \App\Http\Controllers\Admin\RndController::class)->except('show');
     Route::resource('mainPages', \App\Http\Controllers\Admin\MainPageController::class)->except('show');
+    Route::resource('financePages', \App\Http\Controllers\Admin\FinancePageController::class)->except('show');
+    //carreers
+    Route::resource('carreers', \App\Http\Controllers\Admin\CarreerController::class)->except('show');
+    //careras
+    Route::resource('careras', \App\Http\Controllers\Admin\CareraController::class)->except('show');
+    Route::resource('aboutCompanies', \App\Http\Controllers\Admin\AboutCompanyController::class)->except('show');
     Route::get('rnd/', [\App\Http\Controllers\Admin\RndController::class, 'edit'])->name('rnds.edit');
     //achievements
     Route::resource('achievements', \App\Http\Controllers\Admin\AchievementController::class)->except('show');

@@ -25,6 +25,8 @@ class UpdateMainPageRequest extends FormRequest
     {
         return [
             'video' => 'nullable',
+            'finance_title' => 'required',
+            'finance_title_kz' => 'required',
             'finance_photo' => 'nullable|image',
             'career_photo1' => 'nullable|image',
             'career_photo2' => 'nullable|image',
@@ -32,6 +34,13 @@ class UpdateMainPageRequest extends FormRequest
             'career_title' => 'required',
             'career_title_kz' => 'required',
             'consultation_photo' => 'nullable|image',
+            'production_title' => 'required',
+            'production_title_kz' => 'required',
+            'production_description' => 'required',
+            'production_description_kz' => 'required',
+            'production_subtitle' => 'required',
+            'production_subtitle_kz' => 'required',
+            'production_image' => 'nullable|image',
         ];
     }
 }

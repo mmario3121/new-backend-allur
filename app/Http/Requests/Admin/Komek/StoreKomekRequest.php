@@ -30,6 +30,13 @@ class StoreKomekRequest extends FormRequest
             'text_kz' => 'required',
             'image' => 'required|image',
             'form_image' => 'required|image',
+            'card1' => 'required',
+            'card2' => 'required',
+            'card3' => 'required',
+            'card4' => 'required',
+            'card5' => 'required',
+            'card6' => 'required',
+
         ];
     }
 }

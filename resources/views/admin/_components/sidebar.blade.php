@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-1">
+<aside class="main-sidebar sidebar-primary elevation-1">
 
     <a href="/" class="brand-link text-center" style="font-size: 1.1rem">
         <img src="{{ asset('adminlte-assets/dist/img/desktop-logo.png') }}" alt="{{ config('app.name') }}"
@@ -97,17 +97,49 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('admin.abouts.index') }}" class="nav-link">
+                    <a href="{{ route('admin.aboutCompanies.index') }}" class="nav-link">
                         <i class="far fa-fw fa-circle text-cyan"></i>
                         <p>О компании</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.sliders.index') }}" class="nav-link">
+                    <a href="{{ route('admin.carreers.index') }}" class="nav-link">
                         <i class="far fa-fw fa-circle text-cyan"></i>
-                        <p>Слайдер</p>
+                        <p>Производство</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.socials.index') }}" class="nav-link">
+                        <i class="far fa-fw fa-circle text-cyan"></i>
+                        <p>Соц Ответственность</p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="far fa-fw fa-circle text-cyan"></i>
+                        <p>
+                            Карьера
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.sliders.index') }}" class="nav-link">
+                                <i class="far fa-fw fa-circle text-cyan"></i>
+                                <p>Слайдер Карьеры</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.careras.index') }}" class="nav-link">
+                                <i class="far fa-fw fa-circle text-cyan"></i>
+                                <p>Карьера</p>
+                            </a>
+                        </li>
+                    </ul>
+                    </li>
+                    
 
                 <li class="nav-item">
                     <a href="{{ route('admin.articles.index') }}" class="nav-link">
@@ -115,6 +147,12 @@
                         <p>
                             Новости
                         </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.financePages.index') }}" class="nav-link">
+                        <i class="far fa-fw fa-circle text-cyan"></i>
+                        <p>Страница Finance</p>
                     </a>
                 </li>
                 <li class="nav-item has-treeview">

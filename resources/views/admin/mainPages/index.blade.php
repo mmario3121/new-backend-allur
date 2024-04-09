@@ -27,7 +27,6 @@
                     <thead>
                     <tr>
                         <th>Редактировать</th>
-                        <th>Картинка</th>
                     </tr>
                     </thead>
 
@@ -58,12 +57,6 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="p-2">
-                                <a href="{{ route('admin.brands.index') }}"
-                                   title="Производство"
-                                   class="btn btn-primary btn-sm">
-                                   Производство
-                                </a>
                             </td>
                         </tr>
                     @empty

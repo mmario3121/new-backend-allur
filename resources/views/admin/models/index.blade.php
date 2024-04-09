@@ -36,6 +36,9 @@
                         <th>Тип</th>
                         <th>Bitrix ID</th>
                         <th>Картинки</th>
+                        <th>Цвета</th>
+                        <th>Комплектации</th>
+                        <th>Характеристики</th>
                         <th>Дата создания</th>
                         <th>Действия</th>
                     </tr>
@@ -60,6 +63,27 @@
                                     Картинки ({{ $model->sliders_count }})
                                 </a>
                             </td>
+                            <td class="p-2">
+                                <a href="{{ route('admin.colors.index', ['model_id' => $model->id]) }}"
+                                   title="Картинки"
+                                   class="btn btn-primary btn-sm">
+                                   Цвета
+                                </a>
+                            </td>
+                            <td class="p-2">
+                                <a href="{{ route('admin.complectations.index', ['model_id' => $model->id]) }}"
+                                   title="Картинки"
+                                   class="btn btn-primary btn-sm">
+                                   Комплектации
+                                </a>
+                            </td>
+                            <td class="p-2">
+                                <a href="{{ route('admin.specs.index', ['model_id' => $model->id]) }}"
+                                   title="Картинки"
+                                   class="btn btn-primary btn-sm">
+                                   Характеристики
+                                </a>
+                            </td>
                             <td>
                                 {{ $model->created_at }}
                             </td>
@@ -73,14 +97,6 @@
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
                                         <div class="dropdown-menu" role="menu">
-                                            <a href="{{route('admin.colors.index', ['model_id' => $model->id])}}"
-                                            class="dropdown-item">Цвета</a>
-                                            <a href="{{route('admin.complectations.index', ['model_id' => $model->id])}}"
-                                            class="dropdown-item">Комплектации</a>
-                                            <a href="{{route('admin.sections.index', ['model_id' => $model->id])}}"
-                                            class="dropdown-item">Страница</a>
-                                            <a href="{{route('admin.specificationCategories.index', ['model_id' => $model->id])}}"
-                                            class="dropdown-item">Характеристики</a>
                                             <form
                                             action="{{route('admin.models.destroy', ['model' => $model])}}"
                                                 method="post">

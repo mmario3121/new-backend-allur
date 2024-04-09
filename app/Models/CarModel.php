@@ -48,4 +48,9 @@ class CarModel extends Model
     {
         return $this->hasMany(ModelSlider::class, 'model_id', 'id');
     }
+
+    public function specs(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Spec::class, 'model_id', 'id');
+    }
 }

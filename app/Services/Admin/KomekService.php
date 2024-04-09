@@ -26,6 +26,12 @@ class KomekService
             'text_kz' => $data['text_kz'],
             'image' => $this->fileService->saveFile($data['image'], Komek::IMAGE_PATH),
             'form_image' => $this->fileService->saveFile($data['form_image'], Komek::IMAGE_PATH),
+            'card1' => $data['card1'],
+            'card2' => $data['card2'],
+            'card3' => $data['card3'],
+            'card4' => $data['card4'],
+            'card5' => $data['card5'],
+            'card6' => $data['card6'],
         ]);
     }
 
@@ -35,6 +41,12 @@ class KomekService
         $komek->title_kz = $data['title_kz'];
         $komek->text = $data['text'];
         $komek->text_kz = $data['text_kz'];
+        $komek->card1 = $data['card1'];
+        $komek->card2 = $data['card2'];
+        $komek->card3 = $data['card3'];
+        $komek->card4 = $data['card4'];
+        $komek->card5 = $data['card5'];
+        $komek->card6 = $data['card6'];
         if (isset($data['image'])) {
             $komek->image = $this->fileService->saveFile($data['image'], Komek::IMAGE_PATH, $komek->image);
         }

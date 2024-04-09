@@ -27,14 +27,22 @@ class MainPageService
             'career_photo3' => $this->fileService->saveFile($data['career_photo3'], MainPage::IMAGE_PATH),
             'career_title' => $data['career_title'],
             'career_title_kz' => $data['career_title_kz'],
+            'finance_title' => $data['finance_title'],
             'consultation_photo' => $this->fileService->saveFile($data['consultation_photo'], MainPage::IMAGE_PATH),
         ]);
     }
 
     public function update(MainPage $mainPage, array $data)
     {
+        $mainPage->finance_title = $data['finance_title'];
         $mainPage->career_title = $data['career_title'];
         $mainPage->career_title_kz = $data['career_title_kz'];
+        $mainPage->production_title = $data['production_title'];
+        $mainPage->production_title_kz = $data['production_title_kz'];
+        $mainPage->production_description = $data['production_description'];
+        $mainPage->production_description_kz = $data['production_description_kz'];
+        $mainPage->production_subtitle = $data['production_subtitle'];
+        $mainPage->production_subtitle_kz = $data['production_subtitle_kz'];
         if (isset($data['video'])) {
             $mainPage->video = $this->fileService->saveFile($data['video'], MainPage::IMAGE_PATH, $mainPage->video);
         }
@@ -50,6 +58,13 @@ class MainPageService
         if (isset($data['career_photo3'])) {
             $mainPage->career_photo3 = $this->fileService->saveFile($data['career_photo3'], MainPage::IMAGE_PATH, $mainPage->career_photo3);
         }
+        if (isset($data['consultation_photo'])) {
+            $mainPage->consultation_photo = $this->fileService->saveFile($data['consultation_photo'], MainPage::IMAGE_PATH, $mainPage->consultation_photo);
+        }
+        if (isset($data['production_image'])) {
+            $mainPage->production_image = $this->fileService->saveFile($data['production_image'], MainPage::IMAGE_PATH, $mainPage->production_image);
+        }
+
         return $mainPage->save();
     }
 
