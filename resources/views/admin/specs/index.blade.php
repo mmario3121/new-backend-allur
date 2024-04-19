@@ -13,11 +13,34 @@
             Назад
     </a>
     <div class="card-tools mb-4">
-        <a href="{{ route('admin.specs.create', ['model_id' => $model->id]) }}"
-        class="btn btn-success btn-sm mr-1 mb-2 mb-sm-0" title="Добавить">
-            <i class="fa fa-plus" aria-hidden="true"></i>
-            Добавить
-        </a>
+    <h5>Добавить характеристику</h5>
+    <form action="{{ route('admin.specs.store') }}" method="POST" class="form-inline">
+        @csrf
+
+        <div class="form-group mb-2">
+            <label for="value" class="sr-only">Значение</label>
+            <input type="text" class="form-control" id="value" name="value" required placeholder="Значение">
+        </div>
+
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="type" class="sr-only">Тип</label>
+            <select class="form-control @error('type') is-invalid @enderror" title="type" id="type" name="type">
+                <option value="">Выберите тип</option>
+                <option value="main">
+                    Основные
+                </option>
+                <option value="exterior">
+                    Экстерьер
+                </option>
+                <option value="interior">
+                    Интерьер
+                </option>
+            </select>
+        </div>
+        <input type="hidden" name="model_id" value="{{ $model->id }}">
+
+        <button type="submit" class="btn btn-primary mb-2">Сохранить</button>
+    </form>
     </div>
 
     <h2>Характеристики Для {{ $model->title }}</h2>
@@ -33,21 +56,31 @@
     <div class="tab-content" id="myTabContent">
     @foreach($model->specs->groupBy('type') as $type => $specs)
         <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="{{ $type }}" role="tabpanel" aria-labelledby="{{ $type }}-tab">
-            <ul>
-                @foreach($specs as $spec)
-                    <li>
-                        {{ $spec->name }}: {{ $spec->value }}
-                        <!-- Кнопка редактирования -->
-                        <a href="{{ route('admin.specs.edit', $spec->id) }}" class="btn btn-primary btn-sm">Редактировать</a>
-                        <!-- Кнопка удаления -->
-                        <form action="{{ route('admin.specs.destroy', $spec->id) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
-                        </form>
-                    </li>
-                @endforeach
-            </ul>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Значение</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($specs as $spec)
+                        <tr>
+                            <td>{{ $spec->value }}</td>
+                            <td>
+                                <!-- Кнопка редактирования -->
+                                <a href="{{ route('admin.specs.edit', $spec->id) }}" class="btn btn-primary btn-sm">Редактировать</a>
+                                <!-- Кнопка удаления -->
+                                <form action="{{ route('admin.specs.destroy', $spec->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     @endforeach
 </div>

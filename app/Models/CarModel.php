@@ -53,4 +53,9 @@ class CarModel extends Model
     {
         return $this->hasMany(Spec::class, 'model_id', 'id');
     }
+
+    public function complectations(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(ModelComplectation::class, 'model_id', 'id');
+    }
 }

@@ -38,7 +38,6 @@
                         <th>Картинки</th>
                         <th>Цвета</th>
                         <th>Комплектации</th>
-                        <th>Характеристики</th>
                         <th>Дата создания</th>
                         <th>Действия</th>
                     </tr>
@@ -75,13 +74,6 @@
                                    title="Картинки"
                                    class="btn btn-primary btn-sm">
                                    Комплектации
-                                </a>
-                            </td>
-                            <td class="p-2">
-                                <a href="{{ route('admin.specs.index', ['model_id' => $model->id]) }}"
-                                   title="Картинки"
-                                   class="btn btn-primary btn-sm">
-                                   Характеристики
                                 </a>
                             </td>
                             <td>

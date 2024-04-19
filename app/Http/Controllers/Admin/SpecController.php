@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Spec\StoreSpecRequest;
 use App\Http\Requests\Admin\Spec\UpdateSpecRequest;
 use App\Models\CarModel;
+use App\Models\ModelComplectation;
 use App\Models\Spec;
 use App\Services\Admin\SpecService;
 use Illuminate\Http\Request;
@@ -22,8 +23,9 @@ class SpecController extends Controller
 
     public function index(Request $request)
     {
-        $data['model'] = CarModel::find($request->model_id);
-        $data['specs'] = Spec::where('model_id', $request->model_id)->get();
+        $data['complectation'] = ModelComplectation::find($request->model_id);
+        $data['model'] = CarModel::find($data['complectation']->model_id);
+        $data['specs'] = Spec::where('model_id', $data['complectation']->model_id)->get();
         return view('admin.specs.index', $data);
     }
 
@@ -43,7 +45,9 @@ class SpecController extends Controller
         } catch (\Exception $exception) {
             return back()->withInput()->withErrors($exception->getMessage());
         }
-        return redirect()->route('admin.specs.index', ['model_id' => $request->model_id])->with('success', trans('messages.success_created'));
+        $model = ModelComplectation::find($request->model_id);
+        $car_model = CarModel::find($model->model_id);
+        return redirect()->route('admin.specs.index', ['model_id' => $car_model->id])->with('success', trans('messages.success_created'));
     }
 
     public function edit(Spec $spec)

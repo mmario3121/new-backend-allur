@@ -188,6 +188,12 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.shopItems.index') }}" class="nav-link">
+                        <i class="far fa-fw fa-circle text-cyan"></i>
+                        <p>Магазин</p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

@@ -1,11 +1,12 @@
 @extends('layouts.admin')
 
-@section('title', "Комплектации $model->title ")
+@section('title', 'Товары')
 
 @section('content')
+
     <div class="content-header">
         <div class="container-fluid">
-            <h3 class="m-0">Комплектации {{$model->title}}</h3>
+            <h3 class="m-0">Товары</h3>
         </div>
     </div>
 
@@ -13,13 +14,13 @@
         <div class="container-fluid">
 
             @include('admin._components.alert')
-            <a href="{{route('admin.models.index', ['brand_id' => $model->brand_id])}}" title="Назад"
-               class="btn btn-warning btn-sm mb-3">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                Назад
+            <a href="{{ route('admin.shopItems.index') }}" title="Назад"
+                class="btn btn-warning btn-sm mb-3">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Назад
             </a>
             <div class="card-tools mb-4">
-                <a href="{{ route('admin.complectations.create', ['model_id' => $model->id]) }}"
+                <a href="{{ route('admin.shopItems.create') }}"
                    class="btn btn-success btn-sm mr-1 mb-2 mb-sm-0" title="Добавить">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                     Добавить
@@ -32,37 +33,45 @@
                     <thead>
                     <tr>
                         <th>Наименование</th>
-                        <th>Bitrix ID</th>
-                        <th>Характеристики</th>
+                        <th>Размер</th>
+                        <th>Цвет</th>
+                        <th>Цена</th>
+                        <th>Подтовары</th>
                         <th>Дата создания</th>
                         <th>Действия</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    @forelse($complectations as $complectation)
+                    @forelse($shopItems as $shopItem)
                         <tr>
                             <td>
-                                {{ $complectation->title }}
+                                {{ $shopItem->title }}
                             </td>
                             <td>
-                                {{ $complectation->bitrix_id }}
+                                {{ $shopItem->size }}
                             </td>
-
-                            <td class="p-2">
-                                <a href="{{ route('admin.specs.index', ['model_id' => $complectation->id]) }}"
-                                   title="Картинки"
+                            <td>
+                                {{ $shopItem->color }}
+                            </td>
+                            <td>
+                                {{ $shopItem->price }}
+                            </td>
+                            <td>
+                                <a href="{{ route('admin.shopItems.index', ['shopItem' => $shopItem]) }}"
+                                   title="Подтовары"
                                    class="btn btn-primary btn-sm">
-                                   Характеристики
+                                    Подтовары ({{ $shopItem->children->count() }})
                                 </a>
+
                             </td>
                             <td>
-                                {{ $complectation->created_at }}
+                                {{ $shopItem->created_at }}
                             </td>
                             <td class="btn-row-width-10">
                                 <div class="margin">
                                     <div class="btn-group">
-                                    <a href="{{ route('admin.complectations.edit', ['complectation' => $complectation]) }}"
+                                    <a href="{{ route('admin.shopItems.edit', ['shopItem' => $shopItem]) }}"
                                         class="btn btn-default">Изменить</a>
                                         <button type="button" class="btn btn-default dropdown-toggle dropdown-icon"
                                                 data-toggle="dropdown">
@@ -70,7 +79,7 @@
                                         </button>
                                         <div class="dropdown-menu" role="menu">
                                             <form
-                                            action="{{route('admin.complectations.destroy', ['complectation' => $complectation])}}"
+                                            action="{{route('admin.shopItems.destroy', ['shopItem' => $shopItem])}}"
                                                 method="post">
                                                 @csrf
                                                 @method('DELETE')
@@ -87,7 +96,7 @@
                     @empty
                         <tr>
                             <td align="center" class="text-danger" colspan="4">
-                                Цвета не найдены
+                                Товары не найдены
                             </td>
                         </tr>
                     @endforelse

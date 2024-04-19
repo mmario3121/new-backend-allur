@@ -87,6 +87,9 @@ Route::prefix('admin')->name('admin.')->scopeBindings()->group(function () {
     Route::resource('rndAchievements', \App\Http\Controllers\Admin\RndAchievementController::class)->except('show', 'index');
     //achievements
     Route::resource('achievements', \App\Http\Controllers\Admin\AchievementController::class)->except('show');
+    //shopItems
+
+    Route::resource('shopItems', \App\Http\Controllers\Admin\ShopItemController::class)->except('show');
     //achievementImages
     Route::prefix('achievements/{achievement}')->scopeBindings()->group(function () {
         Route::resource('achievementImages', \App\Http\Controllers\Admin\AchievementImagesController::class)->except('show', 'update', 'edit', 'index');
