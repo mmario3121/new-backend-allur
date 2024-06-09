@@ -37,4 +37,9 @@ class Brand extends Model
     {
         return $this->logo ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->logo) : null;
     }
+
+    public function models()
+    {
+        return $this->hasMany(CarModel::class);
+    }
 }

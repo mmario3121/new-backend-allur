@@ -20,14 +20,9 @@ class CarTypeModelResource extends JsonResource
         }else{
             $title = $this->title;
         }
-        $colors = ModelColor::where('model_id', $this->id)->get();
         return [
-            'type' => $this->type->title,
             'slug' => $this->slug,
             'title' => $title,
-            'logo' => $this->logo_url,
-            'bitrix_id' => $this->bitrix_id,
-            'colors' => ModelColorsResource::collection($colors),
         ];
     }
 }

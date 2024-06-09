@@ -4,6 +4,7 @@ namespace App\Http\Resources\V1;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Models\Dealer;
+use App\Models\DealerAddress;
 
 class CityResource extends JsonResource
 {
@@ -17,12 +18,15 @@ class CityResource extends JsonResource
     {
         $lang = $request->lang;
       
-        $dealer = Dealer::where('city_id', $this->id)->pluck('bitrix_id')->first();
+        $dealers = Dealer::where('city_id', $this->id)->pluck('id')->toArray();
+        //we have DealerAddress model, need an array with addresses
+
+        $addresses = DealerAddressResource::collection(DealerAddress::whereIn('dealer_id', $dealers)->get());
 
         return [
             'name' => $this->titleTranslate->{$lang},
             'bitrix_id' => $this->bitrix_id,
-            'dealer_id' => $dealer,
+            'dealers' => $addresses,
         ];
     }
 }

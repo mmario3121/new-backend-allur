@@ -67,7 +67,7 @@ class BrandPageController extends Controller
             return back()->withInput()->withErrors($exception->getMessage());
         }
 
-        return redirect()->route('admin.brandPages.index')->with('success', trans('messages.success_updated'));
+        return redirect()->route('admin.brandPages.edit', $brandPage)->with('success');
     }
 
     public function destroy(BrandPage $brandPage)

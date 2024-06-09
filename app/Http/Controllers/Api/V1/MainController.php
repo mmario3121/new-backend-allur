@@ -6,6 +6,7 @@ use App\Http\Resources\V1\BannerResource;
 use App\Http\Resources\V1\ShortModelResource;
 use App\Models\Banner;
 use App\Models\City;
+use App\Models\MainPage;
 use App\Models\WorldCategory;
 use Illuminate\Http\Request;
 use App\Models\Slider;
@@ -26,6 +27,7 @@ use App\Http\Resources\V1\WorldCategoryMainResource;
 use App\Http\Resources\V1\DealerSeoResource;
 use App\Http\Resources\V1\DealerResource;
 use App\Http\Resources\V1\CityResource;
+use App\Http\Resources\V1\MainPageResource;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
@@ -34,12 +36,7 @@ use Symfony\Component\HttpFoundation\Response;
 class MainController extends Controller
 {
     public function home(Request $request){
-        $data['sliders'] = SlidersResource::collection(
-            Slider::orderBy('position', 'asc')->get()
-        );
-        $data['types'] = CarTypeResource::collection(CarType::all());
-        $data['news'] = ArticleResource::collection(Article::orderBy('time', 'desc')->take(3)->get());
-        $data['world'] = WorldCategoryMainResource::collection(WorldCategory::all());
+        $data['main'] = new MainPageResource(MainPage::first());
 
         return new JsonResponse($data, Response::HTTP_OK);
     }
