@@ -18,9 +18,21 @@ class BrandResource extends JsonResource
     public function toArray($request)
     {
         $lang = $request->lang;
+        $brandId = $this->id;
         $brandPage = BrandPage::where('brand_id', $this->id)->first();
         
-        $types = CarTypeResource::collection(CarType::where('brand_id', $this->id)->get())->jsonSerialize();
+        $types = CarType::all()->map(function ($type) use ($brandId) {
+            $models = CarModel::where('type_id', $type->id)
+                ->where('brand_id', $brandId)
+                ->where('is_active', 1)
+                ->get();
+    
+            return [
+                'title' => $type->title,
+                'id' => $type->id,
+                'models' => CarTypeModelResource::collection($models),
+            ];
+        });
         //add one more entry to array which is all types, which has title and models of any type
 
         $types[] = [

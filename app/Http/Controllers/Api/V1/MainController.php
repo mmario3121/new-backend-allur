@@ -16,6 +16,7 @@ use App\Models\CarModel;
 use App\Models\DealerSeo;
 use App\Models\Dealer;
 use App\Models\DealerAddress;
+use App\Models\Brand;
 
 use App\Http\Resources\V1\SlidersResource;
 use App\Http\Resources\V1\CarTypeResource;
@@ -28,6 +29,7 @@ use App\Http\Resources\V1\DealerSeoResource;
 use App\Http\Resources\V1\DealerResource;
 use App\Http\Resources\V1\CityResource;
 use App\Http\Resources\V1\MainPageResource;
+use App\Http\Resources\V1\BrandResource;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
@@ -38,6 +40,12 @@ class MainController extends Controller
     public function home(Request $request){
         $data['main'] = new MainPageResource(MainPage::first());
 
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
+
+    //brands
+    public function brand(Request $request){
+        $data = new BrandResource(Brand::where('id', $request->id)->first());
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
