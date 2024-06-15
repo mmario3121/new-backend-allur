@@ -26,7 +26,7 @@ class StoreSpecRequest extends FormRequest
         return [
             'type' => 'required|string',
             'value' => 'required|string',
-            'model_id' => 'required|integer',
+            'complectation_id' => 'required|integer',
         ];
     }
 }

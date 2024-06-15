@@ -50,7 +50,7 @@
                             </td>
 
                             <td class="p-2">
-                                <a href="{{ route('admin.specs.index', ['model_id' => $complectation->id]) }}"
+                                <a href="{{ route('admin.specs.index', ['complectation_id' => $complectation->id]) }}"
                                    title="Картинки"
                                    class="btn btn-primary btn-sm">
                                    Характеристики

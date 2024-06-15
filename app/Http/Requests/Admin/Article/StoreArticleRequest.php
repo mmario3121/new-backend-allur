@@ -33,6 +33,11 @@ class StoreArticleRequest extends FormRequest
             'description_mob.*' => 'required',
             'time' => 'required|date',
             'isForm' => 'nullable|boolean',
+            'model_id' => 'required|integer',
+            'isFinance' => 'nullable|boolean',
+            'isMainPage' => 'nullable|boolean',
+            'type' => 'required|string',
+            'banner' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
 
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
             'image_kz' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',

@@ -9,6 +9,7 @@ use App\Models\Article;
 use App\Services\Admin\Article\ArticleService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\CarModel;
 
 class ArticleController extends Controller
 {
@@ -47,7 +48,8 @@ class ArticleController extends Controller
 
     public function create()
     {
-        return view('admin.articles.create');
+        $models = CarModel::all();
+        return view('admin.articles.create', ['models' => $models]);
     }
 
     public function store(StoreArticleRequest $request)
@@ -66,7 +68,8 @@ class ArticleController extends Controller
 
     public function edit(Article $article)
     {
-        return view('admin.articles.edit', ['article' => $article->load(['titleTranslate', 'descriptionTranslate', 'descriptionMobTranslate'])]);
+        $models = CarModel::all();
+        return view('admin.articles.edit', ['article' => $article->load(['titleTranslate', 'descriptionTranslate', 'descriptionMobTranslate'],)], ['models' => $models]);
     }
 
     public function update(UpdateArticleRequest $request, Article $article)

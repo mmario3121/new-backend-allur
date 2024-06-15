@@ -19,7 +19,13 @@ class ModelComplectationsResource extends JsonResource
             'price' => $this->price,
             'title' => $this->title,
             'bitrix_id' => $this->bitrix_id,
-            'attributes' => [],
+            
+            'specs' => $this->specs->map(function ($spec) use ($lang) {
+                return [
+                    'type' => $spec->type,
+                    'value' => $spec->value,
+                ];
+            }),
         ];
     }
 }

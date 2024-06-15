@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "ext-curl": "*",
         "ext-dom": "*",
         "ext-mbstring": "*",
         "ext-zip": "*",
@@ -24,7 +25,7 @@
         "opcodesio/log-viewer": "^2.3",
         "psr/simple-cache": "1.0",
         "spatie/laravel-permission": "^5.9",
-      "ext-curl": "*"
+        "tymon/jwt-auth": "^2.1"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",

@@ -12,12 +12,11 @@ class Spec extends Model
     protected $fillable = [
         'type',
         'value',
-        'model_id',
+        'complectation_id',
     ];
 
-    public function model()
+    public function complectation()
     {
-        return $this->belongsTo(Model::class);
+        return $this->belongsTo(ModelComplectation::class, 'complectation_id', 'id');
     }
-
 }

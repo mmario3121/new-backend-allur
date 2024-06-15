@@ -7,7 +7,7 @@
     <div class="container-fluid">
 
     @include('admin._components.alert')
-    <a href="{{ route('admin.models.index', ['brand_id' => $model->brand_id]) }}" title="Назад"
+    <a href="{{ route('admin.models.index', ['complectation' => $complectation->id]) }}" title="Назад"
         class="btn btn-warning btn-sm mb-3">
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
             Назад
@@ -35,26 +35,44 @@
                 <option value="interior">
                     Интерьер
                 </option>
+                <option value="comfort">
+                    Комфорт
+                </option>
+                <option value="safety">
+                    Безопасность
+                </option>
             </select>
         </div>
-        <input type="hidden" name="model_id" value="{{ $model->id }}">
+        <input type="hidden" name="complectation_id" value="{{ $complectation->id }}">
 
         <button type="submit" class="btn btn-primary mb-2">Сохранить</button>
     </form>
     </div>
 
-    <h2>Характеристики Для {{ $model->title }}</h2>
+    <h2>Характеристики Для {{ $complectation->title }}</h2>
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-        @foreach($model->specs->groupBy('type') as $type => $specs)
+        @foreach($complectation->specs->groupBy('type') as $type => $specs)
             <li class="nav-item">
-                <a class="nav-link {{ $loop->first ? 'active' : '' }}" id="{{ $type }}-tab" data-toggle="tab" href="#{{ $type }}" role="tab" aria-controls="{{ $type }}" aria-selected="{{ $loop->first ? 'true' : 'false' }}">{{ $type }}</a>
+                <a class="nav-link {{ $loop->first ? 'active' : '' }}" id="{{ $type }}-tab" data-toggle="tab" href="#{{ $type }}" role="tab" aria-controls="{{ $type }}" aria-selected="{{ $loop->first ? 'true' : 'false' }}">
+                @if($type == 'main')
+                    Основные
+                @elseif($type == 'exterior')
+                    Экстерьер
+                @elseif($type == 'interior')
+                    Интерьер
+                @elseif($type == 'comfort')
+                    Комфорт
+                @elseif($type == 'safety')
+                    Безопасность
+                @endif
+            </a>
             </li>
         @endforeach
     </ul>
     
     <div class="tab-content" id="myTabContent">
-    @foreach($model->specs->groupBy('type') as $type => $specs)
+    @foreach($complectation->specs->groupBy('type') as $type => $specs)
         <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="{{ $type }}" role="tabpanel" aria-labelledby="{{ $type }}-tab">
             <table class="table table-striped">
                 <thead>

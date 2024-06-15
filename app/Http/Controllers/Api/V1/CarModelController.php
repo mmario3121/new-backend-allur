@@ -24,23 +24,26 @@ use Symfony\Component\HttpFoundation\Response;
 class CarModelController extends Controller
 {
     public function getBySlug(Request $request){
+        // $sections = ModelSection::where('model_id', $model->id)->get();
+        // $specificationCategory = SpecificationCategory::where('model_id', $model->id)->orderBy('position')->get();
+        // $mainSpecification = SpecificationCategory::where('model_id', $model->id)->orderBy('position')->first();
+        // $data['sections'] = ModelSectionsResource::collection($sections);
+        // $data['specificationCategories'] = SpecificationCategoryResource::collection($specificationCategory);
+        // $data['mainSpecification'] = new SpecificationCategoryResource($mainSpecification);
+
+
         $model = CarModel::where('slug', $request->slug)->first();
         if($model == null){
             return 'Not Found';
         }
         $colors = ModelColor::where('model_id', $model->id)->get();
-        $sections = ModelSection::where('model_id', $model->id)->get();
         $slider = ModelSlider::where('model_id', $model->id)->get();
         $complectations = ModelComplectation::where('model_id', $model->id)->get();
-        $specificationCategory = SpecificationCategory::where('model_id', $model->id)->orderBy('position')->get();
-        $mainSpecification = SpecificationCategory::where('model_id', $model->id)->orderBy('position')->first();
+
         $data['model'] = new CarModelResource($model);
         $data['complectations'] = ModelComplectationsResource::collection($complectations);
-        $data['colors'] = ModelColorsResource::collection($colors);
-        $data['sections'] = ModelSectionsResource::collection($sections);
-        $data['specificationCategories'] = SpecificationCategoryResource::collection($specificationCategory);
-        $data['mainSpecification'] = new SpecificationCategoryResource($mainSpecification);
         $data['slider'] = ModelSliderResource::collection($slider);
+        $data['colors'] = ModelColorsResource::collection($colors);
         return new JsonResponse($data, Response::HTTP_OK);
     }
     public function getAll(Request $request){

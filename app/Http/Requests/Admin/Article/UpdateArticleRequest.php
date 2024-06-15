@@ -33,6 +33,11 @@ class UpdateArticleRequest extends FormRequest
             'description_mob.*' => 'required',
             'time' => 'required|date',
             'isForm' => 'nullable|boolean',
+            'model_id' => 'required|integer',
+            'isFinance' => 'nullable|boolean',
+            'isMainPage' => 'nullable|boolean',
+            'type' => 'required|string',
+            'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
 
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
             'image_kz' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',

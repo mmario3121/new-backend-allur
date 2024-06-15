@@ -30,6 +30,12 @@ class ArticleService
             'image_kz' => $this->fileService->saveFile($data['image_kz'], Article::IMAGE_PATH),
             'time' => $data['time'],
             'isForm' => $data['isForm'],
+            //model_id, isFinance, isMainPage, type, banner
+            'model_id' => $data['model_id'],
+            'isFinance' => $data['isFinance'],
+            'isMainPage' => $data['isMainPage'],
+            'type' => $data['type'],
+            'banner' => $this->fileService->saveFile($data['banner'], Article::IMAGE_PATH),
         ]);
     }
 
@@ -48,12 +54,27 @@ class ArticleService
         }else{
             $article->isForm = 0;
         }
+        $article->model_id = $data['model_id'];
+        if(isset($data['isFinance'])){
+            $article->isFinance = 1;
+        }else{
+            $article->isFinance = 0;
+        }
+        if(isset($data['isMainPage'])){
+            $article->isMainPage = 1;
+        }else{
+            $article->isMainPage = 0;
+        }
+        $article->type = $data['type'];
 
         if (isset($data['image'])) {
             $article->image = $this->fileService->saveFile($data['image'], Article::IMAGE_PATH, $article->image);
         }
         if (isset($data['image_kz'])) {
             $article->image_kz = $this->fileService->saveFile($data['image_kz'], Article::IMAGE_PATH, $article->image_kz);
+        }
+        if (isset($data['banner'])) {
+            $article->banner = $this->fileService->saveFile($data['banner'], Article::IMAGE_PATH, $article->banner);
         }
 
         return $article->save();

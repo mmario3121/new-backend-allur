@@ -23,18 +23,17 @@ class SpecController extends Controller
 
     public function index(Request $request)
     {
-        $data['complectation'] = ModelComplectation::find($request->model_id);
-        $data['model'] = CarModel::find($data['complectation']->model_id);
-        $data['specs'] = Spec::where('model_id', $data['complectation']->model_id)->get();
+        $data['complectation'] = ModelComplectation::find($request->complectation_id);
+        $data['specs'] = Spec::where('complectation_id', $data['complectation']->id)->get();
         return view('admin.specs.index', $data);
     }
 
-    public function create(Request $request)
-    {
-        $model = CarModel::find($request->model_id);
-        $models = CarModel::all();
-        return view('admin.specs.create', ['models' => $models, 'model' => $model]);
-    }
+    // public function create(Request $request)
+    // {
+    //     $model = CarModel::find($request->complectation_id);
+    //     $models = CarModel::all();
+    //     return view('admin.specs.create', ['complectation' => $models, 'model' => $model]);
+    // }
 
     public function store(StoreSpecRequest $request)
     {
@@ -45,15 +44,15 @@ class SpecController extends Controller
         } catch (\Exception $exception) {
             return back()->withInput()->withErrors($exception->getMessage());
         }
-        $model = ModelComplectation::find($request->model_id);
-        $car_model = CarModel::find($model->model_id);
-        return redirect()->route('admin.specs.index', ['model_id' => $car_model->id])->with('success', trans('messages.success_created'));
+        $complectatition = ModelComplectation::find($request->complectation_id);
+        // $car_model = CarModel::find($model->model_id);
+        return redirect()->route('admin.specs.index', ['complectation_id' => $complectatition->id])->with('success', trans('messages.success_created'));
     }
 
     public function edit(Spec $spec)
     {
-        $models = CarModel::all();
-        return view('admin.specs.edit', ['spec' => $spec, 'models' => $models]);
+        $complectations = ModelComplectation::all();
+        return view('admin.specs.edit', ['spec' => $spec, 'complectations' => $complectations]);
     }
 
     public function update(UpdateSpecRequest $request, Spec $spec)
@@ -66,7 +65,8 @@ class SpecController extends Controller
             DB::rollBack();
             return back()->withInput()->withErrors($exception->getMessage());
         }
-        return redirect()->route('admin.specs.index')->with('success', trans('messages.success_updated'));
+        //with complectation_id
+        return redirect()->route('admin.specs.index', ['complectation_id' => $spec->complectation_id])->with('success', trans('messages.success_updated'));
     }
 
     public function destroy(Spec $spec)

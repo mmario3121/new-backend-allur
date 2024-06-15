@@ -84,6 +84,12 @@ class Article extends Model
         return $this->image_kz ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->image_kz) : null;
     }
 
+    //banner
+    public function getBannerUrlAttribute(): string|null
+    {
+        return $this->banner ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->banner) : null;
+    }
+
     public function scopeWithTranslations($query)
     {
         return $query->with([

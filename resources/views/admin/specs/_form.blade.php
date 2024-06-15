@@ -37,19 +37,19 @@
         </div>
 
         <div class="form-group required ">
-            <label for="model_id" class="control-label" title="Заполните обязательно!">
+            <label for="complectation_id" class="control-label" title="Заполните обязательно!">
                 Модель
             </label>
-            <select class="form-control @error('model_id') is-invalid @enderror" title="model_id" id="model_id" name="model_id">
+            <select class="form-control @error('complectation_id') is-invalid @enderror" title="complectation_id" id="complectation_id" name="complectation_id">
                 <option value="">Выберите модель</option>
-                @foreach($models as $model)
-                    <option value="{{ $model->id }}"
-                            @if(isset($spec) && $spec->model_id == $model->id) selected @endif>
-                        {{ $model->title }}
+                @foreach($complectations as $complectation)
+                    <option value="{{ $complectation->id }}"
+                            @if(isset($spec) && $spec->complectation_id == $complectation->id) selected @endif>
+                        {{ $complectation->title }}
                     </option>
                 @endforeach
             </select>
-            @error('model_id')
+            @error('complectation_id')
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>

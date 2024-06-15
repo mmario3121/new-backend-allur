@@ -28,6 +28,8 @@ class ArticleResource extends JsonResource
             'image' => $image,
             'time' => $this->time,
             'isForm' => $this->isForm,
+            'banner' => $this->banner_url,
+            'type' => $this->type,
         ];
     }
 }

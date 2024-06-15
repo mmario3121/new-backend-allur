@@ -5,8 +5,12 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Resources\V1\BannerResource;
 use App\Http\Resources\V1\ShortModelResource;
 use App\Models\Banner;
+use App\Models\Carera;
 use App\Models\City;
+use App\Models\FinancePage;
 use App\Models\MainPage;
+use App\Models\AboutCompany;
+use App\Models\Social;
 use App\Models\WorldCategory;
 use Illuminate\Http\Request;
 use App\Models\Slider;
@@ -17,6 +21,7 @@ use App\Models\DealerSeo;
 use App\Models\Dealer;
 use App\Models\DealerAddress;
 use App\Models\Brand;
+use App\Models\Carreer;
 
 use App\Http\Resources\V1\SlidersResource;
 use App\Http\Resources\V1\CarTypeResource;
@@ -96,6 +101,37 @@ class MainController extends Controller
     //banner by slug
     public function banners(Request $request){
         $data['banners'] = new BannerResource(Banner::where('slug', $request->slug)->first());
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
+
+    //finance
+    public function finance(Request $request){
+        $data = FinancePage::first();
+        $data['news'] = ArticleResource::collection(Article::where('isFinance', 1)->get());
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
+
+    //about
+    public function about(Request $request){
+        $data['about'] = AboutCompany::first();
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
+
+    //production
+
+    public function production(Request $request){
+        $data['production'] = Carreer::first();
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
+    //socials
+    public function socials(Request $request){
+        $data['socials'] = Social::first();
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
+
+    public function career(Request $request){
+        $data['career'] = Carera::first();
+        $data['slider'] = SlidersResource::collection(Slider::all());
         return new JsonResponse($data, Response::HTTP_OK);
     }
 }

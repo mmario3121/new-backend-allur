@@ -25,7 +25,6 @@ class NewsController extends Controller
         $data['articles'] = ArticleResource::collection(
             Article::orderBy('time', 'desc')->get()
         );
-        $data['banner'] = new BannerResource(Banner::where('slug', 'news')->first());
         return new JsonResponse($data, Response::HTTP_OK);
     }
 

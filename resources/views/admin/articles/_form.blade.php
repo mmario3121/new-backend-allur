@@ -131,10 +131,85 @@
             <span class="error invalid-feedback"> {{ $message }} </span>
             @enderror
         </div>
+        <div class="form-group required">
+            <label for="model_id" class="control-label">Модель </label>
+            <select class="form-control @error('model_id') is-invalid @enderror" title="model_id" id="model_id" name="model_id">
+                <option value="">Выберите модель</option>
+                @foreach($models as $model)
+                    <option value="{{ $model->id }}"
+                            @if(isset($article) && $article->model_id == $model->id) selected @endif>
+                        {{ $model->title }}
+                    </option>
+                @endforeach
+            </select>
+            @error('model_id')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+
+        <div class="form-group required">
+            <label for="isFinance" class="control-label">Финансы </label>
+            <input class="form-control @error('isFinance') is-invalid @enderror" name="isFinance" type="checkbox"
+                   id="isFinance" value="1" {{ (isset($article) ? $article->isFinance : (old('isFinance') ?? date('Y-m-d'))) ? 'checked' : '' }}>
+            @error('isFinance')
+            <span class="error invalid-feedback"> {{ $message }} </span>
+            @enderror
+            </div>
+            <div class="form-group required">
+            <label for="isMainPage" class="control-label">Главная страница </label>
+            <input class="form-control @error('isMainPage') is-invalid @enderror" name="isMainPage" type="checkbox"
+                   id="isMainPage" value="1" {{ (isset($article) ? $article->isMainPage : (old('isMainPage') ?? date('Y-m-d'))) ? 'checked' : '' }}>
+            @error('isMainPage')
+            <span class="error invalid-feedback"> {{ $message }} </span>
+            @enderror
+            </div> 
+            <div class="form-group required">
+            <label for="type" class="control-label">Тип </label>
+            <select class="form-control @error('type') is-invalid @enderror" title="type" id="type" name="type">
+                <option value="">Выберите тип</option>
+                <option value="allur"
+                        @if(isset($article) && $article->type == "allur") selected @endif>
+                    Allur
+                </option>
+                <option value="retail"
+                        @if(isset($article) && $article->type == "retail") selected @endif>
+                    Розница
+                </option>
+                <option value="production"
+                        @if(isset($article) && $article->type == "production") selected @endif>
+                    Производство
+                </option>
+                <option value="distribution"
+                        @if(isset($article) && $article->type == "distribution") selected @endif>
+                    Дистрибуция
+                </option>
+            </select>
+            @error('type')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+            </div>
+            <div class="form-group required">
+            <label for="banner" class="control-label">Баннер </label>
+            <input class="form-control @error('banner') is-invalid @enderror"
+                   name="banner" type="file" id="banner" accept="image/*" onchange="loadFileBanner(event)">
+            @error('banner')
+            <span class="error invalid-feedback"> {{ $message }} </span>
+            @enderror
+            <br>
+            @if(isset($article))
+                <img id="banner-preview" class="rounded" src="{{ $article->banner_url }}" style="max-width: 300px;"
+                     alt="">
+            @else
+                <img id="banner-preview" class="rounded" style="display: none;max-width: 300px;" alt="">
+            @endif
+            </div>
+
         <div class="form-group">
             <button type="submit" class="btn btn-primary">
                 Сохранить
             </button>
         </div>
+
+
     </div>
 </div>

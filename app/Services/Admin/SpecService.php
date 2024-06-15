@@ -22,7 +22,7 @@ class SpecService
         return Spec::query()->create([
             'type' => $data['type'],
             'value' => $data['value'],
-            'model_id' => $data['model_id'],
+            'complectation_id' => $data['complectation_id'],
         ]);
     }
 
@@ -30,7 +30,7 @@ class SpecService
     {
         $komek->type = $data['type'];   
         $komek->value = $data['value'];
-        $komek->model_id = $data['model_id'];
+        $komek->complectation_id = $data['complectation_id'];
         return $komek->save();
     }
 
