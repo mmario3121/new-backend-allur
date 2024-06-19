@@ -76,7 +76,7 @@ class CarModelController extends Controller
     {
         DB::beginTransaction();
         try {
-            $this->service->delete($model->load(['titleTranslate', 'descriptionTranslate']));
+            $this->service->delete($model);
             DB::commit();
         } catch (\Exception $exception) {
             DB::rollBack();
