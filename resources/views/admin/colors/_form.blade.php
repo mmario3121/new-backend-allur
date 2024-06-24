@@ -30,16 +30,6 @@
                     <span class="error invalid-feedback">{{ $message }} </span>
                 @enderror
         </div>
-        <div class="form-group required ">
-            <label for="bitrix_id" class="control-label" title="Заполните обязательно!">
-                Bitrix ID
-            </label>
-            <input class="form-control @error('bitrix_id') is-invalid @enderror" title="bitrix_id" type="text"
-                   id="bitrix_id" name="bitrix_id" value="{{  isset($color) ? $color->bitrix_id : (old('bitrix_id') ?? '') }}">
-            @error('bitrix_id')
-            <span class="error invalid-feedback">{{ $message }} </span>
-            @enderror
-        </div>
 
         <div class="form-group required ">
             <label for="image" class="control-label" title="Заполните обизательно!">

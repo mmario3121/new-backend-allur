@@ -26,6 +26,8 @@ class UpdateBrandPageRequest extends FormRequest
         return [
             'title' => 'required|max:255',
             'description' => 'required',
+            'title_kz' => 'required|max:255',
+            'description_kz' => 'required',
             'image' => 'nullable|image',
             'brand_id' => 'required|integer'
         ];

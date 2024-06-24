@@ -51,6 +51,20 @@ class StoreAboutCompanyRequest extends FormRequest
             'block6_title' => 'nullable|string',
             'block6_text' => 'nullable|string',
             'block6_image' => 'nullable|image',
+            'block1_title_kz' => 'nullable|string',
+            'block1_text_kz' => 'nullable|string',
+            'block2_title_kz' => 'nullable|string',
+            'block2_text_kz' => 'nullable|string',
+            'block3_title_kz' => 'nullable|string',
+            'block3_text_kz' => 'nullable|string',
+            'block3_card1_kz' => 'nullable|string',
+            'block3_card2_kz' => 'nullable|string',
+            'block4_title_kz' => 'nullable|string',
+            'block4_text_kz' => 'nullable|string',
+            'block5_title_kz' => 'nullable|string',
+            'block5_text_kz' => 'nullable|string',
+            'block6_title_kz' => 'nullable|string',
+            'block6_text_kz' => 'nullable|string',
         ];
     }
 }

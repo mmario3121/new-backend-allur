@@ -2,13 +2,13 @@
     <div class="col-md-12">
         <div class="form-group required">
             <select name="brand_id" class="form-control select2" style="width: 100%;" required>
-                <option>Бренд</option>
-                @forelse($brands as $brand)
-                    <option
-                        value="{{ $brand->id }}" {{ (isset($model) && $model->brand_id === $brand->id) ? 'selected' : (old('brand_id') && old('brand_id') == $brand->id ? 'selected' : '')  }}>
-                        {{ $brand->title }}
-                    </option>
-                @empty
+                    <option>Бренд</option>
+                        @forelse($brands as $brand)
+                            <option
+                                value="{{ $brand->id }}" {{ (isset($model) && $model->brand_id === $brand->id) || (old('brand_id') == $brand->id) || (isset(request()->brand_id) && request()->brand_id == $brand->id) ? 'selected' : '' }}>
+                                {{ $brand->title }}
+                            </option>
+                        @empty
                     <option disabled>
                         Бренды не найдены
                     </option>
@@ -81,20 +81,10 @@
 
         <div class="form-group required ">
             <label for="logo" class="control-label" title="Заполните обизательно!">
-                Лого(Для навбара) </label>
+                Лого(Для Финанс) </label>
             <input class="form-control @error('logo') is-invalid @enderror"
                 name="logo" type="file" id="logo">
                 @error('logo')
-                    <span class="error invalid-feedback">{{ $message }} </span>
-                @enderror
-        </div>
-
-        <div class="form-group required ">
-            <label for="video" class="control-label" title="Заполните обизательно!">
-                Видео </label>
-            <input class="form-control @error('video') is-invalid @enderror"
-                name="video" type="file" id="video">
-                @error('video')
                     <span class="error invalid-feedback">{{ $message }} </span>
                 @enderror
         </div>
@@ -107,7 +97,7 @@
                     <span class="error invalid-feedback">{{ $message }} </span>
                 @enderror
         </div>
-        <div class="form-group required ">
+        <div class="form-group">
             <label for="document" class="control-label" title="Заполните обизательно!">
                 Брошюра </label>
             <input class="form-control @error('document') is-invalid @enderror"

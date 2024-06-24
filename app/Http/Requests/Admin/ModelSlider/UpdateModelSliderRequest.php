@@ -26,6 +26,7 @@ class UpdateModelSliderRequest extends FormRequest
         return [
             // 'model_id' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+            'section' => 'required',
             'position' => 'nullable',
         ];
     }

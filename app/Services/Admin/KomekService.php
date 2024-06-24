@@ -47,6 +47,7 @@ class KomekService
         $komek->card4 = $data['card4'];
         $komek->card5 = $data['card5'];
         $komek->card6 = $data['card6'];
+        $komek->services = json_encode($data['services']);
         if (isset($data['image'])) {
             $komek->image = $this->fileService->saveFile($data['image'], Komek::IMAGE_PATH, $komek->image);
         }

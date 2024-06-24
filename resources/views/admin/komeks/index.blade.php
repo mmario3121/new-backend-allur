@@ -38,7 +38,7 @@
                             @if($komek->id == 1)
                                 Комек
                             @elseif($komek->id == 2)
-                                Litro
+                                Trade-In
                             @endif
                             </td>
                             <td class="btn-row-width-10">

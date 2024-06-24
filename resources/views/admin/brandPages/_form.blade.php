@@ -23,7 +23,29 @@
                         <span class="error invalid-feedback"> {{ $message }} </span>
                         @enderror
                     </div>
+        <div class="form-group required ">
+            <label for="title_kz" class="control-label" title="Заполните обязательно!">
+                Название (kz)
+            </label>
+            <input class="form-control @error('title_kz') is-invalid @enderror" title="title_kz" type="text"
+                   id="title_kz" value="{{  isset($brandPage) ? $brandPage->title_kz : (old('title_kz') ?? '') }}"
+                   name="title_kz"
+                   >
+            @error('title_kz')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
 
+        <div class="form-group">
+            <label for="description_kz">Текст (kz) </label>
+            <textarea id="description_kz"
+                      class="form-control ckeditor @error('description_kz') is-invalid @enderror"
+                      rows="3" name="description_kz"
+            >{{ isset($brandPage) ? $brandPage->description_kz : (old('description_kz') ?? '') }}</textarea>
+            @error('description_kz')
+            <span class="error invalid-feedback"> {{ $message }} </span>
+            @enderror
+        </div>
         <div class="form-group required ">
             <label for="image" class="control-label" title="Заполните обязательно!">
                 Изображение

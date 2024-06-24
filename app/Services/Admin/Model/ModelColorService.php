@@ -20,7 +20,6 @@ class ModelColorService
             'title' => $data['title'],
             'title_kz' => $data['title_kz'],
             'image' => isset($data['image']) ? $this->fileService->saveFile($data['image'], ModelColor::IMAGE_PATH) : null,
-            'bitrix_id' => $data['bitrix_id'],
             'hex' => isset($data['hex']) ? $this->fileService->saveFile($data['hex'], ModelColor::IMAGE_PATH) : null,
             'position' => $data['position'],
         ]);
@@ -38,7 +37,6 @@ class ModelColorService
         $color->position = $data['position'];
         $color->title = $data['title'];
         $color->title_kz = $data['title_kz'];
-        $color->bitrix_id = $data['bitrix_id'];
         return $color->save();
     }
 

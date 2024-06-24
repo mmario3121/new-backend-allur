@@ -81,6 +81,33 @@ class FinancePageService
         $financePage->card9_title = $data['card9_title'];
         $financePage->card9_text = $data['card9_text'];
         $financePage->card9_subtitle = $data['card9_subtitle'];
+
+        // Add kz fields
+        $financePage->title_kz = $data['title_kz'];
+        $financePage->text_kz = $data['text_kz'];
+        $financePage->card1_title_kz = $data['card1_title_kz'];
+        $financePage->card1_text_kz = $data['card1_text_kz'];
+        $financePage->card2_title_kz = $data['card2_title_kz'];
+        $financePage->card2_text_kz = $data['card2_text_kz'];
+        $financePage->card3_title_kz = $data['card3_title_kz'];
+        $financePage->card3_text_kz = $data['card3_text_kz'];
+        $financePage->card4_title_kz = $data['card4_title_kz'];
+        $financePage->card4_text_kz = $data['card4_text_kz'];
+        $financePage->card5_title_kz = $data['card5_title_kz'];
+        $financePage->card5_text_kz = $data['card5_text_kz'];
+        $financePage->card5_subtitle_kz = $data['card5_subtitle_kz'];
+        $financePage->card6_title_kz = $data['card6_title_kz'];
+        $financePage->card6_text_kz = $data['card6_text_kz'];
+        $financePage->card6_subtitle_kz = $data['card6_subtitle_kz'];
+        $financePage->card7_title_kz = $data['card7_title_kz'];
+        $financePage->card7_text_kz = $data['card7_text_kz'];
+        $financePage->card7_subtitle_kz = $data['card7_subtitle_kz'];
+        $financePage->card8_title_kz = $data['card8_title_kz'];
+        $financePage->card8_text_kz = $data['card8_text_kz'];
+        $financePage->card8_subtitle_kz = $data['card8_subtitle_kz'];
+        $financePage->card9_title_kz = $data['card9_title_kz'];
+        $financePage->card9_text_kz = $data['card9_text_kz'];
+        $financePage->card9_subtitle_kz = $data['card9_subtitle_kz'];
         if (isset($data['image'])) {
             $financePage->image = $this->fileService->saveFile($data['image'], FinancePage::IMAGE_PATH, $financePage->image);
         }

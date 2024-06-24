@@ -35,8 +35,11 @@ class MainPageService
     public function update(MainPage $mainPage, array $data)
     {
         $mainPage->finance_title = $data['finance_title'];
+        $mainPage->finance_title_kz = $data['finance_title_kz'];
         $mainPage->career_title = $data['career_title'];
         $mainPage->career_title_kz = $data['career_title_kz'];
+        $mainPage->career_text = $data['career_text'];
+        $mainPage->career_text_kz = $data['career_text_kz'];
         $mainPage->production_title = $data['production_title'];
         $mainPage->production_title_kz = $data['production_title_kz'];
         $mainPage->production_description = $data['production_description'];

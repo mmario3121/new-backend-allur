@@ -18,6 +18,8 @@ class BrandPageService
         return BrandPage::query()->create([
             'title' => $data['title'],
             'description' => $data['description'],
+            'title_kz' => $data['title_kz'],
+            'description_kz' => $data['description_kz'],
             'image' => $this->fileService->saveFile($data['image'], BrandPage::IMAGE_PATH),
             'brand_id' => $data['brand_id'],
         ]);
@@ -27,6 +29,8 @@ class BrandPageService
     {
         $brand->title = $data['title'];
         $brand->description = $data['description'];
+        $brand->title_kz = $data['title_kz'];
+        $brand->description_kz = $data['description_kz'];
         if (isset($data['image'])) {
             $brand->image = $this->fileService->saveFile($data['image'], BrandPage::IMAGE_PATH, $brand->image);
         }

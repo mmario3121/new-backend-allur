@@ -26,6 +26,8 @@ class StoreBrandPageRequest extends FormRequest
         return [
             'title' => 'required|max:255',
             'description' => 'required',
+            'title_kz' => 'required|max:255',
+            'description_kz' => 'required',
             'image' => 'required|image',
             'brand_id' => 'required|integer'
         ];

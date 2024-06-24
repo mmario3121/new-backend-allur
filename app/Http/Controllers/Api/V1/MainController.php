@@ -134,4 +134,25 @@ class MainController extends Controller
         $data['slider'] = SlidersResource::collection(Slider::all());
         return new JsonResponse($data, Response::HTTP_OK);
     }
+
+    public function filterModels(Request $request){
+        $models = CarModel::query();
+        if($request->startPrice){
+            $models->whereHas('complectations', function($query) use ($request){
+                $query->where('price', '>=', $request->startPrice);
+            });
+        }
+        if($request->endPrice){
+            $models->whereHas('complectations', function($query) use ($request){
+                $query->where('price', '<=', $request->endPrice);
+            });
+        }
+        if($request->brand_id){
+            $brands = explode(',', $request->brand_id);
+            $models->whereIn('brand_id', $brands);
+        }
+        $data['models'] = ShortModelResource::collection($models->get());
+
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
 }

@@ -33,16 +33,6 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-
-        <div class="form-group required ">
-            <label for="finance_photo" class="control-label" title="Заполните обизательно!">
-                Фото </label>
-            <input class="form-control @error('finance_photo') is-invalid @enderror"
-                name="finance_photo" type="file" id="finance_photo">
-                @error('finance_photo')
-                    <span class="error invalid-feedback">{{ $message }} </span>
-                @enderror
-        </div>
         <br>
         <br>
         <h1 class="h1">Производство</h1>
@@ -145,15 +135,24 @@
             @enderror
         </div>
         <div class="form-group required ">
-            <label for="finance_photo" class="control-label" title="Заполните обизательно!">
-                Фото </label>
-            <input class="form-control @error('finance_photo') is-invalid @enderror"
-                name="finance_photo" type="file" id="finance_photo">
-                @error('finance_photo')
-                    <span class="error invalid-feedback">{{ $message }} </span>
-                @enderror
+            <label for="career_text" class="control-label" title="Заполните обязательно!">
+                Текст для Карьеры
+            </label>
+            <textarea class="form-control @error('career_text') is-invalid @enderror" title="career_text" id="career_text" name="career_text" rows="4">{{  isset($mainPage) ? $mainPage->career_text : (old('career_text') ?? '') }}</textarea>
+            @error('career_text')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
         </div>
 
+        <div class="form-group required ">
+            <label for="career_text_kz" class="control-label" title="Заполните обязательно!">
+                Текст для Карьеры на казахском
+            </label>
+            <textarea class="form-control @error('career_text_kz') is-invalid @enderror" title="career_text_kz" id="career_text_kz" name="career_text_kz" rows="4">{{  isset($mainPage) ? $mainPage->career_text_kz : (old('career_text_kz') ?? '') }}</textarea>
+            @error('career_text_kz')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
         <div class="form-group required ">
             <label for="career_photo1" class="control-label" title="Заполните обизательно!">
                 Фото 1 </label>

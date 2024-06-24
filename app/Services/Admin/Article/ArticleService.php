@@ -34,6 +34,9 @@ class ArticleService
             'model_id' => $data['model_id'],
             'isFinance' => $data['isFinance'],
             'isMainPage' => $data['isMainPage'],
+            'isSlider' => $data['isSlider'],
+            'isAbout' => $data['isAbout'],
+            'isProduction' => $data['isProduction'],
             'type' => $data['type'],
             'banner' => $this->fileService->saveFile($data['banner'], Article::IMAGE_PATH),
         ]);
@@ -65,8 +68,22 @@ class ArticleService
         }else{
             $article->isMainPage = 0;
         }
+        if(isset($data['isSlider'])){
+            $article->isSlider = 1;
+        }else{
+            $article->isSlider = 0;
+        }
+        if(isset($data['isAbout'])){
+            $article->isAbout = 1;
+        }else{
+            $article->isAbout = 0;
+        }
+        if(isset($data['isProduction'])){
+            $article->isProduction = 1;
+        }else{
+            $article->isProduction = 0;
+        }
         $article->type = $data['type'];
-
         if (isset($data['image'])) {
             $article->image = $this->fileService->saveFile($data['image'], Article::IMAGE_PATH, $article->image);
         }

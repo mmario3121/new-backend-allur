@@ -13,7 +13,7 @@
         <div class="container-fluid">
             @include('admin._components.alert')
 
-            <a href="{{ route('admin.models.index') }}" title="Назад"
+            <a href="{{ route('admin.models.index', ['brand_id' => request()->brand_id]) }}" title="Назад"
                class="btn btn-warning btn-sm mb-3">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
                 Назад

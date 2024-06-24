@@ -13,7 +13,7 @@ class ModelSlider extends Model
 
     protected $appends = ['image_url'];
 
-    protected $fillable = ['model_id','position', 'image'];
+    protected $fillable = ['model_id','position', 'image', 'section'];
 
     public function getImageUrlAttribute(): string|null
     {

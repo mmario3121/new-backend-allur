@@ -52,19 +52,33 @@ class AboutCompanyService
     public function update(AboutCompany $aboutCompany, array $data)
     {
         $aboutCompany->block1_title = $data['block1_title'];
+        $aboutCompany->block1_title_kz = $data['block1_title_kz'];
         $aboutCompany->block1_text = $data['block1_text'];
+        $aboutCompany->block1_text_kz = $data['block1_text_kz'];
         $aboutCompany->block2_title = $data['block2_title'];
+        $aboutCompany->block2_title_kz = $data['block2_title_kz'];
         $aboutCompany->block2_text = $data['block2_text'];
+        $aboutCompany->block2_text_kz = $data['block2_text_kz'];
         $aboutCompany->block3_title = $data['block3_title'];
+        $aboutCompany->block3_title_kz = $data['block3_title_kz'];
         $aboutCompany->block3_text = $data['block3_text'];
+        $aboutCompany->block3_text_kz = $data['block3_text_kz'];
         $aboutCompany->block3_card1 = $data['block3_card1'];
+        $aboutCompany->block3_card1_kz = $data['block3_card1_kz'];
         $aboutCompany->block3_card2 = $data['block3_card2'];
+        $aboutCompany->block3_card2_kz = $data['block3_card2_kz'];
         $aboutCompany->block4_title = $data['block4_title'];
+        $aboutCompany->block4_title_kz = $data['block4_title_kz'];
         $aboutCompany->block4_text = $data['block4_text'];
+        $aboutCompany->block4_text_kz = $data['block4_text_kz'];
         $aboutCompany->block5_title = $data['block5_title'];
+        $aboutCompany->block5_title_kz = $data['block5_title_kz'];
         $aboutCompany->block5_text = $data['block5_text'];
+        $aboutCompany->block5_text_kz = $data['block5_text_kz'];
         $aboutCompany->block6_title = $data['block6_title'];
+        $aboutCompany->block6_title_kz = $data['block6_title_kz'];
         $aboutCompany->block6_text = $data['block6_text'];
+        $aboutCompany->block6_text_kz = $data['block6_text_kz'];
         if (isset($data['block1_image'])) {
             $aboutCompany->block1_image = $this->fileService->saveFile($data['block1_image'], AboutCompany::IMAGE_PATH, $aboutCompany->block1_image);
         }

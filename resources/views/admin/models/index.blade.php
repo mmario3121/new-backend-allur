@@ -20,7 +20,7 @@
                     Назад
             </a>
             <div class="card-tools mb-4">
-                <a href="{{ route('admin.models.create') }}"
+                <a href="{{ route('admin.models.create', ['brand_id' => request()->brand_id]) }}"
                    class="btn btn-success btn-sm mr-1 mb-2 mb-sm-0" title="Добавить">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                     Добавить

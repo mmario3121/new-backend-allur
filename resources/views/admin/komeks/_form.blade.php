@@ -62,6 +62,29 @@
         </div>
 
         <div class="form-group required ">
+            <label for="services" class="control-label" title="Заполните обязательно!">
+                Список услуг
+            </label>
+            <div id="services-list">
+                @if(isset($komek))
+                    @if($komek->services == null)
+                        @php
+                            $komek->services = '[]';
+                        @endphp
+                    @endif
+                    @foreach(json_decode($komek->services) as $service)
+                        <div class="service">
+                            <input class="form-control" title="services" type="text" name="services[]"
+                                   value="{{ $service }}">
+                            <button type="button" class="remove-service">Удалить</button>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+            <button type="button" id="add-service">Добавить услугу</button>
+        </div>
+
+        <div class="form-group required ">
             <label for="card1" class="control-label" title="Заполните обязательно!">
                 Карточка 1
             </label>
@@ -126,6 +149,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
+
         <div class="form-group">
             <button type="submit" class="btn btn-primary">
                 Сохранить

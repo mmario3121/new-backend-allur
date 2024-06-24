@@ -28,7 +28,6 @@ class StoreModelColorRequest extends FormRequest
             'hex' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
             'title' => 'required|max:255',
             'title_kz' => 'nullable|max:255',
-            'bitrix_id' => 'nullable|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
             'position' => 'nullable',
         ];

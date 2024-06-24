@@ -12,13 +12,6 @@
     <section class="content">
         <div class="container-fluid">
             @include('admin._components.alert')
-
-            <a href="{{ route('admin.colors.index') }}" title="Назад"
-               class="btn btn-warning btn-sm mb-3">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                Назад
-            </a>
-
             <form method="POST" action="{{ route('admin.colors.store') }}"  enctype="multipart/form-data">
                 @csrf
                 @method('POST')

@@ -32,6 +32,7 @@
                     <thead>
                     <tr>
                         <th>Картинка</th>
+                        <th>Секция</th>
                         <th>Дата создания</th>
                         <th>Действия</th>
                     </tr>
@@ -42,6 +43,19 @@
                         <tr>
                             <td>
                                 <img src="{{ $modelSlider->image_url }}" width="400px">
+                            </td>
+                            <td>
+                                @if($modelSlider->section == 'main')
+                                    Основные
+                                @elseif($modelSlider->section == 'exterior')
+                                    Экстерьер
+                                @elseif($modelSlider->section == 'interior')
+                                    Интерьер
+                                @elseif($modelSlider->section == 'comfort')
+                                    Комфорт
+                                @elseif($modelSlider->section == 'safety')
+                                    Безопасность
+                                @endif                             
                             </td>
                             <td>
                                 {{ $modelSlider->created_at }}

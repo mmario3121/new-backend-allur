@@ -18,6 +18,7 @@ class ModelSliderService
         return ModelSlider::query()->create([
             'model_id' => $data['model_id'],
             'image' => isset($data['image']) ? $this->fileService->saveFile($data['image'], ModelSlider::IMAGE_PATH) : null,
+            'section' => $data['section'],
             'position' => $data['position'],
         ]);
     }
@@ -28,6 +29,7 @@ class ModelSliderService
             $color->image = $this->fileService->saveFile($data['image'], ModelSlider::IMAGE_PATH, $color->image);
         }
         $color->position = $data['position'];
+        $color->section = $data['section'];
         return $color->save();
     }
 

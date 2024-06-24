@@ -58,4 +58,9 @@ class CarModel extends Model
     {
         return $this->hasMany(ModelComplectation::class, 'model_id', 'id');
     }
+
+    public function min_price(): int
+    {
+        return $this->complectations()->min('price');
+    }
 }

@@ -38,6 +38,7 @@ class BrandPageController extends Controller
 
     public function store(StoreBrandPageRequest $request)
     {
+        // dd($request->validated());
         DB::beginTransaction();
         try {
             $this->service->create($request->validated());
@@ -47,7 +48,7 @@ class BrandPageController extends Controller
             DB::rollBack();
             return back()->withInput()->withErrors($exception->getMessage());
         }
-        return redirect()->route('admin.brandPages.index')->with('success', trans('messages.success_created'));
+        return redirect()->route('admin.brands.index')->with('success', trans('messages.success_created'));
     }
 
     public function edit(BrandPage $brandPage)

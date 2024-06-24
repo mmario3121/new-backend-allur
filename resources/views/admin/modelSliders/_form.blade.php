@@ -20,6 +20,38 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
+
+        <div class="form-group required ">
+            <label for="section" class="control-label" title="Заполните обязательно!">
+                Секция
+            </label>
+            <select class="form-control @error('section') is-invalid @enderror" title="section" id="section" name="section">
+                <option value="">Выберите секцию</option>
+                    <option value="main"
+                            @if(isset($modelSlider) && $modelSlider->section == "main") selected @endif>
+                        Основные
+                    </option>
+                    <option value="exterior"
+                            @if(isset($modelSlider) && $modelSlider->section == "exterior") selected @endif>
+                        Экстерьер
+                    </option>
+                    <option value="interior"
+                            @if(isset($modelSlider) && $modelSlider->section == "interior") selected @endif>
+                        Интерьер
+                    </option>
+                    <option value="comfort"
+                            @if(isset($modelSlider) && $modelSlider->section == "comfort") selected @endif>
+                        Комфорт
+                    </option>
+                    <option value="safety"
+                            @if(isset($modelSlider) && $modelSlider->section == "safety") selected @endif>
+                        Безопасность
+                    </option>
+            </select>
+            @error('section')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
         <input type="hidden" title="model_id" type="text"
                    id="model_id" name="model_id" value="{{ $model->id}}">
         <div class="form-group">

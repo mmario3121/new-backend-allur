@@ -36,6 +36,9 @@ class UpdateArticleRequest extends FormRequest
             'model_id' => 'required|integer',
             'isFinance' => 'nullable|boolean',
             'isMainPage' => 'nullable|boolean',
+            'isSlider' => 'nullable|boolean',
+            'isAbout' => 'nullable|boolean',
+            'isProduction' => 'nullable|boolean',
             'type' => 'required|string',
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
 

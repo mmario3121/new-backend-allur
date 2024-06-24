@@ -36,7 +36,7 @@ class StoreKomekRequest extends FormRequest
             'card4' => 'required',
             'card5' => 'required',
             'card6' => 'required',
-
+            'services' => '',
         ];
     }
 }

@@ -44,4 +44,6 @@ Route::prefix('V1')->group(function () {
    Route::get('/cities', [\App\Http\Controllers\Api\V1\MainController::class, 'cities']);
    //models
    Route::get('/models', [\App\Http\Controllers\Api\V1\MainController::class, 'models']);
+
+   Route::get('/filter-models', [\App\Http\Controllers\Api\V1\MainController::class, 'filterModels']);
 });

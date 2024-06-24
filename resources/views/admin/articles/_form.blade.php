@@ -163,6 +163,34 @@
             <span class="error invalid-feedback"> {{ $message }} </span>
             @enderror
             </div> 
+
+            <div class="form-group required">
+            <label for="isSlider" class="control-label">Слайдер </label>
+            <input class="form-control @error('isSlider') is-invalid @enderror" name="isSlider" type="checkbox"
+                   id="isSlider" value="1" {{ (isset($article) ? $article->isSlider : (old('isSlider') ?? date('Y-m-d'))) ? 'checked' : '' }}>
+            @error('isSlider')
+            <span class="error invalid-feedback"> {{ $message }} </span>
+            @enderror
+            </div>
+
+            <div class="form-group required">
+            <label for="isAbout" class="control-label">О нас </label>
+            <input class="form-control @error('isAbout') is-invalid @enderror" name="isAbout" type="checkbox"
+                   id="isAbout" value="1" {{ (isset($article) ? $article->isAbout : (old('isAbout') ?? date('Y-m-d'))) ? 'checked' : '' }}>
+            @error('isAbout')
+            <span class="error invalid-feedback"> {{ $message }} </span>
+            @enderror
+            </div>
+
+            <div class="form-group required">
+            <label for="isProduction" class="control-label">Производство </label>
+            <input class="form-control @error('isProduction') is-invalid @enderror" name="isProduction" type="checkbox"
+                   id="isProduction" value="1" {{ (isset($article) ? $article->isProduction : (old('isProduction') ?? date('Y-m-d'))) ? 'checked' : '' }}>
+            @error('isProduction')
+            <span class="error invalid-feedback"> {{ $message }} </span>
+            @enderror
+            </div>
+
             <div class="form-group required">
             <label for="type" class="control-label">Тип </label>
             <select class="form-control @error('type') is-invalid @enderror" title="type" id="type" name="type">

@@ -33,6 +33,8 @@ class UpdateMainPageRequest extends FormRequest
             'career_photo3' => 'nullable|image',
             'career_title' => 'required',
             'career_title_kz' => 'required',
+            'career_text' => 'required',
+            'career_text_kz' => 'required',
             'consultation_photo' => 'nullable|image',
             'production_title' => 'required',
             'production_title_kz' => 'required',
