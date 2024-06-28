@@ -103,6 +103,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.companySliders.index') }}" class="nav-link">
+                        <i class="far fa-fw fa-circle text-cyan"></i>
+                        <p>О компании Слайдер</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.carreers.edit', ['carreer' => 1]) }}" class="nav-link">
                         <i class="far fa-fw fa-circle text-cyan"></i>
                         <p>Производство</p>

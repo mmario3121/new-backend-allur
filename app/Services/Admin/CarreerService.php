@@ -3,6 +3,7 @@
 namespace App\Services\Admin;
 
 use App\Models\Carreer;
+use App\Models\CarreerKz;
 use App\Services\FileService;
 use App\Services\TranslateService;
 
@@ -21,7 +22,7 @@ class CarreerService
     {
          //10 blocks with image, title, description
         //4 cards
-        return Carreer::query()->create([
+        $career =  Carreer::query()->create([
             'block1_title' => $data['block1_title'],
             'block1_text' => $data['block1_text'],
             'block1_image' => $this->fileService->saveFile($data['block1_image'], Carreer::IMAGE_PATH),
@@ -61,6 +62,39 @@ class CarreerService
             'card4_title' => $data['card4_title'],
             'card4_text' => $data['card4_text'],
         ]);
+
+        $career_kz = CarreerKz::query()->create([
+            'block1_title_kz' => $data['block1_title_kz'],
+            'block1_text_kz' => $data['block1_text_kz'],
+            'block2_title_kz' => $data['block2_title_kz'],
+            'block2_text_kz' => $data['block2_text_kz'],
+            'block3_title_kz' => $data['block3_title_kz'],
+            'block3_text_kz' => $data['block3_text_kz'],
+            'block4_title_kz' => $data['block4_title_kz'],
+            'block4_text_kz' => $data['block4_text_kz'],
+            'block5_title_kz' => $data['block5_title_kz'],
+            'block5_text_kz' => $data['block5_text_kz'],
+            'block6_title_kz' => $data['block6_title_kz'],
+            'block6_text_kz' => $data['block6_text_kz'],
+            'block7_title_kz' => $data['block7_title_kz'],
+            'block7_text_kz' => $data['block7_text_kz'],
+            'block8_title_kz' => $data['block8_title_kz'],
+            'block8_text_kz' => $data['block8_text_kz'],
+            'block9_title_kz' => $data['block9_title_kz'],
+            'block9_text_kz' => $data['block9_text_kz'],
+            'block10_title_kz' => $data['block10_title_kz'],
+            'block10_text_kz' => '',
+            'card1_title_kz' => $data['card1_title_kz'],
+            'card1_text_kz' => $data['card1_text_kz'],
+            'card2_title_kz' => $data['card2_title_kz'],
+            'card2_text_kz' => $data['card2_text_kz'],
+            'card3_title_kz' => $data['card3_title_kz'],
+            'card3_text_kz' => $data['card3_text_kz'],
+            'card4_title_kz' => $data['card4_title_kz'],
+            'card4_text_kz' => $data['card4_text_kz'],
+        ]);
+
+        return $career;
     }
 
     public function update(Carreer $carreer, array $data)
@@ -123,6 +157,42 @@ class CarreerService
         if (isset($data['block10_image'])) {
             $carreer->block10_image = $this->fileService->saveFile($data['block10_image'], Carreer::IMAGE_PATH, $carreer->block10_image);
         }
+
+        $carreer_kz = CarreerKz::first();
+        
+        if(!$carreer_kz){
+            $carreer_kz = new CarreerKz();
+        }
+            $carreer_kz->block1_title_kz = $data['block1_title_kz'];
+            $carreer_kz->block1_text_kz = $data['block1_text_kz'];
+            $carreer_kz->block2_title_kz = $data['block2_title_kz'];
+            $carreer_kz->block2_text_kz = $data['block2_text_kz'];
+            $carreer_kz->block3_title_kz = $data['block3_title_kz'];
+            $carreer_kz->block3_text_kz = $data['block3_text_kz'];
+            $carreer_kz->block4_title_kz = $data['block4_title_kz'];
+            $carreer_kz->block4_text_kz = $data['block4_text_kz'];
+            $carreer_kz->block5_title_kz = $data['block5_title_kz'];
+            $carreer_kz->block5_text_kz = $data['block5_text_kz'];
+            $carreer_kz->block6_title_kz = $data['block6_title_kz'];
+            $carreer_kz->block6_text_kz = $data['block6_text_kz'];
+            $carreer_kz->block7_title_kz = $data['block7_title_kz'];
+            $carreer_kz->block7_text_kz = $data['block7_text_kz'];
+            $carreer_kz->block8_title_kz = $data['block8_title_kz'];
+            $carreer_kz->block8_text_kz = $data['block8_text_kz'];
+            $carreer_kz->block9_title_kz = $data['block9_title_kz'];
+            $carreer_kz->block9_text_kz = $data['block9_text_kz'];
+            $carreer_kz->block10_title_kz = $data['block10_title_kz'];
+            $carreer_kz->block10_text_kz = $data['block10_text_kz'];
+            $carreer_kz->card1_title_kz = $data['card1_title_kz'];
+            $carreer_kz->card1_text_kz = $data['card1_text_kz'];
+            $carreer_kz->card2_title_kz = $data['card2_title_kz'];
+            $carreer_kz->card2_text_kz = $data['card2_text_kz'];
+            $carreer_kz->card3_title_kz = $data['card3_title_kz'];
+            $carreer_kz->card3_text_kz = $data['card3_text_kz'];
+            $carreer_kz->card4_title_kz = $data['card4_title_kz'];
+            $carreer_kz->card4_text_kz = $data['card4_text_kz'];
+            $carreer_kz->save();
+
 
         return $carreer->save();
     }

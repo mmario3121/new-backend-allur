@@ -65,8 +65,12 @@ class AboutCompanyService
         $aboutCompany->block3_text_kz = $data['block3_text_kz'];
         $aboutCompany->block3_card1 = $data['block3_card1'];
         $aboutCompany->block3_card1_kz = $data['block3_card1_kz'];
+        $aboutCompany->block3_card1_text = $data['block3_card1_text'];
+        $aboutCompany->block3_card1_text_kz = $data['block3_card1_text_kz'];
         $aboutCompany->block3_card2 = $data['block3_card2'];
         $aboutCompany->block3_card2_kz = $data['block3_card2_kz'];
+        $aboutCompany->block3_card2_text = $data['block3_card2_text'];
+        $aboutCompany->block3_card2_text_kz = $data['block3_card2_text_kz'];
         $aboutCompany->block4_title = $data['block4_title'];
         $aboutCompany->block4_title_kz = $data['block4_title_kz'];
         $aboutCompany->block4_text = $data['block4_text'];

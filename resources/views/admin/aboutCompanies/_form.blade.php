@@ -106,6 +106,18 @@
             }}">
         </div>
         <div class="form-group">
+            <label for="block3_card1_text">Текст карточки 1 блока 3</label>
+            <input id="block3_card1_text" type="text" class="form-control" name="block3_card1_text" value="{{ 
+                isset($aboutCompany) ? $aboutCompany->block3_card1_text : (old('block3_card1_text') ?? '')
+            }}">
+        </div>
+        <div class="form-group">
+            <label for="block3_card1_text_kz">Текст карточки 1 блока 3 (kz)</label>
+            <input id="block3_card1_text_kz" type="text" class="form-control" name="block3_card1_text_kz" value="{{ 
+                isset($aboutCompany) ? $aboutCompany->block3_card1_text_kz : (old('block3_card1_text_kz') ?? '')
+            }}">
+        </div>
+        <div class="form-group">
             <label for="block3_card2">Карточка 2 блока 3</label>
             <input id="block3_card2" type="text" class="form-control" name="block3_card2" value="{{
                 isset($aboutCompany) ? $aboutCompany->block3_card2 : (old('block3_card2') ?? '')
@@ -115,6 +127,18 @@
             <label for="block3_card2_kz">Карточка 2 блока 3 (kz)</label>
             <input id="block3_card2_kz" type="text" class="form-control" name="block3_card2_kz" value="{{
                 isset($aboutCompany) ? $aboutCompany->block3_card2_kz : (old('block3_card2_kz') ?? '')
+             }}">
+        </div>
+        <div class="form-group">
+            <label for="block3_card2_text">Текст карточки 2 блока 3</label>
+            <input id="block3_card2_text" type="text" class="form-control" name="block3_card2_text" value="{{
+                isset($aboutCompany) ? $aboutCompany->block3_card2_text : (old('block3_card2_text') ?? '')
+             }}">
+        </div>
+        <div class="form-group">
+            <label for="block3_card2_text_kz">Текст карточки 2 блока 3 (kz)</label>
+            <input id="block3_card2_text_kz" type="text" class="form-control" name="block3_card2_text_kz" value="{{
+                isset($aboutCompany) ? $aboutCompany->block3_card2_text_kz : (old('block3_card2_text_kz') ?? '')
              }}">
         </div>
         <br>

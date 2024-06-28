@@ -25,6 +25,7 @@ Route::prefix('admin')->name('admin.')->scopeBindings()->group(function () {
     });
 
     Route::resource('sliders', \App\Http\Controllers\Admin\SliderController::class)->except('show');
+    Route::resource('companySliders', \App\Http\Controllers\Admin\CompanySliderController::class)->except('show');
     Route::resource('brands', \App\Http\Controllers\Admin\BrandController::class)->except('show', 'destroy');
     Route::resource('cars', \App\Http\Controllers\Admin\CarController::class)->except('show', 'destroy');
 
