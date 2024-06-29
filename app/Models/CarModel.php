@@ -63,4 +63,9 @@ class CarModel extends Model
     {
         return $this->complectations()->min('price');
     }
+
+    public function brand(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Brand::class, 'id', 'brand_id');
+    }
 }

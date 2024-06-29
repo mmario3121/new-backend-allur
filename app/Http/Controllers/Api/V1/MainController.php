@@ -136,7 +136,7 @@ class MainController extends Controller
     }
 
     public function filterModels(Request $request){
-        $models = CarModel::query();
+        $models = CarModel::query()->with('brand');
         if($request->startPrice){
             $models->whereHas('complectations', function($query) use ($request){
                 $query->where('price', '>=', $request->startPrice);
@@ -151,7 +151,14 @@ class MainController extends Controller
             $brands = explode(',', $request->brand_id);
             $models->whereIn('brand_id', $brands);
         }
-        $data['models'] = ShortModelResource::collection($models->get());
+        $models = $models->get();
+        $groupedModels = $models->groupBy('brand_id')->map(function($groupedModels, $brandId) {
+            return [
+                'brand' => $groupedModels->first()->brand->title,
+                'models' => ShortModelResource::collection($groupedModels)
+            ];
+        });
+        $data['brands'] = $groupedModels->values();
 
         return new JsonResponse($data, Response::HTTP_OK);
     }
