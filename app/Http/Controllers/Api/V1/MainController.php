@@ -136,30 +136,36 @@ class MainController extends Controller
     }
 
     public function filterModels(Request $request){
-        $models = CarModel::query()->with('brand');
+        $brands = Brand::all();
+    
+        $modelsQuery = CarModel::query()->with('brand', 'complectations');
+    
         if($request->startPrice){
-            $models->whereHas('complectations', function($query) use ($request){
+            $modelsQuery->whereHas('complectations', function($query) use ($request){
                 $query->where('price', '>=', $request->startPrice);
             });
         }
         if($request->endPrice){
-            $models->whereHas('complectations', function($query) use ($request){
+            $modelsQuery->whereHas('complectations', function($query) use ($request){
                 $query->where('price', '<=', $request->endPrice);
             });
         }
         if($request->brand_id){
-            $brands = explode(',', $request->brand_id);
-            $models->whereIn('brand_id', $brands);
+            $brandsIds = explode(',', $request->brand_id);
+            $modelsQuery->whereIn('brand_id', $brandsIds);
         }
-        $models = $models->get();
-        $groupedModels = $models->groupBy('brand_id')->map(function($groupedModels, $brandId) {
+    
+        $models = $modelsQuery->get();
+    
+        $groupedModels = $models->groupBy('brand_id');
+    
+        $data['brands'] = $brands->map(function($brand) use ($groupedModels) {
             return [
-                'brand' => $groupedModels->first()->brand->title,
-                'models' => ShortModelResource::collection($groupedModels)
+                'brand' => $brand->title,
+                'models' => ShortModelResource::collection($groupedModels->get($brand->id) ?? collect())
             ];
         });
-        $data['brands'] = $groupedModels->values();
-
+    
         return new JsonResponse($data, Response::HTTP_OK);
     }
 }
