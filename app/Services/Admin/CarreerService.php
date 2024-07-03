@@ -53,6 +53,9 @@ class CarreerService
             'block10_title' => $data['block10_title'],
             'block10_text' => '',
             'block10_image' => $this->fileService->saveFile($data['block10_image'], Carreer::IMAGE_PATH),
+            'block11_title' => $data['block11_title'],
+            'block11_text' => $data['block11_text'],
+            'block11_image' => $this->fileService->saveFile($data['block11_image'], Carreer::IMAGE_PATH),
             'card1_title' => $data['card1_title'],
             'card1_text' => $data['card1_text'],
             'card2_title' => $data['card2_title'],
@@ -84,6 +87,8 @@ class CarreerService
             'block9_text_kz' => $data['block9_text_kz'],
             'block10_title_kz' => $data['block10_title_kz'],
             'block10_text_kz' => '',
+            'block11_title_kz' => $data['block11_title_kz'],
+            'block11_text_kz' => $data['block11_text_kz'],            
             'card1_title_kz' => $data['card1_title_kz'],
             'card1_text_kz' => $data['card1_text_kz'],
             'card2_title_kz' => $data['card2_title_kz'],
@@ -118,7 +123,9 @@ class CarreerService
         $carreer->block9_title = $data['block9_title'];
         $carreer->block9_text = $data['block9_text'];
         $carreer->block10_title = $data['block10_title'];
-        $carreer->block10_text = $data['block10_text'];
+        $carreer->block10_text = '';
+        $carreer->block11_title = $data['block11_title'];
+        $carreer->block11_text = $data['block11_text'];
         $carreer->card1_title = $data['card1_title'];
         $carreer->card1_text = $data['card1_text'];
         $carreer->card2_title = $data['card2_title'];
@@ -157,40 +164,44 @@ class CarreerService
         if (isset($data['block10_image'])) {
             $carreer->block10_image = $this->fileService->saveFile($data['block10_image'], Carreer::IMAGE_PATH, $carreer->block10_image);
         }
+        if (isset($data['block11_image'])) {
+            $carreer->block11_image = $this->fileService->saveFile($data['block11_image'], Carreer::IMAGE_PATH, $carreer->block11_image);
+        }
 
         $carreer_kz = CarreerKz::first();
         
         if(!$carreer_kz){
             $carreer_kz = new CarreerKz();
         }
-            $carreer_kz->block1_title_kz = $data['block1_title_kz'];
-            $carreer_kz->block1_text_kz = $data['block1_text_kz'];
-            $carreer_kz->block2_title_kz = $data['block2_title_kz'];
-            $carreer_kz->block2_text_kz = $data['block2_text_kz'];
-            $carreer_kz->block3_title_kz = $data['block3_title_kz'];
-            $carreer_kz->block3_text_kz = $data['block3_text_kz'];
-            $carreer_kz->block4_title_kz = $data['block4_title_kz'];
-            $carreer_kz->block4_text_kz = $data['block4_text_kz'];
-            $carreer_kz->block5_title_kz = $data['block5_title_kz'];
-            $carreer_kz->block5_text_kz = $data['block5_text_kz'];
-            $carreer_kz->block6_title_kz = $data['block6_title_kz'];
-            $carreer_kz->block6_text_kz = $data['block6_text_kz'];
-            $carreer_kz->block7_title_kz = $data['block7_title_kz'];
-            $carreer_kz->block7_text_kz = $data['block7_text_kz'];
-            $carreer_kz->block8_title_kz = $data['block8_title_kz'];
-            $carreer_kz->block8_text_kz = $data['block8_text_kz'];
-            $carreer_kz->block9_title_kz = $data['block9_title_kz'];
-            $carreer_kz->block9_text_kz = $data['block9_text_kz'];
-            $carreer_kz->block10_title_kz = $data['block10_title_kz'];
-            $carreer_kz->block10_text_kz = $data['block10_text_kz'];
-            $carreer_kz->card1_title_kz = $data['card1_title_kz'];
-            $carreer_kz->card1_text_kz = $data['card1_text_kz'];
-            $carreer_kz->card2_title_kz = $data['card2_title_kz'];
-            $carreer_kz->card2_text_kz = $data['card2_text_kz'];
-            $carreer_kz->card3_title_kz = $data['card3_title_kz'];
-            $carreer_kz->card3_text_kz = $data['card3_text_kz'];
-            $carreer_kz->card4_title_kz = $data['card4_title_kz'];
-            $carreer_kz->card4_text_kz = $data['card4_text_kz'];
+            $carreer_kz->block1_title_kz = isset($data['block1_title_kz']) ? $data['block1_title_kz'] : '';
+            $carreer_kz->block1_text_kz = isset($data['block1_text_kz']) ? $data['block1_text_kz'] : '';
+            $carreer_kz->block2_title_kz = isset($data['block2_title_kz']) ? $data['block2_title_kz'] : '';
+            $carreer_kz->block2_text_kz = isset($data['block2_text_kz']) ? $data['block2_text_kz'] : '';
+            $carreer_kz->block3_title_kz = isset($data['block3_title_kz']) ? $data['block3_title_kz'] : '';
+            $carreer_kz->block3_text_kz = isset($data['block3_text_kz']) ? $data['block3_text_kz'] : '';
+            $carreer_kz->block4_title_kz = isset($data['block4_title_kz']) ? $data['block4_title_kz'] : '';
+            $carreer_kz->block4_text_kz = isset($data['block4_text_kz']) ? $data['block4_text_kz'] : '';
+            $carreer_kz->block5_title_kz = isset($data['block5_title_kz']) ? $data['block5_title_kz'] : '';
+            $carreer_kz->block5_text_kz = isset($data['block5_text_kz']) ? $data['block5_text_kz'] : '';
+            $carreer_kz->block6_title_kz = isset($data['block6_title_kz']) ? $data['block6_title_kz'] : '';
+            $carreer_kz->block6_text_kz = isset($data['block6_text_kz']) ? $data['block6_text_kz'] : '';
+            $carreer_kz->block7_title_kz = isset($data['block7_title_kz']) ? $data['block7_title_kz'] : '';
+            $carreer_kz->block7_text_kz = isset($data['block7_text_kz']) ? $data['block7_text_kz'] : '';
+            $carreer_kz->block8_title_kz = isset($data['block8_title_kz']) ? $data['block8_title_kz'] : '';
+            $carreer_kz->block8_text_kz = isset($data['block8_text_kz']) ? $data['block8_text_kz'] : '';
+            $carreer_kz->block9_title_kz = isset($data['block9_title_kz']) ? $data['block9_title_kz'] : '';
+            $carreer_kz->block9_text_kz = isset($data['block9_text_kz']) ? $data['block9_text_kz'] : '';
+            $carreer_kz->block10_title_kz = isset($data['block10_title_kz']) ? $data['block10_title_kz'] : '';
+            $carreer_kz->block11_title_kz = isset($data['block11_title_kz']) ? $data['block11_title_kz'] : '';
+            $carreer_kz->block11_text_kz = isset($data['block11_text_kz']) ? $data['block11_text_kz'] : '';
+            $carreer_kz->card1_title_kz = isset($data['card1_title_kz']) ? $data['card1_title_kz'] : '';
+            $carreer_kz->card1_text_kz = isset($data['card1_text_kz']) ? $data['card1_text_kz'] : '';
+            $carreer_kz->card2_title_kz = isset($data['card2_title_kz']) ? $data['card2_title_kz'] : '';
+            $carreer_kz->card2_text_kz = isset($data['card2_text_kz']) ? $data['card2_text_kz'] : '';
+            $carreer_kz->card3_title_kz = isset($data['card3_title_kz']) ? $data['card3_title_kz'] : '';
+            $carreer_kz->card3_text_kz = isset($data['card3_text_kz']) ? $data['card3_text_kz'] : '';
+            $carreer_kz->card4_title_kz = isset($data['card4_title_kz']) ? $data['card4_title_kz'] : '';
+            $carreer_kz->card4_text_kz = isset($data['card4_text_kz']) ? $data['card4_text_kz'] : '';
             $carreer_kz->save();
 
 

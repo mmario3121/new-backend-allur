@@ -10,6 +10,8 @@ class CarreerKz extends Model
 {
     use HasFactory;
 
+    protected $table = 'carreers_kz';
+
     protected $guarded = false;
 
     const CACHE_TIME = 60 * 60 * 24;

@@ -123,15 +123,15 @@
                 <img id="image-preview" class="rounded" style="display: none;max-width: 300px;" alt="">
             @endif
         </div>
-        <div class="form-group required">
+        <div class="form-group">
             <label for="isForm" class="control-label">Форма </label>
             <input class="form-control @error('isForm') is-invalid @enderror" name="isForm" type="checkbox"
-       id="isForm" value="1" {{ (isset($article) ? $article->isForm : (old('isForm') ?? date('Y-m-d'))) ? 'checked' : '' }}>
+            id="isForm" value="1" {{ (isset($article) && $article->isForm) ? 'checked' : '' }}>
             @error('isForm')
             <span class="error invalid-feedback"> {{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required">
+        <div class="form-group">
             <label for="model_id" class="control-label">Модель </label>
             <select class="form-control @error('model_id') is-invalid @enderror" title="model_id" id="model_id" name="model_id">
                 <option value="">Выберите модель</option>
@@ -147,45 +147,45 @@
             @enderror
         </div>
 
-        <div class="form-group required">
+        <div class="form-group">
             <label for="isFinance" class="control-label">Финансы </label>
             <input class="form-control @error('isFinance') is-invalid @enderror" name="isFinance" type="checkbox"
-                   id="isFinance" value="1" {{ (isset($article) ? $article->isFinance : (old('isFinance') ?? date('Y-m-d'))) ? 'checked' : '' }}>
+                id="isFinance" value="1" {{ (isset($article) && $article->isFinance) ? 'checked' : '' }}>
             @error('isFinance')
             <span class="error invalid-feedback"> {{ $message }} </span>
             @enderror
             </div>
-            <div class="form-group required">
+            <div class="form-group">
             <label for="isMainPage" class="control-label">Главная страница </label>
             <input class="form-control @error('isMainPage') is-invalid @enderror" name="isMainPage" type="checkbox"
-                   id="isMainPage" value="1" {{ (isset($article) ? $article->isMainPage : (old('isMainPage') ?? date('Y-m-d'))) ? 'checked' : '' }}>
+                id="isMainPage" value="1" {{ (isset($article) && $article->isMainPage) ? 'checked' : '' }}>
             @error('isMainPage')
             <span class="error invalid-feedback"> {{ $message }} </span>
             @enderror
             </div> 
 
-            <div class="form-group required">
+            <div class="form-group">
             <label for="isSlider" class="control-label">Слайдер </label>
             <input class="form-control @error('isSlider') is-invalid @enderror" name="isSlider" type="checkbox"
-                   id="isSlider" value="1" {{ (isset($article) ? $article->isSlider : (old('isSlider') ?? date('Y-m-d'))) ? 'checked' : '' }}>
+                id="isSlider" value="1" {{ (isset($article) && $article->isSlider) ? 'checked' : '' }}>
             @error('isSlider')
             <span class="error invalid-feedback"> {{ $message }} </span>
             @enderror
             </div>
 
-            <div class="form-group required">
+            <div class="form-group">
             <label for="isAbout" class="control-label">О нас </label>
             <input class="form-control @error('isAbout') is-invalid @enderror" name="isAbout" type="checkbox"
-                   id="isAbout" value="1" {{ (isset($article) ? $article->isAbout : (old('isAbout') ?? date('Y-m-d'))) ? 'checked' : '' }}>
+                id="isAbout" value="1" {{ (isset($article) && $article->isAbout) ? 'checked' : '' }}>
             @error('isAbout')
             <span class="error invalid-feedback"> {{ $message }} </span>
             @enderror
             </div>
 
-            <div class="form-group required">
+            <div class="form-group">
             <label for="isProduction" class="control-label">Производство </label>
             <input class="form-control @error('isProduction') is-invalid @enderror" name="isProduction" type="checkbox"
-                   id="isProduction" value="1" {{ (isset($article) ? $article->isProduction : (old('isProduction') ?? date('Y-m-d'))) ? 'checked' : '' }}>
+            id="isProduction" value="1" {{ (isset($article) && $article->isProduction) ? 'checked' : '' }}>
             @error('isProduction')
             <span class="error invalid-feedback"> {{ $message }} </span>
             @enderror
@@ -216,7 +216,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
             </div>
-            <div class="form-group required">
+            <div class="form-group">
             <label for="banner" class="control-label">Баннер </label>
             <input class="form-control @error('banner') is-invalid @enderror"
                    name="banner" type="file" id="banner" accept="image/*" onchange="loadFileBanner(event)">

@@ -29,16 +29,16 @@ class ArticleService
             'image' => $this->fileService->saveFile($data['image'], Article::IMAGE_PATH),
             'image_kz' => $this->fileService->saveFile($data['image_kz'], Article::IMAGE_PATH),
             'time' => $data['time'],
-            'isForm' => $data['isForm'],
+            'isForm' => isset($data['isForm']) ? 1 : 0,
             //model_id, isFinance, isMainPage, type, banner
             'model_id' => $data['model_id'],
-            'isFinance' => $data['isFinance'],
-            'isMainPage' => $data['isMainPage'],
-            'isSlider' => $data['isSlider'],
-            'isAbout' => $data['isAbout'],
-            'isProduction' => $data['isProduction'],
+            'isFinance' => isset($data['isFinance']) ? 1 : 0,
+            'isMainPage' => isset($data['isMainPage']) ? 1 : 0,
+            'isSlider' => isset($data['isSlider']) ? 1 : 0,
+            'isAbout' => isset($data['isAbout']) ? 1 : 0,
+            'isProduction' => isset($data['isProduction']) ? 1 : 0,
             'type' => $data['type'],
-            'banner' => $this->fileService->saveFile($data['banner'], Article::IMAGE_PATH),
+            'banner' => isset($data['banner']) ? $this->fileService->saveFile($data['banner'], Article::IMAGE_PATH) : null,
         ]);
     }
 

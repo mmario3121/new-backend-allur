@@ -147,7 +147,7 @@
         </div>
         <div class="form-group required ">
             <label for="block3_image" class="control-label" title="Заполните обязательно!">
-                Изображение
+                Видео
             </label>
             <input class="form-control @error('block3_image') is-invalid @enderror" title="block3_image" type="file"
                    id="block3_image" value="{{  isset($carreer) ? $carreer->block3_image : (old('block3_image') ?? '') }}"
@@ -445,18 +445,6 @@
 </div>
 
 <div class="form-group required">
-    <label for="block7_image_kz" class="control-label" title="Заполните обязательно!">
-        Изображение (KZ)
-    </label>
-    <input class="form-control @error('block7_image_kz') is-invalid @enderror" title="block7_image_kz" type="file"
-           id="block7_image_kz" value="{{  isset($carreer_kz) ? $carreer_kz->block7_image_kz : old('block7_image_kz', '') }}"
-           name="block7_image_kz">
-    @error('block7_image_kz')
-    <span class="error invalid-feedback">{{ $message }}</span>
-    @enderror
-</div>
-
-<div class="form-group required">
     <label for="block7_text_kz" class="control-label" title="Заполните обязательно!">
         Текст (KZ)
     </label>
@@ -523,18 +511,6 @@
 </div>
 
 <div class="form-group required">
-    <label for="block8_image_kz" class="control-label" title="Заполните обязательно!">
-        Изображение (KZ)
-    </label>
-    <input class="form-control @error('block8_image_kz') is-invalid @enderror" title="block8_image_kz" type="file"
-           id="block8_image_kz" value="{{  isset($carreer_kz) ? $carreer_kz->block8_image_kz : old('block8_image_kz', '') }}"
-           name="block8_image_kz">
-    @error('block8_image_kz')
-    <span class="error invalid-feedback">{{ $message }}</span>
-    @enderror
-</div>
-
-<div class="form-group required">
     <label for="block8_text_kz" class="control-label" title="Заполните обязательно!">
         Текст (KZ)
     </label>
@@ -588,6 +564,29 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
+        <div class="form-group required">
+    <label for="block9_title_kz" class="control-label" title="Заполните обязательно!">
+        Заголовок (KZ)
+    </label>
+    <input class="form-control @error('block9_title_kz') is-invalid @enderror" title="block9_title_kz" type="text"
+           id="block9_title_kz" value="{{  isset($carreer_kz) ? $carreer_kz->block9_title_kz : old('block9_title_kz', '') }}"
+           name="block9_title_kz">
+    @error('block9_title_kz')
+    <span class="error invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
+
+<div class="form-group required">
+    <label for="block9_text_kz" class="control-label" title="Заполните обязательно!">
+        Текст (KZ)
+    </label>
+    <input class="form-control @error('block9_text_kz') is-invalid @enderror" title="block9_text_kz" type="text"
+           id="block9_text_kz" value="{{  isset($carreer_kz) ? $carreer_kz->block9_text_kz : old('block9_text_kz', '') }}"
+           name="block9_text_kz">
+    @error('block9_text_kz')
+    <span class="error invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
 
         <br>
         <br>
@@ -605,6 +604,17 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
+        <div class="form-group required">
+    <label for="block10_title_kz" class="control-label" title="Заполните обязательно!">
+        Заголовок (KZ)
+    </label>
+    <input class="form-control @error('block10_title_kz') is-invalid @enderror" title="block10_title_kz" type="text"
+           id="block10_title_kz" value="{{  isset($carreer_kz) ? $carreer_kz->block10_title_kz : old('block10_title_kz', '') }}"
+           name="block10_title_kz">
+    @error('block10_title_kz')
+    <span class="error invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
 
         <div class="form-group required ">
             <label for="block10_image" class="control-label" title="Заполните обязательно!">
@@ -690,6 +700,133 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
+        <div class="form-group required">
+    <label for="card1_title_kz" class="control-label" title="Заполните обязательно!">
+        Карточка 1 (KZ)
+    </label>
+    <input class="form-control @error('card1_title_kz') is-invalid @enderror" title="card1_title_kz" type="text"
+           id="card1_title_kz" value="{{  isset($carreer_kz) ? $carreer_kz->card1_title_kz : old('card1_title_kz', '') }}"
+           name="card1_title_kz" placeholder="Оглавление">
+    <br>
+    <input class="form-control @error('card1_text_kz') is-invalid @enderror" title="card1_text_kz" type="text"
+           id="card1_text_kz" value="{{  isset($carreer_kz) ? $carreer_kz->card1_text_kz : old('card1_text_kz', '') }}"
+           name="card1_text_kz" placeholder="Текст">
+    @error('card1_title_kz')
+    <span class="error invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
+
+<div class="form-group required">
+    <label for="card2_title_kz" class="control-label" title="Заполните обязательно!">
+        Карточка 2 (KZ)
+    </label>
+    <input class="form-control @error('card2_title_kz') is-invalid @enderror" title="card2_title_kz" type="text"
+           id="card2_title_kz" value="{{  isset($carreer_kz) ? $carreer_kz->card2_title_kz : old('card2_title_kz', '') }}"
+           name="card2_title_kz" placeholder="Оглавление">
+    <br>
+    <input class="form-control @error('card2_text_kz') is-invalid @enderror" title="card2_text_kz" type="text"
+           id="card2_text_kz" value="{{  isset($carreer_kz) ? $carreer_kz->card2_text_kz : old('card2_text_kz', '') }}"
+           name="card2_text_kz" placeholder="Текст">
+    @error('card2_title_kz')
+    <span class="error invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
+
+<div class="form-group required">
+    <label for="card3_title_kz" class="control-label" title="Заполните обязательно!">
+        Карточка 3 (KZ)
+    </label>
+    <input class="form-control @error('card3_title_kz') is-invalid @enderror" title="card3_title_kz" type="text"
+           id="card3_title_kz" value="{{  isset($carreer_kz) ? $carreer_kz->card3_title_kz : old('card3_title_kz', '') }}"
+           name="card3_title_kz" placeholder="Оглавление">
+    <br>
+    <input class="form-control @error('card3_text_kz') is-invalid @enderror" title="card3_text_kz" type="text"
+           id="card3_text_kz" value="{{  isset($carreer_kz) ? $carreer_kz->card3_text_kz : old('card3_text_kz', '') }}"
+           name="card3_text_kz" placeholder="Текст">
+    @error('card3_title_kz')
+    <span class="error invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
+
+<div class="form-group required">
+    <label for="card4_title_kz" class="control-label" title="Заполните обязательно!">
+        Карточка 4 (KZ)
+    </label>
+    <input class="form-control @error('card4_title_kz') is-invalid @enderror" title="card4_title_kz" type="text"
+           id="card4_title_kz" value="{{  isset($carreer_kz) ? $carreer_kz->card4_title_kz : old('card4_title_kz', '') }}"
+           name="card4_title_kz" placeholder="Оглавление">
+    <br>
+    <input class="form-control @error('card4_text_kz') is-invalid @enderror" title="card4_text_kz" type="text"
+           id="card4_text_kz" value="{{  isset($carreer_kz) ? $carreer_kz->card4_text_kz : old('card4_text_kz', '') }}"
+           name="card4_text_kz" placeholder="Текст">
+    @error('card4_title_kz')
+    <span class="error invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
+
+<h2 class="h2">Блок 11</h2>
+
+        <div class="form-group required ">
+            <label for="block11_title" class="control-label" title="Заполните обязательно!">
+                Заголовок
+            </label>
+            <input class="form-control @error('title') is-invalid @enderror" title="block11_title" type="text"
+                   id="block11_title" value="{{  isset($carreer) ? $carreer->block11_title : (old('block11_title') ?? '') }}"
+                   name="block11_title"
+                   >
+            @error('block11_title')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+
+        <div class="form-group required ">
+            <label for="block11_image" class="control-label" title="Заполните обязательно!">
+                Изображение
+            </label>
+            <input class="form-control @error('block11_image') is-invalid @enderror" title="block11_image" type="file"
+                   id="block11_image" value="{{  isset($carreer) ? $carreer->block11_image : (old('block11_image') ?? '') }}"
+                   name="block11_image"
+                   >
+            @error('block11_image')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+
+        <div class="form-group required ">
+            <label for="block11_text" class="control-label" title="Заполните обязательно!">
+                Текст
+            </label>
+            <input class="form-control @error('text') is-invalid @enderror" title="block11_text" type="text"
+                   id="block11_text" value="{{  isset($carreer) ? $carreer->block11_text : (old('block11_text') ?? '') }}"
+                   name="block11_text"
+                   >
+            @error('block11_text')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+        <div class="form-group required">
+    <label for="block11_title_kz" class="control-label" title="Заполните обязательно!">
+        Заголовок (KZ)
+    </label>
+    <input class="form-control @error('block11_title_kz') is-invalid @enderror" title="block11_title_kz" type="text"
+           id="block11_title_kz" value="{{  isset($carreer_kz) ? $carreer_kz->block11_title_kz : old('block11_title_kz', '') }}"
+           name="block11_title_kz">
+    @error('block11_title_kz')
+    <span class="error invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
+
+<div class="form-group required">
+    <label for="block11_text_kz" class="control-label" title="Заполните обязательно!">
+        Текст (KZ)
+    </label>
+    <input class="form-control @error('block11_text_kz') is-invalid @enderror" title="block11_text_kz" type="text"
+           id="block11_text_kz" value="{{  isset($carreer_kz) ? $carreer_kz->block11_text_kz : old('block11_text_kz', '') }}"
+           name="block11_text_kz">
+    @error('block11_text_kz')
+    <span class="error invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">
                 Сохранить
