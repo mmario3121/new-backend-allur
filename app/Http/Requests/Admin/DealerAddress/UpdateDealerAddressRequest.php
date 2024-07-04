@@ -30,6 +30,7 @@ class UpdateDealerAddressRequest extends FormRequest
             'worktime' => 'required',
             'worktime_kz' => 'required',
             'coordinates' => 'nullable',
+            'dealer_id' => 'required|exists:dealers,id',
         ];
     }
 }
