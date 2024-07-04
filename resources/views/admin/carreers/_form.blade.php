@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <h2 class="h2">Блок 1</h2>
         
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block1_title" class="control-label" title="Заполните обязательно!">
                 Заголовок
             </label>
@@ -14,7 +14,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block1_image" class="control-label" title="Заполните обязательно!">
                 Изображение
             </label>
@@ -27,7 +27,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block1_text" class="control-label" title="Заполните обязательно!">
                 Текст
             </label>
@@ -39,7 +39,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block1_title_kz" class="control-label" title="Заполните обязательно!">
                 Заголовок (KZ)
             </label>
@@ -51,7 +51,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block1_text_kz" class="control-label" title="Заполните обязательно!">
                 Текст (KZ)
             </label>
@@ -68,7 +68,7 @@
         <br>
         <h2 class="h2">Блок 2</h2>
         
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block2_title" class="control-label" title="Заполните обязательно!">
                 Заголовок
             </label>
@@ -80,9 +80,9 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block2_image" class="control-label" title="Заполните обязательно!">
-                Изображение
+                Видео
             </label>
             <input class="form-control @error('block2_image') is-invalid @enderror" title="block2_image" type="file"
                    id="block2_image" value="{{  isset($carreer) ? $carreer->block2_image : (old('block2_image') ?? '') }}"
@@ -93,7 +93,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block2_text" class="control-label" title="Заполните обязательно!">
                 Текст
             </label>
@@ -105,7 +105,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required">
+        <div class="form-group ">
             <label for="block2_title_kz" class="control-label" title="Заполните обязательно!">
                 Заголовок (KZ)
             </label>
@@ -117,7 +117,7 @@
             @enderror
         </div>
 
-        <div class="form-group required">
+        <div class="form-group ">
             <label for="block2_text_kz" class="control-label" title="Заполните обязательно!">
                 Текст (KZ)
             </label>
@@ -133,7 +133,7 @@
         <br>
         <h2 class="h2">Блок 3</h2>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block3_title" class="control-label" title="Заполните обязательно!">
                 Заголовок
             </label>
@@ -145,7 +145,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block3_image" class="control-label" title="Заполните обязательно!">
                 Видео
             </label>
@@ -158,7 +158,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block3_text" class="control-label" title="Заполните обязательно!">
                 Текст
             </label>
@@ -170,7 +170,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required">
+        <div class="form-group ">
             <label for="block3_title_kz" class="control-label" title="Заполните обязательно!">
                 Заголовок (KZ)
             </label>
@@ -182,7 +182,7 @@
             @enderror
         </div>
 
-        <div class="form-group required">
+        <div class="form-group ">
             <label for="block3_text_kz" class="control-label" title="Заполните обязательно!">
                 Текст (KZ)
             </label>
@@ -198,7 +198,7 @@
         <br>
         <h2 class="h2">Блок 4</h2>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block4_title" class="control-label" title="Заполните обязательно!">
                 Заголовок
             </label>
@@ -211,7 +211,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block4_image" class="control-label" title="Заполните обязательно!">
                 Изображение
             </label>
@@ -224,7 +224,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block4_text" class="control-label" title="Заполните обязательно!">
                 Текст
             </label>
@@ -236,7 +236,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required">
+        <div class="form-group ">
             <label for="block4_title_kz" class="control-label" title="Заполните обязательно!">
                 Заголовок (KZ)
             </label>
@@ -248,7 +248,7 @@
             @enderror
         </div>
 
-        <div class="form-group required">
+        <div class="form-group ">
             <label for="block4_text_kz" class="control-label" title="Заполните обязательно!">
                 Текст (KZ)
             </label>
@@ -264,7 +264,7 @@
         <br>
         <h2 class="h2">Блок 5</h2>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block5_title" class="control-label" title="Заполните обязательно!">
                 Заголовок
             </label>
@@ -277,7 +277,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block5_image" class="control-label" title="Заполните обязательно!">
                 Изображение
             </label>
@@ -290,7 +290,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block5_text" class="control-label" title="Заполните обязательно!">
                 Текст
             </label>
@@ -302,7 +302,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required">
+        <div class="form-group ">
             <label for="block5_title_kz" class="control-label" title="Заполните обязательно!">
                 Заголовок (KZ)
             </label>
@@ -314,7 +314,7 @@
             @enderror
         </div>
 
-        <div class="form-group required">
+        <div class="form-group ">
             <label for="block5_text_kz" class="control-label" title="Заполните обязательно!">
                 Текст (KZ)
             </label>
@@ -330,7 +330,7 @@
         <br>
         <h2 class="h2">Блок 6</h2>
         
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block6_title" class="control-label" title="Заполните обязательно!">
                 Заголовок
             </label>
@@ -342,7 +342,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block6_image" class="control-label" title="Заполните обязательно!">
                 Изображение
             </label>
@@ -355,7 +355,7 @@
             @enderror
         </div>
         
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block6_text" class="control-label" title="Заполните обязательно!">
                 Текст
             </label>
@@ -367,7 +367,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required">
+        <div class="form-group ">
             <label for="block6_title_kz" class="control-label" title="Заполните обязательно!">
                 Заголовок (KZ)
             </label>
@@ -379,7 +379,7 @@
             @enderror
         </div>
 
-        <div class="form-group required">
+        <div class="form-group ">
             <label for="block6_text_kz" class="control-label" title="Заполните обязательно!">
                 Текст (KZ)
             </label>
@@ -395,7 +395,7 @@
         <br>
         <h2 class="h2">Блок 7</h2>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block7_title" class="control-label" title="Заполните обязательно!">
                 Заголовок
             </label>
@@ -407,7 +407,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block7_image" class="control-label" title="Заполните обязательно!">
                 Изображение
             </label>
@@ -420,7 +420,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block7_text" class="control-label" title="Заполните обязательно!">
                 Текст
             </label>
@@ -432,7 +432,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required">
+        <div class="form-group ">
     <label for="block7_title_kz" class="control-label" title="Заполните обязательно!">
         Заголовок (KZ)
     </label>
@@ -444,7 +444,7 @@
     @enderror
 </div>
 
-<div class="form-group required">
+<div class="form-group ">
     <label for="block7_text_kz" class="control-label" title="Заполните обязательно!">
         Текст (KZ)
     </label>
@@ -460,7 +460,7 @@
         <br>
         <h2 class="h2">Блок 8</h2>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block8_title" class="control-label" title="Заполните обязательно!">
                 Заголовок
             </label>
@@ -473,7 +473,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block8_image" class="control-label" title="Заполните обязательно!">
                 Изображение
             </label>
@@ -486,7 +486,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block8_text" class="control-label" title="Заполните обязательно!">
                 Текст
             </label>
@@ -498,7 +498,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required">
+        <div class="form-group ">
     <label for="block8_title_kz" class="control-label" title="Заполните обязательно!">
         Заголовок (KZ)
     </label>
@@ -510,7 +510,7 @@
     @enderror
 </div>
 
-<div class="form-group required">
+<div class="form-group ">
     <label for="block8_text_kz" class="control-label" title="Заполните обязательно!">
         Текст (KZ)
     </label>
@@ -526,7 +526,7 @@
         <br>
         <h2 class="h2">Блок 9</h2>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block9_title" class="control-label" title="Заполните обязательно!">
                 Заголовок
             </label>
@@ -539,7 +539,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block9_image" class="control-label" title="Заполните обязательно!">
                 Изображение
             </label>
@@ -552,7 +552,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block9_text" class="control-label" title="Заполните обязательно!">
                 Текст
             </label>
@@ -564,7 +564,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required">
+        <div class="form-group ">
     <label for="block9_title_kz" class="control-label" title="Заполните обязательно!">
         Заголовок (KZ)
     </label>
@@ -576,7 +576,7 @@
     @enderror
 </div>
 
-<div class="form-group required">
+<div class="form-group ">
     <label for="block9_text_kz" class="control-label" title="Заполните обязательно!">
         Текст (KZ)
     </label>
@@ -592,7 +592,7 @@
         <br>
         <h2 class="h2">Блок 10</h2>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block10_title" class="control-label" title="Заполните обязательно!">
                 Заголовок
             </label>
@@ -604,7 +604,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required">
+        <div class="form-group ">
     <label for="block10_title_kz" class="control-label" title="Заполните обязательно!">
         Заголовок (KZ)
     </label>
@@ -616,7 +616,7 @@
     @enderror
 </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block10_image" class="control-label" title="Заполните обязательно!">
                 Изображение
             </label>
@@ -629,7 +629,7 @@
             @enderror
         </div>
         <h2 class="h2">Блок 11 - Завод</h2>
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="card1_title" class="control-label" title="Заполните обязательно!">
                 Карточка 1
             </label>
@@ -647,7 +647,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="card2_title" class="control-label" title="Заполните обязательно!">
                 Карточка 2
             </label>
@@ -665,7 +665,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="card3_title" class="control-label" title="Заполните обязательно!">
                 Карточка 3
             </label>
@@ -683,7 +683,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="card4_title" class="control-label" title="Заполните обязательно!">
                 Карточка 4
             </label>
@@ -700,7 +700,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required">
+        <div class="form-group ">
     <label for="card1_title_kz" class="control-label" title="Заполните обязательно!">
         Карточка 1 (KZ)
     </label>
@@ -716,7 +716,7 @@
     @enderror
 </div>
 
-<div class="form-group required">
+<div class="form-group ">
     <label for="card2_title_kz" class="control-label" title="Заполните обязательно!">
         Карточка 2 (KZ)
     </label>
@@ -732,7 +732,7 @@
     @enderror
 </div>
 
-<div class="form-group required">
+<div class="form-group ">
     <label for="card3_title_kz" class="control-label" title="Заполните обязательно!">
         Карточка 3 (KZ)
     </label>
@@ -748,7 +748,7 @@
     @enderror
 </div>
 
-<div class="form-group required">
+<div class="form-group ">
     <label for="card4_title_kz" class="control-label" title="Заполните обязательно!">
         Карточка 4 (KZ)
     </label>
@@ -766,7 +766,7 @@
 
 <h2 class="h2">Блок 11</h2>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block11_title" class="control-label" title="Заполните обязательно!">
                 Заголовок
             </label>
@@ -779,7 +779,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block11_image" class="control-label" title="Заполните обязательно!">
                 Изображение
             </label>
@@ -792,7 +792,7 @@
             @enderror
         </div>
 
-        <div class="form-group required ">
+        <div class="form-group  ">
             <label for="block11_text" class="control-label" title="Заполните обязательно!">
                 Текст
             </label>
@@ -804,7 +804,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group required">
+        <div class="form-group ">
     <label for="block11_title_kz" class="control-label" title="Заполните обязательно!">
         Заголовок (KZ)
     </label>
@@ -816,7 +816,7 @@
     @enderror
 </div>
 
-<div class="form-group required">
+<div class="form-group ">
     <label for="block11_text_kz" class="control-label" title="Заполните обязательно!">
         Текст (KZ)
     </label>

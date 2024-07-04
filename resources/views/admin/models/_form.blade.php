@@ -106,6 +106,15 @@
                     <span class="error invalid-feedback">{{ $message }} </span>
                 @enderror
         </div>
+        <div class="form-group ">
+            <label for="main_page_image" class="control-label" title="Заполните обязательно!">
+                Изображение на Главной</label>
+            <input class="form-control @error('main_page_image') is-invalid @enderror"
+                name="main_page_image" type="file" id="main_page_image">
+                @error('main_page_image')
+                    <span class="error invalid-feedback">{{ $message }} </span>
+                @enderror
+        </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">
                 Сохранить

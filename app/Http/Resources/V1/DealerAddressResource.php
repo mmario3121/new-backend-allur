@@ -26,6 +26,9 @@ class DealerAddressResource extends JsonResource
         }
         //worktime is string with \r\n as separator
         $worktime = explode("\r\n", $worktime);
+        //there is two stirngs in worktime, separate it into $worktime and $worktime_weekend
+        $worktime_weekend = $worktime[1];
+        $worktime_normal = $worktime[0];
         //phone is string with comma as separator
         //also remove spaces
         $phone = str_replace(' ', '', $this->phone);
@@ -42,7 +45,8 @@ class DealerAddressResource extends JsonResource
         ];
         return [
             'address' => $address,
-            'worktime' => $worktime,
+            'worktime' => $worktime_normal,
+            'worktime_weekend' => $worktime_weekend,
             'phone' => $phone,
             'city' => $this->dealer->city->titleTranslate->{$lang},
             'name' => $name,

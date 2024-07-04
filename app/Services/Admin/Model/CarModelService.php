@@ -24,6 +24,7 @@ class CarModelService
             'video' => isset($data['video']) ? $this->fileService->saveFile($data['video'], CarModel::IMAGE_PATH) : null,
             'price_list' => isset($data['price_list']) ? $this->fileService->saveFile($data['price_list'], CarModel::IMAGE_PATH) : null,
             'document' => isset($data['document']) ? $this->fileService->saveFile($data['document'], CarModel::IMAGE_PATH) : null,
+            'main_page_image' => isset($data['main_page_image']) ? $this->fileService->saveFile($data['main_page_image'], CarModel::IMAGE_PATH) : null,
             'bitrix_id' => $data['bitrix_id'],
             'is_active' => $data['is_active'] ?? 0,
             'brand_id' => $data['brand_id'],
@@ -43,6 +44,9 @@ class CarModelService
         }
         if (isset($data['document'])) {
             $model->document = $this->fileService->saveFile($data['document'], CarModel::IMAGE_PATH, $model->document);
+        }
+        if (isset($data['main_page_image'])) {
+            $model->main_page_image = $this->fileService->saveFile($data['main_page_image'], CarModel::IMAGE_PATH, $model->main_page_image);
         }
         $model->type_id = $data['type_id'];
         $model->slug = $data['slug'];

@@ -12,7 +12,7 @@ class CarModel extends Model
     use HasFactory;
 
     const IMAGE_PATH = 'images/car-models';
-    protected $appends = ['logo_url', 'video_url', 'price_list_url', 'document_url'];
+    protected $appends = ['logo_url', 'video_url', 'price_list_url', 'document_url', 'main_page_image_url'];
 
     protected $fillable = ['type_id', 'slug', 'title', 'title_kz', 'logo', 'video', 'price_list', 'document', 'bitrix_id', 'is_active'];
 
@@ -42,6 +42,11 @@ class CarModel extends Model
     public function getDocumentUrlAttribute(): string|null
     {
         return $this->document ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->document) : null;
+    }
+
+    public function getMainPageImageUrlAttribute(): string|null
+    {
+        return $this->main_page_image ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->main_page_image) : null;
     }
 
     public function sliders(): \Illuminate\Database\Eloquent\Relations\HasMany

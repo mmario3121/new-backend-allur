@@ -30,6 +30,7 @@ class StoreCarModelRequest extends FormRequest
             'title_kz' => 'required|max:255',
             'bitrix_id' => 'nullable|max:255',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+            'main_page_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
             'video' => 'nullable',
             'price_list' => 'nullable',
             'document' => 'nullable',
