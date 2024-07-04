@@ -38,7 +38,7 @@ class DealerAddressService
         $dealerAddress->worktime_kz = $data['worktime_kz'];
         $dealerAddress->phone = $data['phone'];
         $dealerAddress->coordinates = $data['coordinates'];
-        // $dealerAddress->dealer_id = $data['dealer_id'];
+        $dealerAddress->dealer_id = $data['dealer_id'];
 
         return $dealerAddress->save();
     }
