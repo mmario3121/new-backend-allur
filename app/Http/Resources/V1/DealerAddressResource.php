@@ -24,13 +24,15 @@ class DealerAddressResource extends JsonResource
             $worktime = $this->worktime;
             $name = $this->dealer->name;
         }
-        //worktime is string with \r\n as separator
-        $worktime = explode("\r\n", $worktime);
-        //there is two stirngs in worktime, separate it into $worktime and $worktime_weekend
-        $worktime_weekend = $worktime[1];
-        $worktime_normal = $worktime[0];
-        //phone is string with comma as separator
-        //also remove spaces
+        if (is_string($worktime)) {
+            $worktime = explode("\r\n", $worktime);
+            $worktime_weekend = isset($worktime[1]) ? $worktime[1] : null;
+            $worktime_normal = isset($worktime[0]) ? $worktime[0] : null;
+        } else {
+            // Handle the case where $worktime is not a string
+            $worktime_weekend = null;
+            $worktime_normal = null;
+        }
         $phone = str_replace(' ', '', $this->phone);
         $phone = explode(',', $phone);
 
