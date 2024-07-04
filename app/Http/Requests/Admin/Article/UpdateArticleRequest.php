@@ -33,7 +33,7 @@ class UpdateArticleRequest extends FormRequest
             'description_mob.*' => 'required',
             'time' => 'required|date',
             'isForm' => 'nullable|boolean',
-            'model_id' => 'required|integer',
+            'model_id' => 'nullable|integer',
             'isFinance' => 'nullable|boolean',
             'isMainPage' => 'nullable|boolean',
             'isSlider' => 'nullable|boolean',
