@@ -23,6 +23,7 @@ class CarTypeModelResource extends JsonResource
         return [
             'slug' => $this->slug,
             'title' => $title,
+            'image' => $this->main_page_image_url,
         ];
     }
 }
