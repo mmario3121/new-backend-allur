@@ -6,7 +6,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use App\Models\Dealer;
 use App\Models\DealerAddress;
 
-class CityResource extends JsonResource
+class CityShortResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
