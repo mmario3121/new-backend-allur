@@ -35,6 +35,7 @@ use App\Http\Resources\V1\DealerResource;
 use App\Http\Resources\V1\CityResource;
 use App\Http\Resources\V1\MainPageResource;
 use App\Http\Resources\V1\BrandResource;
+use App\Http\Resources\V1\CityShortResource;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
