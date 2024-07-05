@@ -87,7 +87,7 @@ class MainController extends Controller
 
     //cities
     public function cities(Request $request){
-        $data['cities'] = CityResource::collection(City::all());
+        $data['cities'] = CityShortResource::collection(City::all());
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
@@ -168,4 +168,16 @@ class MainController extends Controller
     
         return new JsonResponse($data, Response::HTTP_OK);
     }
+
+    public function brands(Request $request){
+        $brands = Brand::all();
+        $data['brands'] = $brands->map(function($brand){
+            return [
+                'brand' => $brand->title,
+                'models' => ShortModelResource::collection($brand->models)
+            ];
+        });
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
+
 }
