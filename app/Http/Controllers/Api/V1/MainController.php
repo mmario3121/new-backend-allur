@@ -54,6 +54,10 @@ class MainController extends Controller
         $data = new BrandResource(Brand::where('id', $request->id)->first());
         return new JsonResponse($data, Response::HTTP_OK);
     }
+    public function brandTypes(Request $request){
+        $data = new BrandTypeResource(Brand::where('id', $request->id)->first());
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
 
     public function libraries(Request $request){
         $data['models'] = LibraryModelResource::collection(CarModel::all());

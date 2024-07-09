@@ -7,6 +7,7 @@ Route::prefix('V1')->group(function () {
 
    Route::get('/home', [\App\Http\Controllers\Api\V1\MainController::class, 'home']);
    Route::get('/brand/{id}', [\App\Http\Controllers\Api\V1\MainController::class, 'brand']);
+   Route::get('/brand-types/{id}', [\App\Http\Controllers\Api\V1\MainController::class, 'brandTypes']);
    Route::get('/model/{slug}', [\App\Http\Controllers\Api\V1\CarModelController::class, 'getBySlug']);
 
 
