@@ -24,6 +24,7 @@ class CarTypeModelLogoResource extends JsonResource
             'slug' => $this->slug,
             'title' => $title,
             'image' => $this->logo_url,
+            'price' => $this->min_price(),
         ];
     }
 }
