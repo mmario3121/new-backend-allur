@@ -25,6 +25,7 @@ class UpdateMainPageRequest extends FormRequest
     {
         return [
             'video' => 'nullable',
+            'mobile_video' => 'nullable',
             'finance_title' => 'required',
             'finance_title_kz' => 'required',
             'finance_photo' => 'nullable|image',
