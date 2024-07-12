@@ -40,6 +40,7 @@ class MainPageResource extends JsonResource
 
         return [
             'video' => $this->video_url,
+            'mobile_video' => $this->mobile_video_url,
             'brands' => $brands,
             'finance_title' => $finance_title,
             'finance_photo' => $this->finance_photo_url,

@@ -9,6 +9,15 @@
                     <span class="error invalid-feedback">{{ $message }} </span>
                 @enderror
         </div>
+        <div class="form-group required ">
+            <label for="mobile_video" class="control-label" title="Заполните обизательно!">
+                Мобильное видео </label>
+            <input class="form-control @error('mobile_video') is-invalid @enderror"
+                name="mobile_video" type="file" id="mobile_video">
+                @error('mobile_video')
+                    <span class="error invalid-feedback">{{ $message }} </span>
+                @enderror
+        </div>
         <br>
         <br>
         <h2 class="h2">Allur Finance</h2>

@@ -25,6 +25,7 @@ class StoreMainPageRequest extends FormRequest
     {
         return [
             'video' => 'required',
+            'mobile_video' => 'required',
             'finance_title' => 'required',
             'finance_title_kz' => 'required',
             'finance_photo' => 'required|image',

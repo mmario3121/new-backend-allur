@@ -21,6 +21,7 @@ class MainPageService
     {
         return MainPage::query()->create([
             'video' => $this->fileService->saveFile($data['video'], MainPage::IMAGE_PATH),
+            'mobile_video' => $this->fileService->saveFile($data['mobile_video'], MainPage::IMAGE_PATH),
             'finance_photo' => $this->fileService->saveFile($data['finance_photo'], MainPage::IMAGE_PATH),
             'career_photo1' => $this->fileService->saveFile($data['career_photo1'], MainPage::IMAGE_PATH),
             'career_photo2' => $this->fileService->saveFile($data['career_photo2'], MainPage::IMAGE_PATH),
@@ -48,6 +49,9 @@ class MainPageService
         $mainPage->production_subtitle_kz = $data['production_subtitle_kz'];
         if (isset($data['video'])) {
             $mainPage->video = $this->fileService->saveFile($data['video'], MainPage::IMAGE_PATH, $mainPage->video);
+        }
+        if (isset($data['mobile_video'])) {
+            $mainPage->mobile_video = $this->fileService->saveFile($data['mobile_video'], MainPage::IMAGE_PATH, $mainPage->mobile_video);
         }
         if (isset($data['finance_photo'])) {
             $mainPage->finance_photo = $this->fileService->saveFile($data['finance_photo'], MainPage::IMAGE_PATH, $mainPage->finance_photo);
