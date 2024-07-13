@@ -7,7 +7,7 @@
     <div class="container-fluid">
 
     @include('admin._components.alert')
-    <a href="{{ route('admin.models.index', ['complectation' => $complectation->id]) }}" title="Назад"
+    <a href="{{ route('admin.complectations.index', ['complectation' => $complectation->id]) }}" title="Назад"
         class="btn btn-warning btn-sm mb-3">
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
             Назад

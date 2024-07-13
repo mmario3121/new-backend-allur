@@ -18,6 +18,12 @@
                             @if(isset($spec) && $spec->type == "interior") selected @endif>
                         Интерьер
                     </option>
+                    <option value="comfort">
+                        Комфорт
+                    </option>
+                    <option value="safety">
+                        Безопасность
+                    </option>
             </select>
             @error('type')
             <span class="error invalid-feedback">{{ $message }} </span>

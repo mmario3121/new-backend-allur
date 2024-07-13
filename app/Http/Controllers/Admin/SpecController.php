@@ -78,6 +78,7 @@ class SpecController extends Controller
         } catch (\Exception $exception) {
             return back()->withErrors($exception->getMessage());
         }
-        return redirect()->route('admin.specs.index')->with('success', trans('messages.success_deleted'));
+        return redirect()->route('admin.specs.index', ['complectation_id' => $spec->complectation_id]
+        )->with('success', trans('messages.success_deleted'));
     }
 }
