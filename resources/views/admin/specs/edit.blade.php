@@ -16,7 +16,7 @@
     <section class="content">
         <div class="container-fluid">
             @include('admin._components.alert')
-            <a href="{{ route('admin.specs.index', ['model_id' => $spec->model_id]) }}" title="Назад"
+            <a href="{{ route('admin.specs.index', ['complectation_id' => $spec->complectation_id]) }}" title="Назад"
                class="btn btn-warning btn-sm mb-3">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
                 Назад
