@@ -17,6 +17,7 @@ class ModelSliderResource extends JsonResource
         $lang = $request->lang;
         return [
             'image' => $this->image_url,
+            'section' => $this->section,
         ];
     }
 }
