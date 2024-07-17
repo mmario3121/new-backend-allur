@@ -37,7 +37,9 @@ class CarModelController extends Controller
             return 'Not Found';
         }
         $colors = ModelColor::where('model_id', $model->id)->get();
-        $groupedSliders = ModelSlider::where('model_id', $model->id)->get()->groupBy('section');
+        $groupedSliders = ModelSlider::where('model_id', $model->id)
+        ->where('section', '!=', 'main')
+        ->get()->groupBy('section');
         $sliderResources = $groupedSliders->map(function ($slidersGroup) {
             return ModelSliderResource::collection($slidersGroup);
         });
@@ -47,7 +49,7 @@ class CarModelController extends Controller
 
         $data['model'] = new CarModelResource($model);
         $data['complectations'] = ModelComplectationsResource::collection($complectations);
-        $data['colors'] = ModelColorsResource::collection($colors);
+        $data['slider']['main'] = ModelColorsResource::collection($colors);
         return new JsonResponse($data, Response::HTTP_OK);
     }
     public function getAll(Request $request){
