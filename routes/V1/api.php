@@ -16,6 +16,8 @@ Route::prefix('V1')->group(function () {
    //komek
 
    Route::get('/finance', [\App\Http\Controllers\Api\V1\MainController::class, 'finance']);
+   Route::get('/komek', [\App\Http\Controllers\Api\V1\MainController::class, 'komek']);
+   Route::get('/trade-in', [\App\Http\Controllers\Api\V1\MainController::class, 'tradeIn']);
    Route::get('/news', [\App\Http\Controllers\Api\V1\NewsController::class, 'getAll']);
    Route::get('/article/{slug}', [\App\Http\Controllers\Api\V1\NewsController::class, 'getBySlug']);
    Route::get('/about', [\App\Http\Controllers\Api\V1\MainController::class, 'about']);

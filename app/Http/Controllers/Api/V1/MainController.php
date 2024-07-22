@@ -8,6 +8,7 @@ use App\Models\Banner;
 use App\Models\Carera;
 use App\Models\City;
 use App\Models\FinancePage;
+use App\Models\Komek;
 use App\Models\MainPage;
 use App\Models\AboutCompany;
 use App\Models\Social;
@@ -31,6 +32,7 @@ use App\Http\Resources\V1\DealerAddressResource;
 use App\Http\Resources\V1\WorldCategoryResource;
 use App\Http\Resources\V1\WorldCategoryMainResource;
 use App\Http\Resources\V1\DealerSeoResource;
+use App\Http\Resources\V1\KomekResource;
 use App\Http\Resources\V1\DealerResource;
 use App\Http\Resources\V1\CityResource;
 use App\Http\Resources\V1\MainPageResource;
@@ -187,5 +189,17 @@ class MainController extends Controller
         });
         return new JsonResponse($data, Response::HTTP_OK);
     }
+
+    public function komek(Request $request){
+        $komek = Komek::where('id', 1)->first();
+        $data['komek'] = new KomekResource($komek);
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
+
+    public function tradeIn(Request $request){
+        $data = Komek::where('id', 2)->first();
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
+
 
 }
