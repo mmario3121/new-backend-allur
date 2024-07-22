@@ -19,17 +19,28 @@ class BrandMainResource extends JsonResource
     {
         $brandPage = BrandPage::where('brand_id', $this->id)->first();
         $image = $brandPage ? $brandPage->image_url : null;
-        //car models in arrays by CarType. model has type_id. type has title. array has title and models
-        $types = CarTypeResource::collection(CarType::all())->jsonSerialize();
-        //add one more entry to array which is all types, which has title and models of any type
 
-        $types[] = [
+        $types = CarType::all()->map(function ($type) {
+            $models = CarModel::where('type_id', $type->id)
+                               ->where('brand_id', $this->id)
+                               ->where('is_active', 1)
+                               ->get();
+            return [
+                'title' => $type->title,
+                'id' => $type->id,
+                'models' => CarTypeModelResource::collection($models),
+            ];
+        });
+    
+        $allModels = CarModel::where('brand_id', $this->id)
+                             ->where('is_active', 1)
+                             ->get();
+        $types->push([
             'title' => 'Все модели',
             'id' => 0,
-            'models' => CarTypeModelResource::collection(CarModel::where('is_active', 1)->get())->jsonSerialize(),
-        ];
-
-        
+            'models' => CarTypeModelResource::collection($allModels),
+        ]);
+    
         return [
             'logo' => $this->logo_url,
             'title' => $this->title,
