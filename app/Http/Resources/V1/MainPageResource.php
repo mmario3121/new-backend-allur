@@ -35,7 +35,7 @@ class MainPageResource extends JsonResource
         }
 
         $brands = BrandMainResource::collection(Brand::all());
-        $news = ArticleResource::collection(Article::orderBy('id', 'desc')->limit(3)->get());
+        $news = ArticleResource::collection(Article::orderBy('id', 'desc')->where('isMainPage', 1)->get());
         $cities = CityResource::collection(City::all());
 
         return [

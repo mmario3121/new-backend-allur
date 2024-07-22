@@ -19,6 +19,9 @@ class NewsController extends Controller
             return 'Not Found';
         }
         $data['article'] = new ArticleResource($article);
+        $data['slider'] = ArticleResource::collection(
+            Article::where('isSlider', 1)->get()
+        );
         return new JsonResponse($data, Response::HTTP_OK);
     }
     public function getAll(Request $request){

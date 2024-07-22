@@ -120,6 +120,7 @@ class MainController extends Controller
     //about
     public function about(Request $request){
         $data['about'] = AboutCompany::first();
+        $data['news'] = ArticleResource::collection(Article::where('isAbout', 1)->get());
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
@@ -127,6 +128,7 @@ class MainController extends Controller
 
     public function production(Request $request){
         $data['production'] = Carreer::first();
+        $data['news'] = ArticleResource::collection(Article::where('isProduction', 1)->get());
         return new JsonResponse($data, Response::HTTP_OK);
     }
     //socials
