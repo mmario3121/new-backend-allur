@@ -7,6 +7,7 @@ use App\Http\Resources\V1\ShortModelResource;
 use App\Models\Banner;
 use App\Models\Carera;
 use App\Models\City;
+use App\Models\CompanySlider;
 use App\Models\FinancePage;
 use App\Models\Komek;
 use App\Models\MainPage;
@@ -39,6 +40,7 @@ use App\Http\Resources\V1\MainPageResource;
 use App\Http\Resources\V1\BrandResource;
 use App\Http\Resources\V1\CityShortResource;
 use App\Http\Resources\V1\BrandTypeResource;
+use App\Http\Resources\V1\CompanySliderResource;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
@@ -122,6 +124,7 @@ class MainController extends Controller
     //about
     public function about(Request $request){
         $data['about'] = AboutCompany::first();
+        $data['slider'] = CompanySliderResource::collection(CompanySlider::orderBy('position', 'asc')->get());
         $data['news'] = ArticleResource::collection(Article::where('isAbout', 1)->get());
         return new JsonResponse($data, Response::HTTP_OK);
     }
