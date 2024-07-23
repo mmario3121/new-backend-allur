@@ -55,7 +55,7 @@ class MainPage extends Model
         return $this->consultation_photo ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->consultation_photo) : null;
     }
 
-    public function getProductionImageUrlAttribute(): array
+    public function getProductionImageUrlAttribute(): array|null
     {
         //array of file names
         $images = json_decode($this->production_image, true);
