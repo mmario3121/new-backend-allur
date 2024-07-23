@@ -43,7 +43,7 @@ class UpdateMainPageRequest extends FormRequest
             'production_description_kz' => 'required',
             'production_subtitle' => 'required',
             'production_subtitle_kz' => 'required',
-            'production_image' => 'nullable|image',
+            'production_images.*' => 'nullable|image',
         ];
     }
 }

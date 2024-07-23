@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Dealer\StoreDealerRequest;
 use App\Http\Requests\Admin\Dealer\UpdateDealerRequest;
+use App\Models\Brand;
 use App\Models\Dealer;
 use App\Models\CarModel;
 use App\Models\User;
@@ -31,6 +32,7 @@ class DealerController extends Controller
     {
         $data['users'] = User::all();
         $data['cities'] = City::all();
+        $data['brands'] = Brand::all();
         return view('admin.dealers.create', $data);
     }
 
@@ -52,6 +54,7 @@ class DealerController extends Controller
         $data['users'] = User::all();
         $data['cities'] = City::all();
         $data['dealer'] = $dealer;
+        $data['brands'] = Brand::all();
         return view('admin.dealers.edit', $data);
     }
 

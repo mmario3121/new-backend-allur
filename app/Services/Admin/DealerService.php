@@ -26,6 +26,7 @@ class DealerService
             'bitrix_id' => $data['bitrix_id'],
             'city_id' => $data['city_id'],
             'user_id' => $data['user_id'],
+            'brand_id' => $data['brand_id'],
         ]);
     }
 
@@ -36,6 +37,7 @@ class DealerService
         $dealer->url = $data['url'];
         $dealer->bitrix_id = $data['bitrix_id'];
         $dealer->city_id = $data['city_id'];
+        $dealer->brand_id = $data['brand_id'];
 
         return $dealer->save();
     }

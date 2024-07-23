@@ -30,6 +30,7 @@ class StoreDealerRequest extends FormRequest
             'bitrix_id' => 'required',
             'city_id' => 'required',
             'user_id' => 'required',
+            'brand_id' => 'required',
         ];
     }
 }

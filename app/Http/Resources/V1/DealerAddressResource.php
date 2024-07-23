@@ -45,6 +45,12 @@ class DealerAddressResource extends JsonResource
             'x' => $coordinates[0],
             'y' => $coordinates[1],
         ];
+        if(isset($this->dealer->brand)){
+            $logo = $this->dealer->brand->logo_url;
+        }
+        else{
+            $logo = null;
+        }
         return [
             'address' => $address,
             'worktime' => $worktime_normal,
@@ -52,6 +58,7 @@ class DealerAddressResource extends JsonResource
             'phone' => $phone,
             'city' => $this->dealer->city->titleTranslate->{$lang},
             'name' => $name,
+            'icon' => $logo,
             'coordinates' => $coordinates,
         ];
     }

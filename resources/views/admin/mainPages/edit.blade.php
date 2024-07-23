@@ -34,6 +34,30 @@
 @endsection
 
 @push('scripts')
+<script>
+    // Создаем массив для хранения выбранных файлов
+    let selectedFiles = [];
+
+    document.getElementById('upload_button').onclick = function() {
+        // Эмулируем клик по input
+        document.getElementById('production_images').click();
+    };
+
+    document.getElementById('production_images').onchange = function(event) {
+        // Добавляем новые файлы к уже выбранным
+        selectedFiles = selectedFiles.concat(Array.from(event.target.files));
+
+        // Создаем новый объект DataTransfer
+        let dataTransfer = new DataTransfer();
+        selectedFiles.forEach(file => {
+            // Добавляем каждый файл в объект DataTransfer
+            dataTransfer.items.add(file);
+        });
+
+        // Устанавливаем файлы в input через объект DataTransfer
+        document.getElementById('production_images').files = dataTransfer.files;
+    };
+</script>
     @includeIf('admin._components.loadFileScript')
     @includeIf('admin._components.summernoteScripts')
 @endpush

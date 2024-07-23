@@ -31,6 +31,21 @@
             </select>
         </div>
         <div class="form-group required">
+            <label for="brand_id" class="control-label">Бренд </label>
+            <select name="brand_id" id="brand_id" class="form-control select2" style="width: 100%;">
+                <option value="">Без Бренда</option>
+                @forelse($brands as $brand)
+                    <option
+                        {{ isset($dealer) && $dealer->brand_id == $brand->id ? 'selected' : (old('brand_id') == $brand->id ? 'selected' : '') }}
+                        value="{{ $brand->id }}">
+                        {{ $brand->title }}
+                    </option>
+                @empty
+                    Бренды не найдены
+                @endforelse
+            </select>
+        </div>
+        <div class="form-group required">
             <label for="name" class="control-label">Название </label>
             <input type="text" name="name" id="name" class="form-control" value="{{ old('name', isset($dealer) ? $dealer->name : '') }}" required>
         </div>

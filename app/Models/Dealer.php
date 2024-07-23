@@ -14,7 +14,7 @@ class Dealer extends Model
     const CACHE_TIME = 60 * 60 * 24;
     const IMAGE_PATH = 'images/dealers';
 
-    protected $fillable = ['name', 'name_kz', 'url', 'bitrix_id', 'city_id', 'user_id'];
+    protected $fillable = ['name', 'name_kz', 'url', 'bitrix_id', 'city_id', 'user_id', 'brand_id'];
 
     protected $hidden = ['updated_at', 'created_at'];
 
@@ -31,5 +31,10 @@ class Dealer extends Model
     public function address()
     {
         return $this->hasMany(DealerAddress::class, 'dealer_id', 'id');
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class, 'brand_id', 'id');
     }
 }

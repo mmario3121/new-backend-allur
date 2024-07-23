@@ -29,6 +29,7 @@ class UpdateDealerRequest extends FormRequest
             'url' => 'nullable|max:256',
             'bitrix_id' => 'required',
             'city_id' => 'required',
+            'brand_id' => 'nullable',
         ];
     }
 }
