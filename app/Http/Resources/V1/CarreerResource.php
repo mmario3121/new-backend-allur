@@ -3,6 +3,8 @@
 namespace App\Http\Resources\V1;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\V1\ArticleResource;
+use App\Models\Article;
 
 class CarreerResource extends JsonResource
 {
@@ -101,7 +103,7 @@ class CarreerResource extends JsonResource
             $card4_title = $this->card4_title_kz;
             $card4_text = $this->card4_text_kz;
         }
-        
+        $news = ArticleResource::collection(Article::where('isProduction', 1)->get());
         return [
             'production' => [
                 [
@@ -181,7 +183,7 @@ class CarreerResource extends JsonResource
                     ],
                 ],
             ],
-          
+          'news' => $news
         ];
     }
 }
