@@ -47,6 +47,9 @@ class CarreerResource extends JsonResource
             $block10_title = $this->block10_title;
             $block10_text = $this->block10_text;
             $block10_image = $this->block10_image_url;
+            $block11_title = $this->block11_title;
+            $block11_text = $this->block11_text;
+            $block11_image = $this->block11_image_url;
             $card1_title = $this->card1_title;
             $card1_text = $this->card1_text;
             $card2_title = $this->card2_title;
@@ -86,6 +89,9 @@ class CarreerResource extends JsonResource
             $block10_title = $this->block10_title_kz;
             $block10_text = $this->block10_text_kz;
             $block10_image = $this->block10_image_url;
+            $block11_title = $this->block11_title_kz;
+            $block11_text = $this->block11_text_kz;
+            $block11_image = $this->block11_image_url;
             $card1_title = $this->card1_title_kz;
             $card1_text = $this->card1_text_kz;
             $card2_title = $this->card2_title_kz;
@@ -95,45 +101,59 @@ class CarreerResource extends JsonResource
             $card4_title = $this->card4_title_kz;
             $card4_text = $this->card4_text_kz;
         }
+        
         return [
-            'block1_title' => $block1_title,
-            'block1_text' => $block1_text,
-            'block1_image' => $block1_image,
-            'block2_title' => $block2_title,
-            'block2_text' => $block2_text,
-            'block2_image' => $block2_image,
-            'block3_title' => $block3_title,
-            'block3_text' => $block3_text,
-            'block3_image' => $block3_image,
-            'block4_title' => $block4_title,
-            'block4_text' => $block4_text,
-            'block4_image' => $block4_image,
-            'block5_title' => $block5_title,
-            'block5_text' => $block5_text,
-            'block5_image' => $block5_image,
-            'block6_title' => $block6_title,
-            'block6_text' => $block6_text,
-            'block6_image' => $block6_image,
-            'block7_title' => $block7_title,
-            'block7_text' => $block7_text,
-            'block7_image' => $block7_image,
-            'block8_title' => $block8_title,
-            'block8_text' => $block8_text,
-            'block8_image' => $block8_image,
-            'block9_title' => $block9_title,
-            'block9_text' => $block9_text,
-            'block9_image' => $block9_image,
-            'block10_title' => $block10_title,
-            'block10_text' => $block10_text,
-            'block10_image' => $block10_image,
-            'card1_title' => $card1_title,
-            'card1_text' => $card1_text,
-            'card2_title' => $card2_title,
-            'card2_text' => $card2_text,
-            'card3_title' => $card3_title,
-            'card3_text' => $card3_text,
-            'card4_title' => $card4_title,
-            'card4_text' => $card4_text,
+            'blocks' => [
+                [
+                    'title' => $block6_title,
+                    'text' => $block6_text,
+                    'image' => $block6_image,
+                ],
+                [
+                    'title' => $block7_title,
+                    'text' => $block7_text,
+                    'image' => $block7_image,
+                ],
+                [
+                    'title' => $block8_title,
+                    'text' => $block8_text,
+                    'image' => $block8_image,
+                ],
+                [
+                    'title' => $block9_title,
+                    'text' => $block9_text,
+                    'image' => $block9_image,
+                ],
+                [
+                    'title' => $block10_title,
+                    'text' => $block10_text,
+                    'image' => $block10_image,
+                ],
+            ],
+            'factory' =>                
+            [
+                'title' => $block11_title,
+                'text' => $block11_text,
+                'image' => $block11_image,
+            ],
+            'cards' => [
+                [
+                    'title' => $card1_title,
+                    'text' => $card1_text,
+                ],
+                [
+                    'title' => $card2_title,
+                    'text' => $card2_text,
+                ],
+                [
+                    'title' => $card3_title,
+                    'text' => $card3_text,
+                ],
+                [
+                    'title' => $card4_title,
+                    'text' => $card4_text,
+                ],
+            ],
         ];
     }
 }
