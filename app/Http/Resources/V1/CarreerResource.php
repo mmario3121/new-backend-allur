@@ -103,7 +103,7 @@ class CarreerResource extends JsonResource
         }
         
         return [
-            'blocks' => [
+            'production' => [
                 [
                     'title' => $block1_title,
                     'text' => $block1_text,
@@ -114,6 +114,8 @@ class CarreerResource extends JsonResource
                     'text' => $block2_text,
                     'image' => $block2_image,
                 ],
+            ],
+            'slider' =>[
                 [
                     'title' => $block3_title,
                     'text' => $block3_text,
@@ -160,25 +162,26 @@ class CarreerResource extends JsonResource
                 'title' => $block11_title,
                 'text' => $block11_text,
                 'image' => $block11_image,
+                'cards' => [
+                    [
+                        'title' => $card1_title,
+                        'text' => $card1_text,
+                    ],
+                    [
+                        'title' => $card2_title,
+                        'text' => $card2_text,
+                    ],
+                    [
+                        'title' => $card3_title,
+                        'text' => $card3_text,
+                    ],
+                    [
+                        'title' => $card4_title,
+                        'text' => $card4_text,
+                    ],
+                ],
             ],
-            'cards' => [
-                [
-                    'title' => $card1_title,
-                    'text' => $card1_text,
-                ],
-                [
-                    'title' => $card2_title,
-                    'text' => $card2_text,
-                ],
-                [
-                    'title' => $card3_title,
-                    'text' => $card3_text,
-                ],
-                [
-                    'title' => $card4_title,
-                    'text' => $card4_text,
-                ],
-            ],
+          
         ];
     }
 }
