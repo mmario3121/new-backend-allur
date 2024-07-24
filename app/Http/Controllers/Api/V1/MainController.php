@@ -133,7 +133,7 @@ class MainController extends Controller
     //production
 
     public function production(Request $request){
-        $data = CarreerResource::collection(Carreer::all());
+        $data = new CarreerResource(Carreer::first());
         $data['news'] = ArticleResource::collection(Article::where('isProduction', 1)->get());
         return new JsonResponse($data, Response::HTTP_OK);
     }
