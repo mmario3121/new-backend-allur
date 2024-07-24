@@ -133,8 +133,12 @@ class MainController extends Controller
     //production
 
     public function production(Request $request){
-        $data = new CarreerResource(Carreer::first());
-        $data['news'] = ArticleResource::collection(Article::where('isProduction', 1)->get());
+        $productionData = new CarreerResource(Carreer::first());
+        $newsData = ArticleResource::collection(Article::where('isProduction', 1)->get());
+        $data = [
+            'production' => $productionData,
+            'news' => $newsData,
+        ];
         return new JsonResponse($data, Response::HTTP_OK);
     }
     //socials
