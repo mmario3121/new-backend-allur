@@ -105,6 +105,31 @@ class CarreerResource extends JsonResource
         return [
             'blocks' => [
                 [
+                    'title' => $block1_title,
+                    'text' => $block1_text,
+                    'image' => $block1_image,
+                ],
+                [
+                    'title' => $block2_title,
+                    'text' => $block2_text,
+                    'image' => $block2_image,
+                ],
+                [
+                    'title' => $block3_title,
+                    'text' => $block3_text,
+                    'image' => $block3_image,
+                ],
+                [
+                    'title' => $block4_title,
+                    'text' => $block4_text,
+                    'image' => $block4_image,
+                ],
+                [
+                    'title' => $block5_title,
+                    'text' => $block5_text,
+                    'image' => $block5_image,
+                ],
+                [
                     'title' => $block6_title,
                     'text' => $block6_text,
                     'image' => $block6_image,
