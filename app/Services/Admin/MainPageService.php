@@ -69,13 +69,12 @@ class MainPageService
             $mainPage->consultation_photo = $this->fileService->saveFile($data['consultation_photo'], MainPage::IMAGE_PATH, $mainPage->consultation_photo);
         }
         if (isset($data['production_images'])) {
+            $imgs = [];
             foreach($data['production_images'] as $file)
             {
-                $name = time().rand(1,100).'.'.$file->extension();
-                $file->move(public_path('images'), $name);  
-                $imagePaths[] = 'images/'.$name;
-                $mainPage->production_image = json_encode($imagePaths);
+                $imgs[] = $this->fileService->saveFile($file, MainPage::IMAGE_PATH);
             }
+            $mainPage->production_image = $imgs;
         }
 
         return $mainPage->save();

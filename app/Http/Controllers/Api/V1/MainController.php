@@ -41,6 +41,7 @@ use App\Http\Resources\V1\BrandResource;
 use App\Http\Resources\V1\CityShortResource;
 use App\Http\Resources\V1\BrandTypeResource;
 use App\Http\Resources\V1\CompanySliderResource;
+use App\Http\Resources\V1\CarreerResource;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
@@ -132,7 +133,7 @@ class MainController extends Controller
     //production
 
     public function production(Request $request){
-        $data['production'] = Carreer::first();
+        $data['production'] = CarreerResource::collection(Carreer::all());
         $data['news'] = ArticleResource::collection(Article::where('isProduction', 1)->get());
         return new JsonResponse($data, Response::HTTP_OK);
     }
