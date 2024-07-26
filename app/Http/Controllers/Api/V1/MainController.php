@@ -42,6 +42,7 @@ use App\Http\Resources\V1\CityShortResource;
 use App\Http\Resources\V1\BrandTypeResource;
 use App\Http\Resources\V1\CompanySliderResource;
 use App\Http\Resources\V1\CarreerResource;
+use App\Http\Resources\V1\AboutResource;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
@@ -124,7 +125,7 @@ class MainController extends Controller
 
     //about
     public function about(Request $request){
-        $data['about'] = AboutCompany::first();
+        $data['about'] = new AboutResource(AboutCompany::first());
         $data['slider'] = CompanySliderResource::collection(CompanySlider::orderBy('position', 'asc')->get());
         $data['news'] = ArticleResource::collection(Article::where('isAbout', 1)->get());
         return new JsonResponse($data, Response::HTTP_OK);
