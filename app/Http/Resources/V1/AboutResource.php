@@ -35,7 +35,9 @@ class AboutResource extends JsonResource
             $block3_text = $this->block3_text;
             $block3_image = $this->block3_image_url;
             $block3_card1 = $this->block3_card1;
+            $block3_card1_text = $this->block3_card1_text;
             $block3_card2 = $this->block3_card2;
+            $block3_card2_text = $this->block3_card2_text;
             $block4_title = $this->block4_title;
             $block4_text = $this->block4_text;
             $block4_image = $this->block4_image_url;
