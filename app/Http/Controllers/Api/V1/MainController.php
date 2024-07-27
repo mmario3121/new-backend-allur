@@ -25,6 +25,7 @@ use App\Models\DealerAddress;
 use App\Models\Brand;
 use App\Models\Carreer;
 
+
 use App\Http\Resources\V1\SlidersResource;
 use App\Http\Resources\V1\CarTypeResource;
 use App\Http\Resources\V1\ArticleResource;
@@ -43,6 +44,7 @@ use App\Http\Resources\V1\BrandTypeResource;
 use App\Http\Resources\V1\CompanySliderResource;
 use App\Http\Resources\V1\CarreerResource;
 use App\Http\Resources\V1\AboutResource;
+use App\Http\Resources\V1\CareraResource;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
@@ -144,7 +146,7 @@ class MainController extends Controller
     }
 
     public function career(Request $request){
-        $data['career'] = Carera::first();
+        $data['career'] = new CareraResource(Carera::first());
         $data['slider'] = SlidersResource::collection(Slider::all());
         return new JsonResponse($data, Response::HTTP_OK);
     }
