@@ -200,6 +200,12 @@
                         <p>Магазин</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.promos.index') }}" class="nav-link">
+                        <i class="far fa-fw fa-circle text-cyan"></i>
+                        <p>Промо</p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

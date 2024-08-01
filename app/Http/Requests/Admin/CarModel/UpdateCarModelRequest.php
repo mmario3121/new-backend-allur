@@ -36,6 +36,14 @@ class UpdateCarModelRequest extends FormRequest
             'document' => 'nullable',
             'is_active' => 'nullable|boolean',
             'brand_id' => 'required',
+            'char1_title' => 'nullable|max:255',
+            'char1_value' => 'nullable|max:255',
+            'char2_title' => 'nullable|max:255',
+            'char2_value' => 'nullable|max:255',
+            'char3_title' => 'nullable|max:255',
+            'char3_value' => 'nullable|max:255',
+            'char4_title' => 'nullable|max:255',
+            'char4_value' => 'nullable|max:255',
         ];
     }
 }

@@ -52,4 +52,7 @@ Route::prefix('V1')->group(function () {
 
    //getbrands
    Route::get('/brands', [\App\Http\Controllers\Api\V1\MainController::class, 'brands']);
+
+   //promo
+   Route::get('/promo/{link}', [\App\Http\Controllers\Api\V1\MainController::class, 'getByLink']);
 });

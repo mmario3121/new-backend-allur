@@ -28,6 +28,14 @@ class CarModelService
             'bitrix_id' => $data['bitrix_id'],
             'is_active' => $data['is_active'] ?? 0,
             'brand_id' => $data['brand_id'],
+            'char1_title' => $data['char1_title'],
+            'char1_value' => $data['char1_value'],
+            'char2_title' => $data['char2_title'],
+            'char2_value' => $data['char2_value'],
+            'char3_title' => $data['char3_title'],
+            'char3_value' => $data['char3_value'],
+            'char4_title' => $data['char4_title'],
+            'char4_value' => $data['char4_value'],
         ]);
     }
 
@@ -55,6 +63,14 @@ class CarModelService
         $model->bitrix_id = $data['bitrix_id'];
         $model->is_active = $data['is_active'] ?? 0;
         $model->brand_id = $data['brand_id'];
+        $model->char1_title = $data['char1_title'];
+        $model->char1_value = $data['char1_value'];
+        $model->char2_title = $data['char2_title'];
+        $model->char2_value = $data['char2_value'];
+        $model->char3_title = $data['char3_title'];
+        $model->char3_value = $data['char3_value'];
+        $model->char4_title = $data['char4_title'];
+        $model->char4_value = $data['char4_value'];
         return $model->save();
     }
 

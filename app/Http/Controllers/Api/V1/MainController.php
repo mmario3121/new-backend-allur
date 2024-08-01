@@ -24,6 +24,7 @@ use App\Models\Dealer;
 use App\Models\DealerAddress;
 use App\Models\Brand;
 use App\Models\Carreer;
+use App\Models\Promo;
 
 
 use App\Http\Resources\V1\SlidersResource;
@@ -45,6 +46,7 @@ use App\Http\Resources\V1\CompanySliderResource;
 use App\Http\Resources\V1\CarreerResource;
 use App\Http\Resources\V1\AboutResource;
 use App\Http\Resources\V1\CareraResource;
+use App\Http\Resources\V1\PromoResource;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
@@ -207,5 +209,9 @@ class MainController extends Controller
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
+    public function getByLink(Request $request){
+        $data = new PromoResource(Promo::where('link', $request->link)->first());
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
 
 }

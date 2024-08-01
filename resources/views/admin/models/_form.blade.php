@@ -115,6 +115,31 @@
                     <span class="error invalid-feedback">{{ $message }} </span>
                 @enderror
         </div>
+
+        @for($i = 1; $i <= 4; $i++)
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label for="char{{ $i }}_title" class="control-label" title="Заполните обязательно!">
+                    Характеристика {{ $i }} Название
+                </label>
+                <input class="form-control @error('char'.$i.'_title') is-invalid @enderror" title="char{{ $i }}_title" type="text"
+                    id="char{{ $i }}_title" name="char{{ $i }}_title" value="{{  isset($model) ? $model->{"char".$i."_title"} : (old('char'.$i.'_title') ?? '') }}">
+                @error('char'.$i.'_title')
+                    <span class="error invalid-feedback">{{ $message }} </span>
+                @enderror
+            </div>
+            <div class="form-group col-md-3">
+                <label for="char{{ $i }}_value" class="control-label" title="Заполните обязательно!">
+                    Характеристика {{ $i }} Значение
+                </label>
+                <input class="form-control @error('char'.$i.'_value') is-invalid @enderror" title="char{{ $i }}_value" type="text"
+                    id="char{{ $i }}_value" name="char{{ $i }}_value" value="{{  isset($model) ? $model->{"char".$i."_value"} : (old('char'.$i.'_value') ?? '') }}">
+                @error('char'.$i.'_value')
+                    <span class="error invalid-feedback">{{ $message }} </span>
+                @enderror
+            </div>
+            </div>
+        @endfor
         <div class="form-group">
             <button type="submit" class="btn btn-primary">
                 Сохранить
