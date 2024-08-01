@@ -29,6 +29,14 @@ class CarModelResource extends JsonResource
             'price_list' => $this->price_list_url,
             'document' => $this->document_url,
             'bitrix_id' => $this->bitrix_id,
+            'char1_title' => $this->char1_title,
+            'char1_value' => $this->char1_value,
+            'char2_title' => $this->char2_title,
+            'char2_value' => $this->char2_value,
+            'char3_title' => $this->char3_title,
+            'char3_value' => $this->char3_value,
+            'char4_title' => $this->char4_title,
+            'char4_value' => $this->char4_value,
         ];
     }
 }
