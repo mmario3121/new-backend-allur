@@ -9,6 +9,8 @@ use App\Http\Resources\V1\ArticleResource;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use DateTime;
+use DateTimeZone;
 
 class ApplicationController extends Controller
 {
@@ -19,8 +21,10 @@ class ApplicationController extends Controller
         $application->phone = $request->phone;
         $application->dealer = $request->dealer;
         $application->model = $request->model;
-        $application->city_id = $request->city;
+        $application->city = $request->city;
         $application->type = $request->type;
+        $application->brand = $request->brand;
+        $application->comment = $request->comment;
         $application->save();
         if($application->contact_id = $this->submit($application)){
             $application->status = 1;
@@ -36,7 +40,7 @@ class ApplicationController extends Controller
             'filter' => [
                 'PHONE' => "+7". $application->phone
             ]
-        ]);
+            ], $application->brand);
         if(!empty($contact_list_response)){
             $contactID = $contact_list_response[0]['ID'];
         }else{
@@ -47,7 +51,7 @@ class ApplicationController extends Controller
             'filter' => [
                 'PHONE' => "8". $application->phone
             ]
-        ]);
+            ], $application->brand);
         if(!empty($contact_list_response)){
             if($contactID !== null){
                 if($contactID > $contact_list_response[0]['ID']){
@@ -61,7 +65,7 @@ class ApplicationController extends Controller
             'filter' => [
                 'PHONE' => "7". $application->phone
             ]
-        ]);
+            ], $application->brand);
         if(!empty($contact_list_response)){
             if($contactID !== null){
                 if($contactID > $contact_list_response[0]['ID']){
@@ -83,50 +87,41 @@ class ApplicationController extends Controller
                         "VALUE" => ''
                         ]]
                 ],
-            ]);
+            ], $application->brand);
             $contactID = $contact_response;
             if(!$contactID){
                 return false;
             }
         }
-        if($application->type === "model")
-        {
-            $type = 14476;
-        }else{
-            $type = 4064;
-        }
         if ($contactID) {
-            $deal_fields = [
-                "UF_CRM_1604656131" => $application->dealer, //ДЦ
-                "CONTACT_ID" => intval($contactID),
-                "CATEGORY_ID" => 2,
-                "SOURCE_ID" => "WEBFORM",
-                "STAGE_ID" => "C2:NEW",
-                "UF_CRM_1590070364" => 1238,
-                "UF_CRM_1613979771" => $type,
-                "COMMENTS" => "",
-                "UF_CRM_1611565554" => $application->model,
-                "UF_CRM_1634038284" => 'hongqi-auto.kz',
-                "UF_CRM_1657876982" => 1210,
-                "UF_CRM_1586840541" => 4140,
-                "UF_CRM_1586841138" => 4006,
-            ];
-            $deal_response = $this->send("crm.deal.add", ["fields" => $deal_fields]);
+            $deal_fields = $this->arrayBuilder($application, $contactID);
+            $deal_response = $this->send("crm.deal.add", ["fields" => $deal_fields], $application->brand);
             if($deal_response){
                 return $contactID;
             }
         }
     }
 
-    public static function send($method, $data)
+    public static function send($method, $data, $brand)
     {
+        if ($brand === 'kia'){
+            $url = "https://kia-allur.bitrix24.kz/rest/432/cqxd4kj8iw9zxbw0/";
+        }elseif ($brand === 'hongqi'){
+            $url = "https://hongqi-allur.bitrix24.kz/rest/1/volowfdbjo6g04s0/";
+        }elseif ($brand === 'jac'){
+            $url = "https://jac-allur.bitrix24.kz/rest/1/kepzqllbooctqmky/";
+        }elseif ($brand === 'skoda'){
+            $url = "https://skoda.allur.kz/rest/1/rrj7jbal1s58vgf5/";
+        }else {
+            return false;
+        }
         $curl = curl_init();
         curl_setopt_array($curl, [
             CURLOPT_SSL_VERIFYPEER => false,
             CURLOPT_POST => true,
             CURLOPT_HEADER => false,
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_URL => "https://hongqi-allur.bitrix24.kz/rest/112/gr5gmglzcqo1n33e/" . $method,
+            CURLOPT_URL => $url . $method,
             CURLOPT_POSTFIELDS => http_build_query($data),
         ]);
         $result = curl_exec($curl);
@@ -140,4 +135,89 @@ class ApplicationController extends Controller
         return $result['result'];
     }
 
+    public static function arrayBuilder(Application $application, $contactID){
+        $timezone = new DateTimeZone('Asia/Almaty');
+        $currentDateTime = new DateTime('now', $timezone);
+        $formattedTime = $currentDateTime->format('Y-m-d\TH:i:sP');
+        if ($application->brand == 'kia'){
+            if ($application->city == 'al'){
+                $cityId = 110;
+            }elseif ($application->city == 'as'){
+                $cityId = 116;
+            }
+            $deal_fields = [
+                "UF_CRM_1686750597" => $cityId,  
+                "CATEGORY_ID" => 2,               
+                "STAGE_ID" => "C2:NEW",           
+                "UF_CRM_1686845874" => 304,       
+                "SOURCE_ID" => "WEBFORM",
+                "UF_CRM_1686843703" => 212,       
+                "UF_CRM_1687071392" => "allur.kz",
+                "UF_CRM_1686842116" => 196,          
+                "UF_CRM_1686814065" => intval($application->model), 
+                "CONTACT_ID" => $contactID,    
+                "COMMENTS" => isset($application->comment) ? $application->comment : '',
+                "UF_CRM_1687511544" => $formattedTime,
+            ];
+        }elseif ($application->brand == 'hongqi'){
+            if ($application->city == 'al'){
+                $cityId = 16;
+            }elseif ($application->city == 'as'){
+                $cityId = 14;
+            }
+            $deal_fields = [
+                "UF_CRM_1604656131" => $cityId,
+                "CATEGORY_ID" => 2,
+                "STAGE_ID" => "C2:NEW",
+                "UF_CRM_1590070364" => 1238,
+                "SOURCE_ID" => "WEBFORM",
+                "UF_CRM_1613979771" => 4074,
+                "UF_CRM_1634038284" => "allur.kz",
+                "UF_CRM_1586840541" => 4144,             
+                "UF_CRM_1657876982" => 1212,             
+                "UF_CRM_1611565554" => intval($application->model),
+                "CONTACT_ID" => $contactID,                           
+                "COMMENTS" => isset($application->comment) ? $application->comment : '',
+            ];
+        }elseif ($application->brand == 'jac'){
+            if ($application->city == 'al'){
+                $cityId = 8;
+            }elseif ($application->city == 'as'){
+                $cityId = 12;
+            }
+            $deal_fields = [
+                "UF_CRM_1686750597" => $cityId,
+                "CATEGORY_ID" => 4,
+                "STAGE_ID" => "C4:NEW",
+                "UF_CRM_1686845874" => 376,     
+                "SOURCE_ID" => "WEBFORM",
+                "UF_CRM_1686843703" => 274,     
+                "UF_CRM_1687071392" => "allur.kz",
+                "UF_CRM_1686842116" => 265,          
+                "UF_CRM_1686814065" => intval($application->model),
+                "CONTACT_ID" => $contactID,                           
+                "COMMENTS" => isset($application->comment) ? $application->comment : '',
+            ];
+        }elseif ($application->brand == 'skoda'){
+            if ($application->city == 'al'){
+                $cityId = 23;
+            }elseif ($application->city == 'as'){
+                $cityId = 26;
+            }
+            $deal_fields = [
+                "UF_CRM_1686750597" => $cityId,
+                "CATEGORY_ID" => 7,         
+                "STAGE_ID" => "C7:NEW",     
+                "UF_CRM_1686845874" => 783, 
+                "SOURCE_ID" => "WEBFORM",
+                "UF_CRM_1686843703" => 732, 
+                "UF_CRM_1687071392" => "allur.kz",
+                "UF_CRM_1686842116" => 729,      
+                "UF_CRM_1686814065" => intval($application->model),
+                "CONTACT_ID" => $contactID,                           
+                "COMMENTS" => isset($application->comment) ? $application->comment : '',
+            ];
+        }
+        return $deal_fields;
+    }
 }

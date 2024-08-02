@@ -13,11 +13,14 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string $name
  * @property string|null $email
  * @property string|null $comment
- * @property int|null $city_id
+ * @property string|null $city
  * @property int $status
+ * @property int $dealer
+ * @property int $model
+ * @property string $brand
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\City|null $city
+    
  * @property-read string $status_name
  * @property-read string $time_format
  * @method static \Illuminate\Database\Eloquent\Builder|Application newModelQuery()
@@ -42,7 +45,7 @@ class Application extends Model
     protected $appends = ['status_name', 'time_format'];
 
     protected $fillable = [
-        'name', 'phone', 'dealer', 'model', 'city', 'status'
+        'name', 'phone', 'dealer', 'model', 'city', 'status', 'brand', 'type'
     ];
     const STATUSES = [
         0 => 'Не отправлено',
@@ -58,11 +61,6 @@ class Application extends Model
     public function getStatusNameAttribute(): string
     {
         return self::STATUSES[$this->status] ?? 'Тип неизвестен';
-    }
-
-    public function city(): HasOne
-    {
-        return $this->hasOne(City::class, 'id', 'city_id');
     }
 
     public function scopeWithTranslations($query)
@@ -81,10 +79,5 @@ class Application extends Model
     public function getModel(): HasOne
     {
         return $this->hasOne(CarModel::class, 'bitrix_id', 'model');
-    }
-
-    //getcity
-    public function getCity(){
-        return City::where('bitrix_id', $this->city_id)->first();
     }
 }
