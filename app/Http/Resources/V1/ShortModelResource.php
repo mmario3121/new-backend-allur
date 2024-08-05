@@ -21,6 +21,7 @@ class ShortModelResource extends JsonResource
             $title = $this->title;
         }
         return [
+            'id' => $this->id,
             'title' => $title,
             'logo' => $this->logo_url,
             'bitrix_id' => $this->bitrix_id,

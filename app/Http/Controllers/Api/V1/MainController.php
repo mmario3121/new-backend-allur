@@ -192,6 +192,7 @@ class MainController extends Controller
         $brands = Brand::all();
         $data['brands'] = $brands->map(function($brand){
             return [
+                'id' => $brand->id,
                 'brand' => $brand->title,
                 'models' => ShortModelResource::collection($brand->models)
             ];
