@@ -24,6 +24,7 @@ class CityShortResource extends JsonResource
         // $addresses = DealerAddressResource::collection(DealerAddress::whereIn('dealer_id', $dealers)->get());
 
         return [
+            'id' => $this->id,
             'name' => $this->titleTranslate->{$lang},
             'bitrix_id' => $this->bitrix_id,
             'dealers' => $dealers,
