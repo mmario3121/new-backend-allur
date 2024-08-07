@@ -29,7 +29,7 @@ class StoreCareraRequest extends FormRequest
         return [
             'block1_title' => 'nullable|string',
             'block1_text' => 'nullable|string',
-            'block1_image' => 'nullable|image',
+            'block1_image' => 'nullable',
             'block2_title' => 'nullable|string',
             'block2_text' => 'nullable|string',
             'block2_image' => 'nullable|image',
