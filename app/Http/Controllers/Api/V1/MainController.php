@@ -194,6 +194,7 @@ class MainController extends Controller
             return [
                 'id' => $brand->id,
                 'brand' => $brand->title,
+                'code' => $brand->code,
                 'models' => ShortModelResource::collection($brand->models)
             ];
         });

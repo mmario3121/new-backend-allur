@@ -28,6 +28,7 @@ class StoreBrandRequest extends FormRequest
             'position' => 'required|integer',
             'logo' => 'required|image',
             'bitrix_id' => 'nullable|integer',
+            'code' => 'nullable|string|max:255',
         ];
     }
 }

@@ -30,7 +30,7 @@ class Brand extends Model
     const CACHE_TIME = 60 * 60 * 24;
     protected $appends = ['logo_url'];
 
-    protected $fillable = ['logo','title', 'position', 'bitrix_id'];
+    protected $fillable = ['logo','title', 'position', 'bitrix_id', 'code'];
     protected $hidden = ['updated_at', 'created_at'];
 
     public function getLogoUrlAttribute()

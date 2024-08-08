@@ -28,6 +28,7 @@ class UpdateBrandRequest extends FormRequest
             'position' => 'required|integer',
             'logo' => 'nullable|image',
             'bitrix_id' => 'nullable|integer',
+            'code' => 'nullable|string|max:255',
         ];
     }
 }

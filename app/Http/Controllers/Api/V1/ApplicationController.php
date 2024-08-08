@@ -16,14 +16,33 @@ class ApplicationController extends Controller
 {
     public function store(Request $request){
         //name, phone, dealer_id, brand, model
+        
+    
+        try {
+            $validated = $request->validate([
+                'name' => 'required|string',
+                'phone' => 'required|string',
+                'dealer' => 'nullable',
+                'model' => 'required',
+                'city' => 'required|string|in:al,as',
+                'type' => 'nullable|string',
+                'brand' => 'required|string|in:kia,hongqi,jac,skoda',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return new JsonResponse([
+                'message' => 'Validation Error',
+                'errors' => $e->errors(),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
         $application = new Application();
-        $application->name = $request->name;
-        $application->phone = $request->phone;
-        $application->dealer = $request->dealer;
-        $application->model = $request->model;
-        $application->city = $request->city;
+        $application->name = $validated['name'];
+        $application->phone = $validated['phone'];
+        $application->dealer = $validated['dealer'];
+        $application->model = $validated['model'];
+        $application->city = $validated['city'];
         $application->type = $request->type;
-        $application->brand = $request->brand;
+        $application->brand = $validated['brand'];
         $application->comment = $request->comment;
         $application->save();
         if($application->contact_id = $this->submit($application)){
@@ -31,7 +50,12 @@ class ApplicationController extends Controller
             $application->save();
             return new JsonResponse([
                 'message' => 'success',
-            ], Response::HTTP_OK);
+            ], Response::HTTP_CREATED);
+        }
+        else{
+            return new JsonResponse([
+                'message' => 'error',
+            ], Response::HTTP_BAD_REQUEST);
         }
     }
 

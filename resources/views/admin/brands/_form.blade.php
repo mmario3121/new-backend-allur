@@ -51,6 +51,18 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
+
+        <div class="form-group required ">
+            <label for="code" class="control-label" title="Заполните обязательно!">
+                Код (латиница маленькими буквами)
+            </label>
+            <input class="form-control @error('code') is-invalid @enderror" title="code" type="text"
+                   id="code" value="{{  isset($brand) ? $brand->code : (old('code') ?? '') }}"
+                   name="code"
+                   >
+            @error('code')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
         <div class="form-group">
             <button type="submit" class="btn btn-primary">
                 Сохранить

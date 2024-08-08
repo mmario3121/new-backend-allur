@@ -20,6 +20,7 @@ class BrandService
             'position' => $data['position'],
             'logo' => $this->fileService->saveFile($data['logo'], Brand::IMAGE_PATH),
             'bitrix_id' => $data['bitrix_id'],
+            'code' => $data['code'],
         ]);
     }
 
@@ -31,6 +32,7 @@ class BrandService
             $brand->logo = $this->fileService->saveFile($data['logo'], Brand::IMAGE_PATH, $brand->logo);
         }
         $brand->bitrix_id = $data['bitrix_id'];
+        $brand->code = $data['code'];
 
         return $brand->save();
     }

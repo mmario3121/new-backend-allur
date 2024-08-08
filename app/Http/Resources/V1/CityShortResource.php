@@ -22,12 +22,18 @@ class CityShortResource extends JsonResource
         //we have DealerAddress model, need an array with addresses
 
         // $addresses = DealerAddressResource::collection(DealerAddress::whereIn('dealer_id', $dealers)->get());
-
+        $code = "";
+        if ($this->id == 1){
+            $code = "al";
+        }elseif ($this->id == 2){
+            $code = "as";
+        }
         return [
             'id' => $this->id,
             'name' => $this->titleTranslate->{$lang},
             'bitrix_id' => $this->bitrix_id,
             'dealers' => $dealers,
+            'code' => $code,
         ];
     }
 }
