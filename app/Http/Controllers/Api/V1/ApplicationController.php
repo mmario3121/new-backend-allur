@@ -11,6 +11,7 @@ use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use DateTime;
 use DateTimeZone;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class ApplicationController extends Controller
 {
@@ -244,4 +245,119 @@ class ApplicationController extends Controller
         }
         return $deal_fields;
     }
+
+
+    public static function sendFinance(Request $request){
+        try{
+            $validated = $request->validate([
+                'name' => 'required|string',
+                'phone' => 'required|string',
+                'city' => 'required|string|in:al,as',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return new JsonResponse([
+                'message' => 'Validation Error',
+                'errors' => $e->errors(),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+            if($validated['city'] == 'al'){
+                $validated['city'] = 'Алматы';
+            }else{
+                $validated['city'] = 'Астана';
+            }
+            $tableHtml = '<table>';
+            foreach ($validated as $key => $value) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . htmlspecialchars($key) . '</td>';
+                    $tableHtml .= '<td>' . htmlspecialchars($value) . '</td>';
+                    $tableHtml .= '</tr>';
+            }
+            $tableHtml .= '</table>';
+        
+            $mail = new PHPMailer();
+            $mail->isSMTP();
+            $mail->CharSet = "UTF-8";
+            $mail->Host = 'smtp.yandex.ru';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'babylonmailer@yandex.by';
+            $mail->Password = 'egqvtsowfmksdwpq';
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port = 465;
+            $mail->setFrom('babylonmailer@yandex.by', 'allur.kz');
+            $mail->isHTML(true);
+            if($validated['city'] == 'Алматы'){
+                $mail->addAddress('a.utargalieva@allur.kz');
+                $mail->addAddress('m.mukhamedkhafizov@allur.kz');
+                $mail->addAddress('se.andreev@allur.kz');
+                $mail->addAddress('m.boshe@allur.kz');
+                $mail->addAddress('b.aytenova@allur.kz');
+            }else{
+                $mail->addAddress('l.hamze@allur.kz');
+                $mail->addAddress('m.mustafina@allur.kz');
+                $mail->addAddress('a.shildibaeva@allur.kz');
+            }
+            $mail->Subject = 'Заявка с сайта Allur';
+            $mail->Body = $tableHtml;
+    
+            if($mail->send()){
+                return new JsonResponse([
+                    'message' => 'success',
+                ], Response::HTTP_CREATED);
+            }
+        }
+
+        public static function sendTradeIn(Request $request){
+            try{
+                $validated = $request->validate([
+                    'name' => 'required|string',
+                    'phone' => 'required|string',
+                    'city' => 'required|string|in:al,as',
+                ]);
+            } catch (\Illuminate\Validation\ValidationException $e) {
+                return new JsonResponse([
+                    'message' => 'Validation Error',
+                    'errors' => $e->errors(),
+                ], Response::HTTP_UNPROCESSABLE_ENTITY);
+            }
+    
+                if($validated['city'] == 'al'){
+                    $validated['city'] = 'Алматы';
+                }else{
+                    $validated['city'] = 'Астана';
+                }
+                $tableHtml = '<table>';
+                foreach ($validated as $key => $value) {
+                        $tableHtml .= '<tr>';
+                        $tableHtml .= '<td>' . htmlspecialchars($key) . '</td>';
+                        $tableHtml .= '<td>' . htmlspecialchars($value) . '</td>';
+                        $tableHtml .= '</tr>';
+                }
+                $tableHtml .= '</table>';
+            
+                $mail = new PHPMailer();
+                $mail->isSMTP();
+                $mail->CharSet = "UTF-8";
+                $mail->Host = 'smtp.yandex.ru';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'babylonmailer@yandex.by';
+                $mail->Password = 'egqvtsowfmksdwpq';
+                $mail->SMTPSecure = 'ssl';
+                $mail->Port = 465;
+                $mail->setFrom('babylonmailer@yandex.by', 'allur.kz');
+                $mail->isHTML(true);
+                if($validated['city'] == 'Алматы'){
+                    $mail->addAddress('g.gimadov@allur.kz');
+                }else{
+                    $mail->addAddress('allurtrade-in@allur.kz');
+                }
+                $mail->Subject = 'Заявка с сайта Allur';
+                $mail->Body = $tableHtml;
+        
+                if($mail->send()){
+                    return new JsonResponse([
+                        'message' => 'success',
+                    ], Response::HTTP_CREATED);
+                }
+            }
 }

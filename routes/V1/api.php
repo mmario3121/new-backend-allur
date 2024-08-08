@@ -39,6 +39,9 @@ Route::prefix('V1')->group(function () {
    //application post
    Route::post('/send-application', [\App\Http\Controllers\Api\V1\ApplicationController::class, 'store']);
 
+   Route::post('/send-finance', [\App\Http\Controllers\Api\V1\ApplicationController::class, 'sendFinance']);
+   Route::post('/send-trade-in', [\App\Http\Controllers\Api\V1\ApplicationController::class, 'sendTradeIn']);
+
    //dealers
    Route::get('/dealers', [\App\Http\Controllers\Api\V1\MainController::class, 'dealers']);
 
