@@ -97,6 +97,11 @@ class MainController extends Controller
 
     public function dealers(Request $request){
         //use dealersresource
+        if($request->city_id == 'al'){
+            $request->city_id = 1;
+        }elseif($request->city_id == 'as'){
+            $request->city_id = 2;
+        }
         $dealers = Dealer::where('city_id', $request->city_id)->where('brand_id', $request->brand_id)->get();
         $data['dealers'] = DealerResource::collection($dealers);
         return new JsonResponse($data, Response::HTTP_OK);
