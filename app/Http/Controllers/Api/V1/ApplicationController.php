@@ -130,13 +130,13 @@ class ApplicationController extends Controller
     public static function send($method, $data, $brand)
     {
         if ($brand === 'kia'){
-            $url = "https://kia-allur.bitrix24.kz/rest/432/cqxd4kj8iw9zxbw0/";
+            $url = env('BITRIX_KIA');
         }elseif ($brand === 'hongqi'){
-            $url = "https://hongqi-allur.bitrix24.kz/rest/1/volowfdbjo6g04s0/";
+            $url = env('BITRIX_HONGQI');
         }elseif ($brand === 'jac'){
-            $url = "https://jac-allur.bitrix24.kz/rest/1/kepzqllbooctqmky/";
+            $url = env('BITRIX_JAC');
         }elseif ($brand === 'skoda'){
-            $url = "https://skoda.allur.kz/rest/1/rrj7jbal1s58vgf5/";
+            $url = env('BITRIX_SKODA');
         }else {
             return false;
         }

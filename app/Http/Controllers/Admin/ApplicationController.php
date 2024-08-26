@@ -145,7 +145,7 @@ class ApplicationController extends Controller
             CURLOPT_POST => true,
             CURLOPT_HEADER => false,
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_URL => "https://hongqi-allur.bitrix24.kz/rest/112/gr5gmglzcqo1n33e/" . $method,
+            CURLOPT_URL => env('BITRIX_HONGQI') . $method,
             CURLOPT_POSTFIELDS => http_build_query($data),
         ]);
         $result = curl_exec($curl);
