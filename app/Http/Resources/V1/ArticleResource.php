@@ -24,11 +24,23 @@ class ArticleResource extends JsonResource
         }
 
         $model = $this->model;
+        $connectedNews = [];
         if ($model != null) {
             $models = CarModel::where('brand_id', $model->brand_id)->pluck('id')->toArray();
-            $connectedNews = Article::whereIn('model_id', $models)->where('id', '!=', $this->id)->orderBy('time', 'desc')->limit(3)->get();
-        }else{
-            $connectedNews = [];
+            $cn = Article::whereIn('model_id', $models)->where('id', '!=', $this->id)->orderBy('time', 'desc')->limit(3)->get();
+            foreach ($cn as $news) {
+                $connectedNews[] = [
+                    'slug' => $news->slug,
+                    'title' => $news->titleTranslate?->{$lang},
+                    'description' => $news->descriptionTranslate?->{$lang},
+                    'description_mob' => $news->descriptionMobTranslate?->{$lang},
+                    'image' => $news->image_url,
+                    'time' => $news->time,
+                    'isForm' => $news->isForm,
+                    'banner' => $news->banner_url,
+                    'type' => $news->type,
+                ];
+            }
         }
         
         return [
@@ -41,7 +53,7 @@ class ArticleResource extends JsonResource
             'isForm' => $this->isForm,
             'banner' => $this->banner_url,
             'type' => $this->type,
-            'connectedNews' => ArticleResource::collection($connectedNews),
+            'connectedNews' => $connectedNews,
         ];
     }
 }
