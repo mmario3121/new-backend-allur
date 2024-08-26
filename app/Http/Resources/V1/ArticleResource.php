@@ -2,7 +2,9 @@
 
 namespace App\Http\Resources\V1;
 
+use App\Models\CarModel;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Models\Article;
 
 class ArticleResource extends JsonResource
 {
@@ -20,6 +22,15 @@ class ArticleResource extends JsonResource
         }else{
             $image = $this->image_kz_url;
         }
+
+        $model = $this->model;
+        if ($model != null) {
+            $models = CarModel::where('brand_id', $model->brand_id)->pluck('id')->toArray();
+            $connectedNews = Article::whereIn('model_id', $models)->where('id', '!=', $this->id)->orderBy('time', 'desc')->limit(3)->get();
+        }else{
+            $connectedNews = [];
+        }
+        
         return [
             'slug' => $this->slug,
             'title' => $this->titleTranslate?->{$lang},
@@ -30,6 +41,7 @@ class ArticleResource extends JsonResource
             'isForm' => $this->isForm,
             'banner' => $this->banner_url,
             'type' => $this->type,
+            'connectedNews' => ArticleResource::collection($connectedNews),
         ];
     }
 }

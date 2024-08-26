@@ -97,4 +97,9 @@ class Article extends Model
             'descriptionTranslate'
         ]);
     }
+
+    public function model()
+    {
+        return $this->belongsTo(CarModel::class, 'model_id', 'id');
+    }
 }
