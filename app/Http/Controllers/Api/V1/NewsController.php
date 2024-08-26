@@ -22,9 +22,18 @@ class NewsController extends Controller
         return new JsonResponse($data, Response::HTTP_OK);
     }
     public function getAll(Request $request){
-        $data['articles'] = ArticleResource::collection(
-            Article::orderBy('time', 'desc')->get()
-        );
+        $type = $request->type;
+        if ($type == null || $type == 'all'){
+            $data['articles'] = ArticleResource::collection(
+                Article::orderBy('time', 'desc')->get()
+            );
+        }else{
+            $data['articles'] = ArticleResource::collection(
+                Article::where('type', $type)
+                ->orderBy('time', 'desc')->get()
+            );
+        }
+        
         $data['slider'] = ArticleResource::collection(
             Article::where('isSlider', 1)->get()
         );
