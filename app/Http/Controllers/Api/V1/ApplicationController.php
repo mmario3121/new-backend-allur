@@ -11,6 +11,7 @@ use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use DateTime;
 use DateTimeZone;
+use App\Services\Admin\BitrixSendFormService;
 use PHPMailer\PHPMailer\PHPMailer;
 
 class ApplicationController extends Controller
@@ -27,7 +28,7 @@ class ApplicationController extends Controller
                 'model' => 'required',
                 'city' => 'required|string|in:al,as',
                 'type' => 'nullable|string',
-                'brand' => 'required|string|in:kia,hongqi,jac,skoda',
+                'brand' => 'required|string|in:kia,hongqi,jac,skoda,chevrolet,lada',
             ]);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return new JsonResponse([
@@ -46,6 +47,14 @@ class ApplicationController extends Controller
         $application->brand = $validated['brand'];
         $application->comment = $request->comment;
         $application->save();
+        if ($application->brand == 'chevrolet' || $application->brand == 'lada' || $application->brand == 'jetour'){
+            $result = BitrixSendFormService::sendPurchase($request);
+            $application->status = 1;
+            $application->save();
+            return new JsonResponse([
+                'message' => 'success',
+            ], Response::HTTP_CREATED);
+        }
         if($application->contact_id = $this->submit($application)){
             $application->status = 1;
             $application->save();
