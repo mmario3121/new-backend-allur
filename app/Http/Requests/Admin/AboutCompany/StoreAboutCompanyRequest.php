@@ -69,6 +69,11 @@ class StoreAboutCompanyRequest extends FormRequest
             'block5_text_kz' => 'nullable|string',
             'block6_title_kz' => 'nullable|string',
             'block6_text_kz' => 'nullable|string',
+            'block7_title' => 'nullable|string',
+            'block7_title_kz' => 'nullable|string',
+            'block7_text' => 'nullable|string',
+            'block7_text_kz' => 'nullable|string',
+            'block7_image' => 'nullable|image',
         ];
     }
 }

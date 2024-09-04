@@ -237,6 +237,39 @@
             <label for="block6_image">Изображение блока 6</label>
             <input id="block6_image" type="file" class="form-control" name="block6_image">
         </div>
+
+        <br>
+        <br>
+        <h2 class="h2">Блок 7</h2>
+        
+        <div class="form-group">
+            <label for="block7_title">Заголовок блока 7</label>
+            <input id="block7_title" type="text" class="form-control" name="block7_title" value="{{
+                isset($aboutCompany) ? $aboutCompany->block7_title : (old('block7_title') ?? '')
+            }}">
+        </div>
+        <div class="form-group">
+            <label for="block7_title_kz">Заголовок блока 7 (kz)</label>
+            <input id="block7_title_kz" type="text" class="form-control" name="block7_title_kz" value="{{
+                isset($aboutCompany) ? $aboutCompany->block7_title_kz : (old('block7_title_kz') ?? '')
+            }}">
+        </div>
+        <div class="form-group">
+            <label for="block7_text">Текст блока 7</label>
+            <textarea id="block7_text" class="form-control" name="block7_text">{{
+                isset($aboutCompany) ? $aboutCompany->block7_text : (old('block7_text') ?? '')
+             }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="block7_text_kz">Текст блока 7 (kz)</label>
+            <textarea id="block7_text_kz" class="form-control" name="block7_text_kz">{{ 
+                isset($aboutCompany) ? $aboutCompany->block7_text_kz : (old('block7_text_kz') ?? '')
+             }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="block7_image">Изображение блока 7</label>
+            <input id="block7_image" type="file" class="form-control" name="block7_image">
+        </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">
                 Сохранить

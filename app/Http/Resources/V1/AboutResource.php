@@ -47,6 +47,9 @@ class AboutResource extends JsonResource
             $block6_title = $this->block6_title;
             $block6_text = $this->block6_text;
             $block6_image = $this->block6_image_url;
+            $block7_title = $this->block7_title;
+            $block7_text = $this->block7_text;
+            $block7_image = $this->block7_image_url;
         }else{
             $block1_title = $this->block1_title_kz;
             $block1_text = $this->block1_text_kz;
@@ -64,6 +67,15 @@ class AboutResource extends JsonResource
             $block5_text = $this->block5_text_kz;
             $block6_title = $this->block6_title_kz;
             $block6_text = $this->block6_text_kz;
+            $block7_title = $this->block7_title_kz;
+            $block7_text = $this->block7_text_kz;
+            $block1_image = $this->block1_image_url;
+            $block2_image = $this->block2_image_url;
+            $block3_image = $this->block3_image_url;
+            $block4_image = $this->block4_image_url;
+            $block5_image = $this->block5_image_url;
+            $block6_image = $this->block6_image_url;
+            $block7_image = $this->block7_image_url;
         }
         
         return [
@@ -101,6 +113,11 @@ class AboutResource extends JsonResource
                     'title' => $block6_title,
                     'text' => $block6_text,
                     'image' => $block6_image
+                ],
+                [
+                    'title' => $block7_title,
+                    'text' => $block7_text,
+                    'image' => $block7_image
                 ]
             ]
         ];

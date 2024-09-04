@@ -45,6 +45,15 @@ class DealerAddressResource extends JsonResource
             'x' => $coordinates[0],
             'y' => $coordinates[1],
         ];
+
+        $coordinates2 = explode(',', $this->coordinates2);
+        //remove spaces
+        $coordinates2 = array_map('trim', $coordinates2);
+        //make first one y => lat, x => lng
+        $coordinates2 = [
+            'x' => $coordinates2[0],
+            'y' => $coordinates2[1],
+        ];
         if(isset($this->dealer->brand)){
             $logo = $this->dealer->brand->logo_url;
         }
@@ -60,6 +69,7 @@ class DealerAddressResource extends JsonResource
             'name' => $name,
             'icon' => $logo,
             'coordinates' => $coordinates,
+            'coordinates2' => $coordinates2,
         ];
     }
 }

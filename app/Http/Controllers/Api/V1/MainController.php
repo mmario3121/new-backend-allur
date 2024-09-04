@@ -12,6 +12,7 @@ use App\Models\FinancePage;
 use App\Models\Komek;
 use App\Models\MainPage;
 use App\Models\AboutCompany;
+use App\Models\MainPageBanner;
 use App\Models\Social;
 use App\Models\WorldCategory;
 use Illuminate\Http\Request;
@@ -56,6 +57,7 @@ class MainController extends Controller
 {
     public function home(Request $request){
         $data['main'] = new MainPageResource(MainPage::first());
+        $data['banners'] = MainPageBanner::all();
 
         return new JsonResponse($data, Response::HTTP_OK);
     }

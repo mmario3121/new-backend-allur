@@ -76,6 +76,7 @@ Route::prefix('admin')->name('admin.')->scopeBindings()->group(function () {
     Route::resource('financePages', \App\Http\Controllers\Admin\FinancePageController::class)->except('show');
     //carreers
     Route::resource('carreers', \App\Http\Controllers\Admin\CarreerController::class)->except('show');
+    Route::resource('mainPageBanners', \App\Http\Controllers\Admin\MainPageBannerController::class)->except('show');
     //careras
     Route::resource('careras', \App\Http\Controllers\Admin\CareraController::class)->except('show');
     Route::resource('aboutCompanies', \App\Http\Controllers\Admin\AboutCompanyController::class)->except('show');

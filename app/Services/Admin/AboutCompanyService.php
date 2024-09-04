@@ -46,6 +46,11 @@ class AboutCompanyService
             'block6_title' => $data['block6_title'],
             'block6_text' => $data['block6_text'],
             'block6_image' => $this->fileService->saveFile($data['block6_image'], AboutCompany::IMAGE_PATH),
+            'block7_title' => $data['block7_title'],
+            'block7_title_kz' => $data['block7_title_kz'],
+            'block7_text' => $data['block7_text'],
+            'block7_text_kz' => $data['block7_text_kz'],
+            'block7_image' => $this->fileService->saveFile($data['block7_image'], AboutCompany::IMAGE_PATH),
         ]);
     }
 
@@ -83,6 +88,10 @@ class AboutCompanyService
         $aboutCompany->block6_title_kz = $data['block6_title_kz'];
         $aboutCompany->block6_text = $data['block6_text'];
         $aboutCompany->block6_text_kz = $data['block6_text_kz'];
+        $aboutCompany->block7_title = $data['block7_title'];
+        $aboutCompany->block7_title_kz = $data['block7_title_kz'];
+        $aboutCompany->block7_text = $data['block7_text'];
+        $aboutCompany->block7_text_kz = $data['block7_text_kz'];
         if (isset($data['block1_image'])) {
             $aboutCompany->block1_image = $this->fileService->saveFile($data['block1_image'], AboutCompany::IMAGE_PATH, $aboutCompany->block1_image);
         }
@@ -101,7 +110,9 @@ class AboutCompanyService
         if (isset($data['block6_image'])) {
             $aboutCompany->block6_image = $this->fileService->saveFile($data['block6_image'], AboutCompany::IMAGE_PATH, $aboutCompany->block6_image);
         }
-
+        if (isset($data['block7_image'])) {
+            $aboutCompany->block7_image = $this->fileService->saveFile($data['block7_image'], AboutCompany::IMAGE_PATH, $aboutCompany->block7_image);
+        }
         return $aboutCompany->save();
     }
 

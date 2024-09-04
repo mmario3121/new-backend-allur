@@ -27,6 +27,7 @@ class DealerAddressService
             'phone' => $data['phone'],
             'dealer_id' => $data['dealer_id'],
             'coordinates' => $data['coordinates'],
+            'coordinates2' => $data['coordinates2'],
         ]);
     }
 
@@ -38,6 +39,7 @@ class DealerAddressService
         $dealerAddress->worktime_kz = $data['worktime_kz'];
         $dealerAddress->phone = $data['phone'];
         $dealerAddress->coordinates = $data['coordinates'];
+        $dealerAddress->coordinates2 = $data['coordinates2'];
         if (isset($data['dealer_id'])) {
             $dealerAddress->dealer_id = $data['dealer_id'];
         }

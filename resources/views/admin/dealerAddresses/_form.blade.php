@@ -58,6 +58,13 @@
                             >{{ isset($dealerAddress) ? $dealerAddress->coordinates : (old("coordinates") ?? '') }}</textarea>
         </div>
         <div class="form-group">
+            <label for="coordinates2" class="control-label">Координаты 2</label>
+            <textarea id="coordinates2"
+                                      class="form-control @error('coordinates2') is-invalid @enderror"
+                                      rows="3" name="coordinates2"
+                            >{{ isset($dealerAddress) ? $dealerAddress->coordinates2 : (old("coordinates2") ?? '') }}</textarea>
+        </div>
+        <div class="form-group">
             <button type="submit" class="btn btn-primary">
                 Сохранить
             </button>

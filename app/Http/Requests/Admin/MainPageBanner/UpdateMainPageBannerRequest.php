@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\DealerAddress;
+namespace App\Http\Requests\Admin\MainPageBanner;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreDealerAddressRequest extends FormRequest
+class UpdateMainPageBannerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,13 @@ class StoreDealerAddressRequest extends FormRequest
     public function rules()
     {
         return [
-            'dealer_id' => 'required',
-            'address' => 'required',
-            'address_kz' => 'required',
-            'worktime' => 'required',
-            'worktime_kz' => 'required',
-            'phone' => 'required',
-            'coordinates' => 'required',
-            'coordinates2' => 'required',
+            'image' => 'image',
+            'title' => '',
+            'title_kz' => '',
+            'description' => '',
+            'description_kz' => '',
+            'link' => '',
+            'model_id' => 'exists:car_models,id',
         ];
     }
 }

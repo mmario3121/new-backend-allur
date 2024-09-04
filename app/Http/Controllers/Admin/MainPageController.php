@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\MainPage\StoreMainPageRequest;
 use App\Http\Requests\Admin\MainPage\UpdateMainPageRequest;
 use App\Models\MainPage;
+use App\Models\MainPageBanner;
 use App\Services\Admin\MainPageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -22,6 +23,7 @@ class MainPageController extends Controller
     public function index(Request $request)
     {
         $data['mainPages'] = MainPage::all();
+        $data['mainPageBanners'] = MainPageBanner::all();
         return view('admin.mainPages.index', $data);
     }
 
@@ -44,7 +46,9 @@ class MainPageController extends Controller
 
     public function edit(MainPage $mainPage)
     {
-        return view('admin.mainPages.edit', ['mainPage' => $mainPage]);
+        $data['mainPageBanners'] = MainPageBanner::all();
+        $data['mainPage'] = $mainPage;
+        return view('admin.mainPages.edit', $data);
     }
 
     public function update(UpdateMainPageRequest $request, MainPage $mainPage)

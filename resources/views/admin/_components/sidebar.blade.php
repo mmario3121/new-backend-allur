@@ -90,6 +90,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.mainPageBanners.index') }}" class="nav-link">
+                        <i class="far fa-fw fa-circle text-cyan"></i>
+                        <p>Баннеры</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.komeks.index') }}" class="nav-link">
                         <i class="far fa-fw fa-circle text-cyan"></i>
                         <p>Komek/Litro</p>

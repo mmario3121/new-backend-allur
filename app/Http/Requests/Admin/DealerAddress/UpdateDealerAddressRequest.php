@@ -31,6 +31,7 @@ class UpdateDealerAddressRequest extends FormRequest
             'worktime_kz' => 'required',
             'coordinates' => 'nullable',
             'dealer_id' => 'required|exists:dealers,id',
+            'coordinates2' => 'nullable',
         ];
     }
 }
