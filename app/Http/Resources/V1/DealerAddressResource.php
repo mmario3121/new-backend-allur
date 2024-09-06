@@ -50,10 +50,15 @@ class DealerAddressResource extends JsonResource
         //remove spaces
         $coordinates2 = array_map('trim', $coordinates2);
         //make first one y => lat, x => lng
-        $coordinates2 = [
-            'x' => $coordinates2[0],
-            'y' => $coordinates2[1],
-        ];
+        if (count($coordinates2) = 2) {
+            $coordinates2 = [
+                'x' => $coordinates2[0],
+                'y' => $coordinates2[1],
+            ];
+        }else{
+            $coordinates2 = null;
+        }
+        
         if(isset($this->dealer->brand)){
             $logo = $this->dealer->brand->logo_url;
         }
