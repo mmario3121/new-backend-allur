@@ -43,15 +43,14 @@
             @enderror
         </div>
 
-        <div class="form-group required">
-            <label for="production_images" class="control-label" title="Заполните обязательно!">
-                Фото </label>
-            <input class="form-control @error('production_images.*') is-invalid @enderror"
-                name="production_images[]" type="file" id="production_images" multiple>
-            @error('production_images.*')
-                <span class="error invalid-feedback">{{ $message }}</span>
-            @enderror
-            <button type="button" id="upload_button" class="btn btn-primary mt-2">Добавить изображения</button>
+        <div class="form-group required ">
+            <label for="consultation_photo" class="control-label" title="Заполните обизательно!">
+                Фото</label>
+            <input class="form-control @error('consultation_photo') is-invalid @enderror"
+                name="consultation_photo" type="file" id="consultation_photo">
+                @error('consultation_photo')
+                    <span class="error invalid-feedback">{{ $message }} </span>
+                @enderror
         </div>
 
         <div class="form-group">

@@ -39,13 +39,8 @@ class MainPageService
         $mainPage->production_title_kz = $data['production_title_kz'];
         $mainPage->production_description = $data['production_description'];
         $mainPage->production_description_kz = $data['production_description_kz'];
-        if (isset($data['production_images'])) {
-            $imgs = [];
-            foreach($data['production_images'] as $file)
-            {
-                $imgs[] = $this->fileService->saveFile($file, MainPage::IMAGE_PATH);
-            }
-            $mainPage->production_image = $imgs;
+        if (isset($data['consultation_photo'])) {
+            $mainPage->consultation_photo = $this->fileService->saveFile($data['consultation_photo'], MainPage::IMAGE_PATH, $mainPage->consultation_photo);
         }
 
         return $mainPage->save();

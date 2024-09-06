@@ -39,7 +39,7 @@ class MainPageResource extends JsonResource
             'news' => $news,
             'abt_company_title' => $production_title,
             'abt_company_description' => $production_description,
-            'abt_company_images' => $this->production_image_url,
+            'abt_company_image' => $this->consultation_photo_url,
             'cities' => $cities,
             'banners' => $banners,
         ];
