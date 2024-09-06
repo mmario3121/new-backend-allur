@@ -20,19 +20,11 @@ class MainPageResource extends JsonResource
     {
         $lang = $request->lang;
         if($lang == 'kz'){
-            $finance_title = $this->finance_title_kz;
-            $career_title = $this->career_title_kz;
-            $career_text = $this->career_text_kz;
             $production_title = $this->production_title_kz;
             $production_description = $this->production_description_kz;
-            $production_subtitle = $this->production_subtitle_kz;
         } else {
-            $finance_title = $this->finance_title;
-            $career_title = $this->career_title;
-            $career_text = $this->career_text;
             $production_title = $this->production_title;
             $production_description = $this->production_description;
-            $production_subtitle = $this->production_subtitle;
         }
 
         $brands = BrandMainResource::collection(Brand::all());
@@ -44,22 +36,11 @@ class MainPageResource extends JsonResource
             'video' => $this->video_url,
             'mobile_video' => $this->mobile_video_url,
             'brands' => $brands,
-            'finance_title' => $finance_title,
-            'finance_photo' => $this->finance_photo_url,
             'news' => $news,
-            'production_title' => $production_title,
-            'production_description' => $production_description,
-            'production_images' => $this->production_image_url,
-            'production_subtitle' => $production_subtitle,
-            'career_title' => $career_title,
-            'career_text' => $career_text,
-            'career_photos' => [
-                $this->career_photo1_url,
-                $this->career_photo2_url,
-                $this->career_photo3_url,
-            ],
+            'abt_company_title' => $production_title,
+            'abt_company_description' => $production_description,
+            'abt_company_images' => $this->production_image_url,
             'cities' => $cities,
-            'consultation_photo' => $this->consultation_photo_url,
             'banners' => $banners,
         ];
     }

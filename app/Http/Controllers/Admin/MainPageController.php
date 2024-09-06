@@ -61,7 +61,7 @@ class MainPageController extends Controller
             DB::rollBack();
             return back()->withInput()->withErrors($exception->getMessage());
         }
-        return redirect()->route('admin.mainPages.index')->with('success', trans('messages.success_updated'));
+        return redirect()->route('admin.mainPages.edit', $mainPage)->with('success', trans('messages.success_updated'));
     }
 
     public function destroy(MainPage $mainPage)

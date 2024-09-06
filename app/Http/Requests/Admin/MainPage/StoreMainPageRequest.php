@@ -24,23 +24,10 @@ class StoreMainPageRequest extends FormRequest
     public function rules()
     {
         return [
-            'video' => 'required',
-            'mobile_video' => 'required',
-            'finance_title' => 'required',
-            'finance_title_kz' => 'required',
-            'finance_photo' => 'required|image',
-            'career_photo1' => 'required|image',
-            'career_photo2' => 'required|image',
-            'career_photo3' => 'required|image',
-            'career_title' => 'required',
-            'career_title_kz' => 'required',
-            'consultation_photo' => 'required|image',
             'production_title' => 'required',
             'production_title_kz' => 'required',
             'production_description' => 'required',
             'production_description_kz' => 'required',
-            'production_subtitle' => 'required',
-            'production_subtitle_kz' => 'required',
             'production_image' => 'required|image',
         ];
     }
