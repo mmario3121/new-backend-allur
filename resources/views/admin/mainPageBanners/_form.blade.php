@@ -61,7 +61,7 @@
                 name="model_id" id="model_id">
                 <option value="">Выберите модель</option>
                 @foreach($models as $model)
-                    <option value="{{ $model->id }}" {{ isset($mainPageBanner) && $mainPageBanner->model_id == $model->id ? 'selected' : '' }}>{{ $model->name }}</option>
+                    <option value="{{ $model->id }}" {{ isset($mainPageBanner) && $mainPageBanner->model_id == $model->id ? 'selected' : '' }}>{{ $model->title }}</option>
                 @endforeach
             </select>
             @error('model_id')

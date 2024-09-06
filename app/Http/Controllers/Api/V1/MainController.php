@@ -57,7 +57,7 @@ class MainController extends Controller
 {
     public function home(Request $request){
         $data['main'] = new MainPageResource(MainPage::first());
-        $data['banners'] = MainPageBanner::all();
+        // $data['banners'] = MainPageBanner::all();
 
         return new JsonResponse($data, Response::HTTP_OK);
     }

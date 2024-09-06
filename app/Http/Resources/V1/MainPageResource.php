@@ -6,6 +6,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use App\Models\Brand;
 use App\Models\City;
 use App\Models\Article;
+use App\Models\MainPageBanner;
 
 class MainPageResource extends JsonResource
 {
@@ -37,6 +38,7 @@ class MainPageResource extends JsonResource
         $brands = BrandMainResource::collection(Brand::all());
         $news = ArticleResource::collection(Article::orderBy('id', 'desc')->where('isMainPage', 1)->get());
         $cities = CityResource::collection(City::all());
+        $banners = MainPageBannerResource::collection(MainPageBanner::all());
 
         return [
             'video' => $this->video_url,
@@ -58,6 +60,7 @@ class MainPageResource extends JsonResource
             ],
             'cities' => $cities,
             'consultation_photo' => $this->consultation_photo_url,
+            'banners' => $banners,
         ];
     }
 }
