@@ -21,7 +21,7 @@ class ShortModelResource extends JsonResource
         }else{
             $title = $this->title;
         }
-        $main_page_banner = new MainPageBannerResource(MainPageBanner::find('model_id', $this->id));
+        $main_page_banner = new MainPageBannerResource(MainPageBanner::where('model_id', $this->id)->first());
         return [
             'id' => $this->id,
             'title' => $title,
