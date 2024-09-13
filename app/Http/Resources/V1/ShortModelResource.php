@@ -3,6 +3,7 @@
 namespace App\Http\Resources\V1;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Models\MainPageBanner;
 
 class ShortModelResource extends JsonResource
 {
@@ -20,13 +21,15 @@ class ShortModelResource extends JsonResource
         }else{
             $title = $this->title;
         }
+        $main_page_banner = new MainPageBannerResource(MainPageBanner::find('model_id', $this->id));
         return [
             'id' => $this->id,
             'title' => $title,
             'logo' => $this->logo_url,
             'bitrix_id' => $this->bitrix_id,
             'slug' => $this->slug,
-            'price' =>$this->min_price()
+            'price' =>$this->min_price(),
+            'main_page_banner' => $main_page_banner
         ];
     }
 }
