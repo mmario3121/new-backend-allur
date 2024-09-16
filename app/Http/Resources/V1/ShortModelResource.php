@@ -29,7 +29,8 @@ class ShortModelResource extends JsonResource
             'bitrix_id' => $this->bitrix_id,
             'slug' => $this->slug,
             'price' =>$this->min_price(),
-            'main_page_banner' => $main_page_banner
+            'main_page_banner' => $main_page_banner,
+            'main_image'=> $this->main_page_image_url,
         ];
     }
 }
