@@ -7,7 +7,6 @@ use App\Models\Brand;
 use App\Models\City;
 use App\Models\Article;
 use App\Models\MainPageBanner;
-
 class MainPageResource extends JsonResource
 {
     /**
@@ -28,6 +27,7 @@ class MainPageResource extends JsonResource
         }
 
         $brands = BrandMainResource::collection(Brand::all());
+        $brandsNew = BrandNewMainResource::collection(Brand::all());
         $news = ArticleResource::collection(Article::orderBy('id', 'desc')->where('isMainPage', 1)->get());
         $cities = CityResource::collection(City::all());
         $banners = MainPageBannerResource::collection(MainPageBanner::all());
@@ -36,6 +36,7 @@ class MainPageResource extends JsonResource
             'video' => $this->video_url,
             'mobile_video' => $this->mobile_video_url,
             'brands' => $brands,
+            'brandsNew' => $brandsNew,
             'news' => $news,
             'abt_company_title' => $production_title,
             'abt_company_description' => $production_description,
