@@ -19,6 +19,6 @@ class MainPageBanner extends Model
 
     public function getImageUrlAttribute()
     {
-        return $this->image ? asset('storage/' . self::IMAGE_PATH . '/' . $this->image) : null;
+        return $this->image ? asset('uploads/' . self::IMAGE_PATH . '/' . $this->image) : null;
     }
 }
