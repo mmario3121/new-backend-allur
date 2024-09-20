@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('dealear_addresses', function (Blueprint $table) {
+        Schema::table('dealer_addresses', function (Blueprint $table) {
             $table->string('address2')->nullable()->after('address');
             $table->string('address2_kz')->nullable()->after('address_kz');
         });
@@ -26,7 +26,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('dealear_addresses', function (Blueprint $table) {
+        Schema::table('dealer_addresses', function (Blueprint $table) {
             $table->dropColumn('address2');
             $table->dropColumn('address2_kz');
         });
