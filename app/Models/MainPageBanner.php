@@ -13,7 +13,7 @@ class MainPageBanner extends Model
 
     protected $guarded = false;
 
-    protected $fillable = ['image', 'title', 'title_kz', 'description', 'description_kz', 'link', 'model_id',, 'mobile_image'];
+    protected $fillable = ['image', 'title', 'title_kz', 'description', 'description_kz', 'link', 'model_id', 'mobile_image'];
 
     protected $appends = ['image_url', 'mobile_image_url'];
 
