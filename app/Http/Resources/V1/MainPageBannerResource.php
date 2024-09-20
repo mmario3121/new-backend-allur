@@ -26,6 +26,7 @@ class MainPageBannerResource extends JsonResource
             'title' => $title,
             'description' => $description,
             'image' => $this->image_url,
+            'mobile_image' => $this->mobile_image_url,
             'link' => $this->link,
             'model_id' => $this->model_id,
         ];

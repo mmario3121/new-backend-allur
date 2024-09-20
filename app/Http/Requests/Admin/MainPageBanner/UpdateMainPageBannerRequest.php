@@ -25,6 +25,7 @@ class UpdateMainPageBannerRequest extends FormRequest
     {
         return [
             'image' => 'image',
+            'mobile_image' => 'image',
             'title' => '',
             'title_kz' => '',
             'description' => '',

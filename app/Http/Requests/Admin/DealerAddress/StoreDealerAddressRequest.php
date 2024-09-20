@@ -27,6 +27,8 @@ class StoreDealerAddressRequest extends FormRequest
             'dealer_id' => 'required',
             'address' => 'required',
             'address_kz' => 'required',
+            'address2' => 'required',
+            'address2_kz' => 'required',
             'worktime' => 'required',
             'worktime_kz' => 'required',
             'phone' => 'required',

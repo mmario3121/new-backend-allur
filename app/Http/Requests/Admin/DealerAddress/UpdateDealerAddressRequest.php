@@ -26,6 +26,8 @@ class UpdateDealerAddressRequest extends FormRequest
         return [
             'address' => 'required',
             'address_kz' => 'required',
+            'address2' => 'nullable',
+            'address2_kz' => 'nullable',
             'phone' => 'required',
             'worktime' => 'required',
             'worktime_kz' => 'required',

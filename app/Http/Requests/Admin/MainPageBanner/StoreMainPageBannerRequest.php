@@ -25,6 +25,7 @@ class StoreMainPageBannerRequest extends FormRequest
     {
         return [
             'image' => '',
+            'mobile_image' => '',
             'title' => '',
             'title_kz' => '',
             'description' => '',

@@ -24,8 +24,15 @@ class MainPageBannerService
         }else{
             $data['image'] = null;
         }
+        if (isset($data['mobile_image'])) {
+            $data['mobile_image'] = $this->fileService->saveFile($data['mobile_image'], MainPageBanner::IMAGE_PATH);
+        }else{
+            $data['mobile_image'] = null;
+        }
+
         return MainPageBanner::query()->create([
             'image' => $data['image'],
+            'mobile_image' => $data['mobile_image'],
             'title' => $data['title'],
             'title_kz' => $data['title_kz'],
             'description' => $data['description'],
@@ -46,8 +53,8 @@ class MainPageBannerService
         if (isset($data['image'])) {
             $banner->image = $this->fileService->saveFile($data['image'], MainPageBanner::IMAGE_PATH, $banner->image);
         }
-        if (isset($data['image_kz'])) {
-            $banner->image_kz = $this->fileService->saveFile($data['image_kz'], MainPageBanner::IMAGE_PATH, $banner->image_kz);
+        if (isset($data['mobile_image'])) {
+            $banner->mobile_image = $this->fileService->saveFile($data['mobile_image'], MainPageBanner::IMAGE_PATH, $banner->mobile_image);
         }
         return $banner->save();
     }

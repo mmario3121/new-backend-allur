@@ -22,6 +22,8 @@ class DealerAddressService
         return DealerAddress::query()->create([
             'address' => $data['address'],
             'address_kz' => $data['address_kz'],
+            'address2' => $data['address2'],
+            'address2_kz' => $data['address2_kz'],
             'worktime' => $data['worktime'],
             'worktime_kz' => $data['worktime_kz'],
             'phone' => $data['phone'],
@@ -35,6 +37,8 @@ class DealerAddressService
     {
         $dealerAddress->address = $data['address'];
         $dealerAddress->address_kz = $data['address_kz'];
+        $dealerAddress->address2 = $data['address2'];
+        $dealerAddress->address2_kz = $data['address2_kz'];
         $dealerAddress->worktime = $data['worktime'];
         $dealerAddress->worktime_kz = $data['worktime_kz'];
         $dealerAddress->phone = $data['phone'];

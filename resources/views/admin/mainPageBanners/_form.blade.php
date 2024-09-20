@@ -10,6 +10,15 @@
                 @enderror
         </div>
         <div class="form-group ">
+            <label for="mobile_image" class="control-label" title="Заполните обизательно!">
+               Моб. Картинка/Видео </label>
+            <input class="form-control @error('mobile_image') is-invalid @enderror"
+                name="mobile_image" type="file" id="image">
+                @error('mobile_image')
+                    <span class="error invalid-feedback">{{ $message }} </span>
+                @enderror
+        </div>
+        <div class="form-group ">
             <label for="title" class="control-label" title="Заполните обизательно!">
                 Заголовок </label>
             <input class="form-control @error('title') is-invalid @enderror"

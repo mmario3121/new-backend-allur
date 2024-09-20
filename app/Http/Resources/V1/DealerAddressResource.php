@@ -17,10 +17,12 @@ class DealerAddressResource extends JsonResource
         $lang = $request->lang;
         if($lang == 'kz'){
             $address = $this->address_kz;
+            $address2 = $this->address2_kz;
             $worktime = $this->worktime_kz;
             $name = $this->dealer->name_kz;
         }else{
             $address = $this->address;
+            $address2 = $this->address2;
             $worktime = $this->worktime;
             $name = $this->dealer->name;
         }
@@ -67,6 +69,7 @@ class DealerAddressResource extends JsonResource
         }
         return [
             'address' => $address,
+            'address2' => $address2,
             'worktime' => $worktime_normal,
             'worktime_weekend' => $worktime_weekend,
             'phone' => $phone,

@@ -30,6 +30,20 @@
                             >{{ isset($dealerAddress) ? $dealerAddress->address_kz : (old("address_kz") ?? '') }}</textarea>
         </div>
         <div class="form-group required">
+            <label for="address2" class="control-label">Адрес 2 </label>
+            <textarea id="address2"
+                                      class="form-control @error('address2') is-invalid @enderror"
+                                      rows="3" name="address2"
+                            >{{ isset($dealerAddress) ? $dealerAddress->address2 : (old("address2") ?? '') }}</textarea>
+        </div>
+        <div class="form-group required">
+            <label for="address2_kz" class="control-label">Адрес 2 KZ</label>
+            <textarea id="address2_kz"
+                                      class="form-control @error('address2_kz') is-invalid @enderror"
+                                      rows="3" name="address2_kz"
+                            >{{ isset($dealerAddress) ? $dealerAddress->address2_kz : (old("address2_kz") ?? '') }}</textarea>
+        </div>
+        <div class="form-group required">
             <label for="worktime" class="control-label">Время работы </label>
             <textarea id="worktime"
                                       class="form-control @error('worktime') is-invalid @enderror"
