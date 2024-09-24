@@ -41,6 +41,21 @@ class ArticleResource extends JsonResource
                     'type' => $news->type,
                 ];
             }
+        }else{
+            $cn = Article::where('id', '!=', $this->id)->orderBy('time', 'desc')->limit(3)->get();
+            foreach ($cn as $news) {
+                $connectedNews[] = [
+                    'slug' => $news->slug,
+                    'title' => $news->titleTranslate?->{$lang},
+                    'description' => $news->descriptionTranslate?->{$lang},
+                    'description_mob' => $news->descriptionMobTranslate?->{$lang},
+                    'image' => $news->image_url,
+                    'time' => $news->time,
+                    'isForm' => $news->isForm,
+                    'banner' => $news->banner_url,
+                    'type' => $news->type,
+                ];
+            }
         }
         
         return [
