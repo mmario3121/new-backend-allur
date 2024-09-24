@@ -25,7 +25,7 @@ class UpdateArticleRequest extends FormRequest
     {
         return [
             'title' => 'required|array',
-            'title.*' => 'required|max:255',
+            'title.*' => 'max:255',
 
             'description' => 'required|array',
             'description.*' => 'required',

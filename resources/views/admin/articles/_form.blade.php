@@ -16,7 +16,7 @@
             <div class="tab-content" id="custom-tabs-two-tabContent">
                 <div class="tab-pane fade active in show" id="ru-tab-content" role="tabpanel"
                      aria-labelledby="ru-tab">
-                    <div class="form-group required ">
+                    <div class="form-group">
                         <label for="title-ru" class="control-label" title="Заполните обизательно!">
                             Заголовок (Ru)
                         </label>
@@ -51,7 +51,7 @@
 
                 <div class="tab-pane fade" id="kz-tab-content" role="tabpanel"
                      aria-labelledby="kz-tab">
-                    <div class="form-group required">
+                    <div class="form-group">
                         <label for="title-kz" class="control-label">Заголовок (Kz) </label>
                         <input class="form-control @error('title.kz') is-invalid @enderror" name="title[kz]" type="text"
                                id="title-kz"
