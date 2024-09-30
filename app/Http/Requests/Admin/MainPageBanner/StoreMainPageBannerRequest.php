@@ -31,7 +31,8 @@ class StoreMainPageBannerRequest extends FormRequest
             'description' => '',
             'description_kz' => '',
             'link' => '',
-            'model_id' => 'exists:car_models,id|nullable',
+            'model_id' => 'required|array',
+            'model_id.*' => 'exists:car_models,id',
         ];
     }
 }

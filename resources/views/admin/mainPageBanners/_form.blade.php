@@ -63,20 +63,26 @@
                     <span class="error invalid-feedback">{{ $message }} </span>
                 @enderror
         </div>
-        <div class="form-group ">
-            <label for="model_id" class="control-label" title="Заполните обизательно!">
-                Модель </label>
-            <select class="form-control @error('model_id') is-invalid @enderror"
-                name="model_id" id="model_id">
-                <option value="">Выберите модель</option>
-                @foreach($models as $model)
-                    <option value="{{ $model->id }}" {{ isset($mainPageBanner) && $mainPageBanner->model_id == $model->id ? 'selected' : '' }}>{{ $model->title }}</option>
-                @endforeach
-            </select>
+        <div class="form-group">
+    <label for="model_id" class="control-label">Модель</label>
+            @foreach($models as $model)
+                <div class="form-check">
+                    <input class="form-check-input @error('model_id') is-invalid @enderror"
+                        type="checkbox"
+                        name="model_id[]"
+                        id="model_{{ $model->id }}"
+                        value="{{ $model->id }}"
+                        @if(isset($mainPageBanner) && in_array($model->id, $mainPageBanner->model_id ?? [])) checked @endif>
+                    <label class="form-check-label" for="model_{{ $model->id }}">
+                        {{ $model->title }}
+                    </label>
+                </div>
+            @endforeach
             @error('model_id')
-                <span class="error invalid-feedback">{{ $message }} </span>
+            <span class="error invalid-feedback">{{ $message }}</span>
             @enderror
         </div>
+
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary">

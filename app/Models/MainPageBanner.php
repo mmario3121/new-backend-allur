@@ -17,6 +17,16 @@ class MainPageBanner extends Model
 
     protected $appends = ['image_url', 'mobile_image_url'];
 
+    protected $casts = [
+        'model_id' => 'array', // Автоматическое преобразование JSON в массив
+    ];
+
+    // Если вы хотите использовать аксессор вручную
+    public function getModelIdAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
     public function getImageUrlAttribute()
     {
         return $this->image ? asset('uploads/' . self::IMAGE_PATH . '/' . $this->image) : null;

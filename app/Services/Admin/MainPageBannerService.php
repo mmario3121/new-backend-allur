@@ -38,7 +38,7 @@ class MainPageBannerService
             'description' => $data['description'],
             'description_kz' => $data['description_kz'],
             'link' => $data['link'],
-            'model_id' => $data['model_id'],
+            'model_id' => json_encode($data['model_id'])
         ]);
     }
 
@@ -49,7 +49,7 @@ class MainPageBannerService
         $banner->description = $data['description'];
         $banner->description_kz = $data['description_kz'];
         $banner->link = $data['link'];
-        $banner->model_id = $data['model_id'];
+        $banner->model_id = json_encode($data['model_id']);
         if (isset($data['image'])) {
             $banner->image = $this->fileService->saveFile($data['image'], MainPageBanner::IMAGE_PATH, $banner->image);
         }
