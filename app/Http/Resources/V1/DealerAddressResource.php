@@ -67,17 +67,25 @@ class DealerAddressResource extends JsonResource
         else{
             $logo = null;
         }
+
+        $adresses[] = [
+            'label'=> $address,
+            'coordinates' => $coordinates,
+        ];
+        if($address2){
+            $adresses[] = [
+                'label'=> $address2,
+                'coordinates' => $coordinates2,
+            ];
+        }
         return [
-            'address' => $address,
-            'address2' => $address2,
+            'addresses' => $adresses,
             'worktime' => $worktime_normal,
             'worktime_weekend' => $worktime_weekend,
             'phone' => $phone,
             'city' => $this->dealer->city->titleTranslate->{$lang},
             'name' => $name,
-            'icon' => $logo,
-            'coordinates' => $coordinates,
-            'coordinates2' => $coordinates2,
+            'icon' => $logo
         ];
     }
 }
