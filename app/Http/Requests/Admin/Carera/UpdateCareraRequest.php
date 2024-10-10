@@ -31,6 +31,12 @@ class UpdateCareraRequest extends FormRequest
             'block2_text' => 'nullable|string',
             'block2_image' => 'nullable|image',
             'block3_image' => 'nullable|image',
+            'block4_title' => 'nullable|string',
+            'block4_title_kz' => 'nullable|string',
+            'block4_text' => 'nullable|string',
+            'block4_text_kz' => 'nullable|string',
+            'block4_image' => 'nullable|image',
+            'block5_image' => 'nullable|image',
         ];
     }
 }

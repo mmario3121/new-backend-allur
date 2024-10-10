@@ -97,6 +97,87 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
+
+        <h2 class="h2">Блок 4</h2>
+        
+        <div class="form-group required ">
+            <label for="block4_title" class="control-label" title="Заполните обязательно!">
+                Заголовок
+            </label>
+            <input class="form-control @error('title') is-invalid @enderror" title="block4_title" type="text"
+                   id="block4_title" value="{{  isset($carera) ? $carera->block4_title : (old('block4_title') ?? '') }}"
+                   name="block4_title"
+                   >
+            @error('block4_title')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+        <div class="form-group required ">
+            <label for="block4_title_kz" class="control-label" title="Заполните обязательно!">
+                Заголовок KZ
+            </label>
+            <input class="form-control @error('title') is-invalid @enderror" title="block4_title_kz" type="text"
+                   id="block4_title_kz" value="{{  isset($carera) ? $carera->block4_title_kz : (old('block4_title_kz') ?? '') }}"
+                   name="block4_title_kz"
+                   >
+            @error('block4_title_kz')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+        <div class="form-group required ">
+            <label for="block4_image" class="control-label" title="Заполните обязательно!">
+                Изображение
+            </label>
+            <input class="form-control @error('block4_image') is-invalid @enderror" title="block4_image" type="file"
+                   id="block4_image" value="{{  isset($carera) ? $carera->block4_image : (old('block4_image') ?? '') }}"
+                   name="block4_image"
+                   >
+            @error('block4_image')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+
+        <div class="form-group required ">
+            <label for="block4_text" class="control-label" title="Заполните обязательно!">
+                Текст
+            </label>
+            <input class="form-control @error('text') is-invalid @enderror" title="block4_text" type="text"
+                   id="block4_text" value="{{  isset($carera) ? $carera->block4_text : (old('block4_text') ?? '') }}"
+                   name="block4_text"
+                   >
+            @error('block4_text')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+        <div class="form-group required ">
+            <label for="block4_text_kz" class="control-label" title="Заполните обязательно!">
+                Текст KZ
+            </label>
+            <input class="form-control @error('text') is-invalid @enderror" title="block4_text_kz" type="text"
+                   id="block4_text_kz" value="{{  isset($carera) ? $carera->block4_text_kz : (old('block4_text_kz') ?? '') }}"
+                   name="block4_text_kz"
+                   >
+            @error('block4_text_kz')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+
+        <br>
+        <br>
+        <h2 class="h2">Блок 5</h2>
+        <div class="form-group required ">
+            <label for="block5_image" class="control-label" title="Заполните обязательно!">
+                Изображение
+            </label>
+            <input class="form-control @error('block5_image') is-invalid @enderror" title="block5_image" type="file"
+                   id="block5_image" value="{{  isset($carera) ? $carera->block5_image : (old('block5_image') ?? '') }}"
+                   name="block5_image"
+                   >
+            @error('block5_image')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+
         <div class="form-group">
             <button type="submit" class="btn btn-primary">
                 Сохранить

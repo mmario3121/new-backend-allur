@@ -27,6 +27,10 @@ class CareraResource extends JsonResource
             $block2_text = $this->block2_text;
             $block2_image = $this->block2_image_url;
             $block3_image = $this->block3_image_url;
+            $block4_title = $this->block4_title;
+            $block4_text = $this->block4_text;
+            $block4_image = $this->block4_image_url;
+            $block5_image = $this->block5_image_url;
         }else{
             $block1_title = $this->block1_title;
             $block1_text = $this->block1_text;
@@ -34,10 +38,13 @@ class CareraResource extends JsonResource
             $block2_title = $this->block2_title;
             $block2_text = $this->block2_text;
             $block2_image = $this->block2_image_url;
-            $block3_image = $this->block3_image_url;     
+            $block3_image = $this->block3_image_url;
+            $block4_title = $this->block4_title_kz;
+            $block4_text = $this->block4_text_kz;
+            $block4_image = $this->block4_image_url;
         }
         
-        $block4 = CareraBannerResource::collection(CareraBanner::all());
+        $banner_block = CareraBannerResource::collection(CareraBanner::all());
         return [
             'block1_title' => $block1_title,
             'block1_text' => $block1_text,
@@ -46,7 +53,11 @@ class CareraResource extends JsonResource
             'block2_text' => $block2_text,
             'block2_image' => $block2_image,
             'block3_image' => $block3_image,
-            'block4' => $block4,
+            'banner_block' => $banner_block,
+            'block4_title' => $block4_title,
+            'block4_text' => $block4_text,
+            'block4_image' => $block4_image,
+            'block5_image' => $block5_image,
         ];
     }
 }
