@@ -16,20 +16,19 @@
     <section class="content">
         <div class="container-fluid">
             @include('admin._components.alert')
-            <a href="{{ route('admin.careras.index') }}" title="Назад"
+            <a href="{{ route('admin.careras.edit', ['carera' => 1])}}" title="Назад"
                class="btn btn-warning btn-sm mb-3">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
                 Назад
             </a>
             <form method="POST" class="pb-5"
-                  action="{{ route('admin.careras.update', ['carera' => $carera]) }}"
+                  action="{{ route('admin.careraBanners.update', ['careraBanner' => $careraBanner]) }}"
                   enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
-                @include('admin.careras._form')
+                @include('admin.careraBanners._form')
             </form>
 
-        @include('admin.careraBanners.index')
         </div>
     </section>
 @endsection

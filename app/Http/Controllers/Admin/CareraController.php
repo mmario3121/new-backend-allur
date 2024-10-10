@@ -9,6 +9,7 @@ use App\Models\Carera;
 use App\Services\Admin\CareraService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\CareraBanner;
 
 class CareraController extends Controller
 {
@@ -44,7 +45,8 @@ class CareraController extends Controller
 
     public function edit(Carera $carera)
     {
-        return view('admin.careras.edit', ['carera' => $carera]);
+        $careraBanners = CareraBanner::all();
+        return view('admin.careras.edit', ['carera' => $carera, 'careraBanners' => $careraBanners]);
     }
 
     public function update(UpdateCareraRequest $request, Carera $carera)

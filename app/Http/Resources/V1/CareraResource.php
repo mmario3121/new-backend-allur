@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\V1;
 
+use App\Models\CareraBanner;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\V1\ArticleResource;
 use App\Models\Article;
@@ -36,6 +37,7 @@ class CareraResource extends JsonResource
             $block3_image = $this->block3_image_url;     
         }
         
+        $block4 = CareraBannerResource::collection(CareraBanner::all());
         return [
             'block1_title' => $block1_title,
             'block1_text' => $block1_text,
@@ -43,8 +45,8 @@ class CareraResource extends JsonResource
             'block2_title' => $block2_title,
             'block2_text' => $block2_text,
             'block2_image' => $block2_image,
-            'block3_image' => $block3_image
-            
+            'block3_image' => $block3_image,
+            'block4' => $block4,
         ];
     }
 }
