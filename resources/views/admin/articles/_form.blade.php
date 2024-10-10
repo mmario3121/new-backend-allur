@@ -94,7 +94,7 @@
         </div>
 
         <div class="form-group required">
-            <label for="image_kz" class="control-label">Фото KZ</label>
+            <label for="image_kz" class="control-label">Фото KZ (Сверху внутри страницы)</label>
             <input class="form-control @error('image') is-invalid @enderror"
                    name="image_kz" type="file" id="image_kz" accept="image/*" onchange="loadFile2(event, 'kz')">
             @error('image_kz')
@@ -109,7 +109,7 @@
             @endif
         </div>
         <div class="form-group required">
-            <label for="image" class="control-label">Фото</label>
+            <label for="image" class="control-label">Фото (Сверху внутри страницы)</label>
             <input class="form-control @error('image') is-invalid @enderror"
                    name="image" type="file" id="image" accept="image/*" onchange="loadFile(event)">
             @error('image')
@@ -217,7 +217,7 @@
             @enderror
             </div>
             <div class="form-group">
-            <label for="banner" class="control-label">Баннер </label>
+            <label for="banner" class="control-label">Фото (Если выбрано отображение в баннере общих новостей) </label>
             <input class="form-control @error('banner') is-invalid @enderror"
                    name="banner" type="file" id="banner" accept="image/*" onchange="loadFileBanner(event)">
             @error('banner')
