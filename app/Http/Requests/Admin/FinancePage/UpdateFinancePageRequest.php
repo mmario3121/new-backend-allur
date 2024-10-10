@@ -76,6 +76,41 @@ class UpdateFinancePageRequest extends FormRequest
             'card9_subtitle' => 'nullable|string',
             'card9_subtitle_kz' => 'nullable|string',
             'block2_image' => 'nullable|image',
+            'mini_card_5' => 'nullable|array',
+            [
+            'mini_card_5.field1' => 'nullable|string',
+            'mini_card_5.field2' => 'nullable|string',
+            'mini_card_5.field3' => 'nullable|string',
+            'mini_card_5.field4' => 'nullable|string',
+            ],
+            'mini_card_6' => 'nullable|array',
+            [
+            'mini_card_6.field1' => 'nullable|string',
+            'mini_card_6.field2' => 'nullable|string',
+            'mini_card_6.field3' => 'nullable|string',
+            'mini_card_6.field4' => 'nullable|string',
+            ],
+            'mini_card_7' => 'nullable|array',
+            [
+            'mini_card_7.field1' => 'nullable|string',
+            'mini_card_7.field2' => 'nullable|string',
+            'mini_card_7.field3' => 'nullable|string',
+            'mini_card_7.field4' => 'nullable|string',
+            ],
+            'mini_card_8' => 'nullable|array',
+            [
+            'mini_card_8.field1' => 'nullable|string',
+            'mini_card_8.field2' => 'nullable|string',
+            'mini_card_8.field3' => 'nullable|string',
+            'mini_card_8.field4' => 'nullable|string',
+            ],
+            'mini_card_9' => 'nullable|array',
+            [
+            'mini_card_9.field1' => 'nullable|string',
+            'mini_card_9.field2' => 'nullable|string',
+            'mini_card_9.field3' => 'nullable|string',
+            'mini_card_9.field4' => 'nullable|string',
+            ],
         ];
     }
 }

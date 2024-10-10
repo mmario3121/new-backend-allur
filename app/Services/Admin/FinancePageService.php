@@ -115,6 +115,17 @@ class FinancePageService
             $financePage->block2_image = $this->fileService->saveFile($data['block2_image'], FinancePage::IMAGE_PATH, $financePage->block2_image);
         }
 
+        $miniCard5 = json_encode($data['mini_card_5']);
+        $miniCard6 = json_encode($data['mini_card_6']);
+        $miniCard7 = json_encode($data['mini_card_7']);
+        $miniCard8 = json_encode($data['mini_card_8']);
+        $miniCard9 = json_encode($data['mini_card_9']);
+        $financePage->mini_card_5 = $miniCard5;
+        $financePage->mini_card_6 = $miniCard6;
+        $financePage->mini_card_7 = $miniCard7;
+        $financePage->mini_card_8 = $miniCard8;
+        $financePage->mini_card_9 = $miniCard9;
+
         return $financePage->save();
     }
 

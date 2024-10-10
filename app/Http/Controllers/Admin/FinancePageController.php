@@ -44,7 +44,20 @@ class FinancePageController extends Controller
 
     public function edit(FinancePage $financePage)
     {
-        return view('admin.financePages.edit', ['financePage' => $financePage]);
+        $miniCard5 = $financePage->mini_card_5 ? json_decode($financePage->mini_card_5, true) : [];
+        $miniCard6 = $financePage->mini_card_6 ? json_decode($financePage->mini_card_6, true) : [];
+        $miniCard7 = $financePage->mini_card_7 ? json_decode($financePage->mini_card_7, true) : [];
+        $miniCard8 = $financePage->mini_card_8 ? json_decode($financePage->mini_card_8, true) : [];
+        $miniCard9 = $financePage->mini_card_9 ? json_decode($financePage->mini_card_9, true) : [];
+
+        return view('admin.financePages.edit', [
+            'financePage' => $financePage,
+            'miniCard5' => $miniCard5,
+            'miniCard6' => $miniCard6,
+            'miniCard7' => $miniCard7,
+            'miniCard8' => $miniCard8,
+            'miniCard9' => $miniCard9,
+        ]);
     }
 
     public function update(UpdateFinancePageRequest $request, FinancePage $financePage)
