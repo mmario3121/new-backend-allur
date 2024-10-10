@@ -29,6 +29,7 @@ use App\Models\Promo;
 
 
 use App\Http\Resources\V1\SlidersResource;
+use App\Http\Resources\V1\FinancePageResource;
 use App\Http\Resources\V1\CarTypeResource;
 use App\Http\Resources\V1\ArticleResource;
 use App\Http\Resources\V1\LibraryModelResource;
@@ -130,8 +131,7 @@ class MainController extends Controller
 
     //finance
     public function finance(Request $request){
-        $data = FinancePage::first();
-        $data['news'] = ArticleResource::collection(Article::where('isFinance', 1)->get());
+        $data = FinancePageResource::collection(FinancePage::all());
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
