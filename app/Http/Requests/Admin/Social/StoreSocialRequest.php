@@ -24,20 +24,14 @@ class StoreSocialRequest extends FormRequest
     public function rules()
     {
         
-        //4 blocks with title, image, text
+        //title, title_kz, text, text_kz, image, type
         return [
-            'block1_title' => 'nullable|string',
-            'block1_image' => 'nullable|image',
-            'block1_text' => 'nullable|string',
-            'block2_title' => 'nullable|string',
-            'block2_image' => 'nullable|image',
-            'block2_text' => 'nullable|string',
-            'block3_title' => 'nullable|string',
-            'block3_image' => 'nullable|image',
-            'block3_text' => 'nullable|string',
-            'block4_title' => 'nullable|string',
-            'block4_image' => 'nullable|image',
-            'block4_text' => 'nullable|string',
+            'title' => 'required|max:256',
+            'title_kz' => 'required|max:256',
+            'text' => 'required',
+            'text_kz' => 'required',
+            'image' => 'required|image',
+            'type' => 'required',
         ];
     }
 }

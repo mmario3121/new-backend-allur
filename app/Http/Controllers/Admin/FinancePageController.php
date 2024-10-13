@@ -70,7 +70,7 @@ class FinancePageController extends Controller
             DB::rollBack();
             return back()->withInput()->withErrors($exception->getMessage());
         }
-        return redirect()->route('admin.financePages.index')->with('success', trans('messages.success_updated'));
+        return redirect()->route('admin.financePages.edit', $financePage)->with('success', trans('messages.success_updated'));
     }
 
     public function destroy(FinancePage $financePage)

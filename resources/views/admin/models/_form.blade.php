@@ -97,6 +97,15 @@
                     <span class="error invalid-feedback">{{ $message }} </span>
                 @enderror
         </div>
+        <div class="form-group required ">
+            <label for="price_list_kz" class="control-label" title="Заполните обизательно!">
+                Прайс-Лист KZ</label>
+            <input class="form-control @error('price_list_kz') is-invalid @enderror"
+                name="price_list_kz" type="file" id="price_list_kz">
+                @error('price_list_kz')
+                    <span class="error invalid-feedback">{{ $message }} </span>
+                @enderror
+        </div>
         <div class="form-group">
             <label for="document" class="control-label" title="Заполните обизательно!">
                 Брошюра </label>
@@ -129,7 +138,17 @@
                 @enderror
             </div>
             <div class="form-group col-md-3">
-                <label for="char{{ $i }}_value" class="control-label" title="Заполните обязательно!">
+                <label for="char{{ $i }}_title_kz" class="control-label" title="Заполните обязательно!">
+                    Характеристика {{ $i }} Название KZ
+                </label>
+                <input class="form-control @error('char'.$i.'_title_kz') is-invalid @enderror" title="char{{ $i }}_title_kz" type="text"
+                    id="char{{ $i }}_title_kz" name="char{{ $i }}_title_kz" value="{{  isset($model) ? $model->{"char".$i."_title_kz"} : (old('char'.$i.'_title_kz') ?? '') }}">
+                @error('char'.$i.'_title_kz')
+                    <span class="error invalid-feedback">{{ $message }} </span>
+                @enderror
+            </div>
+            <div class="form-group col-md-3">
+                <label for="char{{ $i }}_value_kz" class="control-label" title="Заполните обязательно!">
                     Характеристика {{ $i }} Значение
                 </label>
                 <input class="form-control @error('char'.$i.'_value') is-invalid @enderror" title="char{{ $i }}_value" type="text"
@@ -138,7 +157,17 @@
                     <span class="error invalid-feedback">{{ $message }} </span>
                 @enderror
             </div>
+            <div class="form-group col-md-3">
+                <label for="char{{ $i }}_value_kz" class="control-label" title="Заполните обязательно!">
+                    Характеристика {{ $i }} Значение KZ
+                </label>
+                <input class="form-control @error('char'.$i.'_value_kz') is-invalid @enderror" title="char{{ $i }}_value_kz" type="text"
+                    id="char{{ $i }}_value_kz" name="char{{ $i }}_value_kz" value="{{  isset($model) ? $model->{"char".$i."_value_kz"} : (old('char'.$i.'_value_kz') ?? '') }}">
+                @error('char'.$i.'_value_kz')
+                    <span class="error invalid-feedback">{{ $message }} </span>
+                @enderror
             </div>
+        </div>
         @endfor
         <div class="form-group">
             <button type="submit" class="btn btn-primary">

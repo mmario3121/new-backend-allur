@@ -236,28 +236,49 @@
                     <input class="form-control" type="text" id="mini_card_5_subtitle" name="mini_card_5[subtitle]"
                         value="{{ isset($miniCard5['subtitle']) ? $miniCard5['subtitle'] : old('mini_card_5.subtitle') }}" placeholder="Field 1">
                     <br>
+                    <label for="mini_card_5_subtitle_kz" class="control-label">Поздаголовок при открытии (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_5_subtitle_kz" name="mini_card_5[subtitle_kz]"
+                        value="{{ isset($miniCard5['subtitle_kz']) ? $miniCard5['subtitle_kz'] : old('mini_card_5.subtitle_kz') }}" placeholder="Field 1">
+                    <br>
                     <label for="mini_card_5_annotation" class="control-label">Текст с *</label>
                     <input class="form-control" type="text" id="mini_card_5_annotation" name="mini_card_5[annotation]"
                         value="{{ isset($miniCard5['annotation']) ? $miniCard5['annotation'] : old('mini_card_5.annotation') }}" placeholder="Field 1">
+                    <br>
+                    <label for="mini_card_5_annotation_kz" class="control-label">Текст с * (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_5_annotation_kz" name="mini_card_5[annotation_kz]"
+                        value="{{ isset($miniCard5['annotation_kz']) ? $miniCard5['annotation_kz'] : old('mini_card_5.annotation_kz') }}" placeholder="Field 1">
                     <br>
                     <label for="mini_card_5_field1" class="control-label">Поле с иконкой 1</label>
                     <input class="form-control" type="text" id="mini_card_5_field1" name="mini_card_5[field1]"
                         value="{{ isset($miniCard5['field1']) ? $miniCard5['field1'] : old('mini_card_5.field1') }}" placeholder="Field 1">
                     <br>
-
+                    <label for="mini_card_5_field1_kz" class="control-label">Поле с иконкой 1 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_5_field1_kz" name="mini_card_5[field1_kz]"
+                        value="{{ isset($miniCard5['field1_kz']) ? $miniCard5['field1_kz'] : old('mini_card_5.field1_kz') }}" placeholder="Field 1">
+                    <br>
                     <label for="mini_card_5_field2" class="control-label">Поле с иконкой 2</label>
                     <input class="form-control" type="text" id="mini_card_5_field2" name="mini_card_5[field2]"
                         value="{{ isset($miniCard5['field2']) ? $miniCard5['field2'] : old('mini_card_5.field2') }}" placeholder="Field 2">
                     <br>
-
+                    <label for="mini_card_5_field2_kz" class="control-label">Поле с иконкой 2 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_5_field2_kz" name="mini_card_5[field2_kz]"
+                        value="{{ isset($miniCard5['field2_kz']) ? $miniCard5['field2_kz'] : old('mini_card_5.field2_kz') }}" placeholder="Field 2">
+                    <br>
                     <label for="mini_card_5_field3" class="control-label">Поле с иконкой 3</label>
                     <input class="form-control" type="text" id="mini_card_5_field3" name="mini_card_5[field3]"
                         value="{{ isset($miniCard5['field3']) ? $miniCard5['field3'] : old('mini_card_5.field3') }}" placeholder="Field 3">
                     <br>
-
+                    <label for="mini_card_5_field3_kz" class="control-label">Поле с иконкой 3 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_5_field3_kz" name="mini_card_5[field3_kz]"
+                        value="{{ isset($miniCard5['field3_kz']) ? $miniCard5['field3_kz'] : old('mini_card_5.field3_kz') }}" placeholder="Field 3">
+                    <br>
                     <label for="mini_card_5_field4" class="control-label">Поле с иконкой 4</label>
                     <input class="form-control" type="text" id="mini_card_5_field4" name="mini_card_5[field4]"
                         value="{{ isset($miniCard5['field4']) ? $miniCard5['field4'] : old('mini_card_5.field4') }}" placeholder="Field 4">
+                    <br>
+                    <label for="mini_card_5_field4_kz" class="control-label">Поле с иконкой 4 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_5_field4_kz" name="mini_card_5[field4_kz]"
+                        value="{{ isset($miniCard5['field4_kz']) ? $miniCard5['field4_kz'] : old('mini_card_5.field4_kz') }}" placeholder="Field 4">
                 </div>
 
                 @error('card5_title')
@@ -297,33 +318,54 @@
                    id="card6_subtitle_kz" value="{{  isset($financePage) ? $financePage->card6_subtitle_kz : (old('card6_subtitle_kz') ?? '') }}"
                    name="card6_subtitle_kz" placeholder="Подзаголовок (kz)"
                    >
-                   <div class="form-group required">
+                <div class="form-group required">
                    <label for="mini_card_6_subtitle" class="control-label">Поздаголовок при открытии</label>
                     <input class="form-control" type="text" id="mini_card_6_subtitle" name="mini_card_6[subtitle]"
                         value="{{ isset($miniCard6['subtitle']) ? $miniCard6['subtitle'] : old('mini_card_6.subtitle') }}" placeholder="Field 1">
+                    <br>
+                    <label for="mini_card_6_subtitle_kz" class="control-label">Поздаголовок при открытии (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_6_subtitle_kz" name="mini_card_6[subtitle_kz]"
+                        value="{{ isset($miniCard6['subtitle_kz']) ? $miniCard6['subtitle_kz'] : old('mini_card_6.subtitle_kz') }}" placeholder="Field 1">
                     <br>
                     <label for="mini_card_6_annotation" class="control-label">Текст с *</label>
                     <input class="form-control" type="text" id="mini_card_6_annotation" name="mini_card_6[annotation]"
                         value="{{ isset($miniCard6['annotation']) ? $miniCard6['annotation'] : old('mini_card_6.annotation') }}" placeholder="Field 1">
                     <br>
+                    <label for="mini_card_6_annotation_kz" class="control-label">Текст с * (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_6_annotation_kz" name="mini_card_6[annotation_kz]"
+                        value="{{ isset($miniCard6['annotation_kz']) ? $miniCard6['annotation_kz'] : old('mini_card_6.annotation_kz') }}" placeholder="Field 1">
+                    <br>
                     <label for="mini_card_6_field1" class="control-label">Поле с иконкой 1</label>
                     <input class="form-control" type="text" id="mini_card_6_field1" name="mini_card_6[field1]"
                         value="{{ isset($miniCard6['field1']) ? $miniCard6['field1'] : old('mini_card_6.field1') }}" placeholder="Field 1">
                     <br>
-
+                    <label for="mini_card_6_field1_kz" class="control-label">Поле с иконкой 1 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_6_field1_kz" name="mini_card_6[field1_kz]"
+                        value="{{ isset($miniCard6['field1_kz']) ? $miniCard6['field1_kz'] : old('mini_card_6.field1_kz') }}" placeholder="Field 1">
+                    <br>
                     <label for="mini_card_6_field2" class="control-label">Поле с иконкой 2</label>
                     <input class="form-control" type="text" id="mini_card_6_field2" name="mini_card_6[field2]"
                         value="{{ isset($miniCard6['field2']) ? $miniCard6['field2'] : old('mini_card_6.field2') }}" placeholder="Field 2">
                     <br>
-
+                    <label for="mini_card_6_field2_kz" class="control-label">Поле с иконкой 2 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_6_field2_kz" name="mini_card_6[field2_kz]"
+                        value="{{ isset($miniCard6['field2_kz']) ? $miniCard6['field2_kz'] : old('mini_card_6.field2_kz') }}" placeholder="Field 2">
+                    <br>
                     <label for="mini_card_6_field3" class="control-label">Поле с иконкой 3</label>
                     <input class="form-control" type="text" id="mini_card_6_field3" name="mini_card_6[field3]"
                         value="{{ isset($miniCard6['field3']) ? $miniCard6['field3'] : old('mini_card_6.field3') }}" placeholder="Field 3">
                     <br>
-
+                    <label for="mini_card_6_field3_kz" class="control-label">Поле с иконкой 3 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_6_field3_kz" name="mini_card_6[field3_kz]"
+                        value="{{ isset($miniCard6['field3_kz']) ? $miniCard6['field3_kz'] : old('mini_card_6.field3_kz') }}" placeholder="Field 3">
+                    <br>
                     <label for="mini_card_6_field4" class="control-label">Поле с иконкой 4</label>
                     <input class="form-control" type="text" id="mini_card_6_field4" name="mini_card_6[field4]"
                         value="{{ isset($miniCard6['field4']) ? $miniCard6['field4'] : old('mini_card_6.field4') }}" placeholder="Field 4">
+                    <br>
+                    <label for="mini_card_6_field4_kz" class="control-label">Поле с иконкой 4 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_6_field4_kz" name="mini_card_6[field4_kz]"
+                        value="{{ isset($miniCard6['field4_kz']) ? $miniCard6['field4_kz'] : old('mini_card_6.field4_kz') }}" placeholder="Field 4">
                 </div>
                 @error('card6_title')
                 <span class="error invalid-feedback">{{ $message }} </span>
@@ -368,27 +410,49 @@
                     <input class="form-control" type="text" id="mini_card_7_subtitle" name="mini_card_7[subtitle]"
                         value="{{ isset($miniCard7['subtitle']) ? $miniCard7['subtitle'] : old('mini_card_7.subtitle') }}" placeholder="Field 1">
                     <br>
+                    <label for="mini_card_7_subtitle_kz" class="control-label">Поздаголовок при открытии (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_7_subtitle_kz" name="mini_card_7[subtitle_kz]"
+                        value="{{ isset($miniCard7['subtitle_kz']) ? $miniCard7['subtitle_kz'] : old('mini_card_7.subtitle_kz') }}" placeholder="Field 1">
+                    <br>
                     <label for="mini_card_7_annotation" class="control-label">Текст с *</label>
                     <input class="form-control" type="text" id="mini_card_7_annotation" name="mini_card_7[annotation]"
                         value="{{ isset($miniCard7['annotation']) ? $miniCard7['annotation'] : old('mini_card_7.annotation') }}" placeholder="Field 1">
+                    <br>
+                    <label for="mini_card_7_annotation_kz" class="control-label">Текст с * (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_7_annotation_kz" name="mini_card_7[annotation_kz]"
+                        value="{{ isset($miniCard7['annotation_kz']) ? $miniCard7['annotation_kz'] : old('mini_card_7.annotation_kz') }}" placeholder="Field 1">
                     <br>
                    <label for="mini_card_7_field1" class="control-label">Поле с иконкой 1</label>
                     <input class="form-control" type="text" id="mini_card_7_field1" name="mini_card_7[field1]"
                         value="{{ isset($miniCard7['field1']) ? $miniCard7['field1'] : old('mini_card_7.field1') }}" placeholder="Field 1">
                     <br>
+                    <label for="mini_card_7_field1_kz" class="control-label">Поле с иконкой 1 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_7_field1_kz" name="mini_card_7[field1_kz]"
+                        value="{{ isset($miniCard7['field1_kz']) ? $miniCard7['field1_kz'] : old('mini_card_7.field1_kz') }}" placeholder="Field 1">
+                    <br>
                     <label for="mini_card_7_field2" class="control-label">Поле с иконкой 2</label>
                     <input class="form-control" type="text" id="mini_card_7_field2" name="mini_card_7[field2]"
                         value="{{ isset($miniCard7['field2']) ? $miniCard7['field2'] : old('mini_card_7.field2') }}" placeholder="Field 2">
                     <br>
-
+                    <label for="mini_card_7_field2_kz" class="control-label">Поле с иконкой 2 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_7_field2_kz" name="mini_card_7[field2_kz]"
+                        value="{{ isset($miniCard7['field2_kz']) ? $miniCard7['field2_kz'] : old('mini_card_7.field2_kz') }}" placeholder="Field 2">
+                    <br>
                     <label for="mini_card_7_field3" class="control-label">Поле с иконкой 3</label>
                     <input class="form-control" type="text" id="mini_card_7_field3" name="mini_card_7[field3]"
                         value="{{ isset($miniCard7['field3']) ? $miniCard7['field3'] : old('mini_card_7.field3') }}" placeholder="Field 3">
                     <br>
-
+                    <label for="mini_card_7_field3_kz" class="control-label">Поле с иконкой 3 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_7_field3_kz" name="mini_card_7[field3_kz]"
+                        value="{{ isset($miniCard7['field3_kz']) ? $miniCard7['field3_kz'] : old('mini_card_7.field3_kz') }}" placeholder="Field 3">
+                    <br>
                     <label for="mini_card_7_field4" class="control-label">Поле с иконкой 4</label>
                     <input class="form-control" type="text" id="mini_card_7_field4" name="mini_card_7[field4]"
                         value="{{ isset($miniCard7['field4']) ? $miniCard7['field4'] : old('mini_card_7.field4') }}" placeholder="Field 4">
+                    <br>
+                    <label for="mini_card_7_field4_kz" class="control-label">Поле с иконкой 4 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_7_field4_kz" name="mini_card_7[field4_kz]"
+                        value="{{ isset($miniCard7['field4_kz']) ? $miniCard7['field4_kz'] : old('mini_card_7.field4_kz') }}" placeholder="Field 4">
                 </div>
                 @error('card7_title')
                 <span class="error invalid-feedback">{{ $message }} </span>
@@ -433,28 +497,49 @@
                     <input class="form-control" type="text" id="mini_card_8_subtitle" name="mini_card_8[subtitle]"
                         value="{{ isset($miniCard8['subtitle']) ? $miniCard8['subtitle'] : old('mini_card_8.subtitle') }}" placeholder="Field 1">
                     <br>
+                    <label for="mini_card_8_subtitle_kz" class="control-label">Поздаголовок при открытии (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_8_subtitle_kz" name="mini_card_8[subtitle_kz]"
+                        value="{{ isset($miniCard8['subtitle_kz']) ? $miniCard8['subtitle_kz'] : old('mini_card_8.subtitle_kz') }}" placeholder="Field 1">
+                    <br>
                     <label for="mini_card_8_annotation" class="control-label">Текст с *</label>
                     <input class="form-control" type="text" id="mini_card_8_annotation" name="mini_card_8[annotation]"
                         value="{{ isset($miniCard8['annotation']) ? $miniCard8['annotation'] : old('mini_card_8.annotation') }}" placeholder="Field 1">
+                    <br>
+                    <label for="mini_card_8_annotation_kz" class="control-label">Текст с * (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_8_annotation_kz" name="mini_card_8[annotation_kz]"
+                        value="{{ isset($miniCard8['annotation_kz']) ? $miniCard8['annotation_kz'] : old('mini_card_8.annotation_kz') }}" placeholder="Field 1">
                     <br>
                     <label for="mini_card_8_field1" class="control-label">Поле с иконкой 1</label>
                     <input class="form-control" type="text" id="mini_card_8_field1" name="mini_card_8[field1]"
                         value="{{ isset($miniCard8['field1']) ? $miniCard8['field1'] : old('mini_card_8.field1') }}" placeholder="Field 1">
                     <br>
-
+                    <label for="mini_card_8_field1_kz" class="control-label">Поле с иконкой 1 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_8_field1_kz" name="mini_card_8[field1_kz]"
+                        value="{{ isset($miniCard8['field1_kz']) ? $miniCard8['field1_kz'] : old('mini_card_8.field1_kz') }}" placeholder="Field 1">
+                    <br>
                     <label for="mini_card_8_field2" class="control-label">Поле с иконкой 2</label>
                     <input class="form-control" type="text" id="mini_card_8_field2" name="mini_card_8[field2]"
                         value="{{ isset($miniCard8['field2']) ? $miniCard8['field2'] : old('mini_card_8.field2') }}" placeholder="Field 2">
                     <br>
-
+                    <label for="mini_card_8_field2_kz" class="control-label">Поле с иконкой 2 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_8_field2_kz" name="mini_card_8[field2_kz]"
+                        value="{{ isset($miniCard8['field2_kz']) ? $miniCard8['field2_kz'] : old('mini_card_8.field2_kz') }}" placeholder="Field 2">
+                    <br>
                     <label for="mini_card_8_field3" class="control-label">Поле с иконкой 3</label>
                     <input class="form-control" type="text" id="mini_card_8_field3" name="mini_card_8[field3]"
                         value="{{ isset($miniCard8['field3']) ? $miniCard8['field3'] : old('mini_card_8.field3') }}" placeholder="Field 3">
                     <br>
-
+                    <label for="mini_card_8_field3_kz" class="control-label">Поле с иконкой 3 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_8_field3_kz" name="mini_card_8[field3_kz]"
+                        value="{{ isset($miniCard8['field3_kz']) ? $miniCard8['field3_kz'] : old('mini_card_8.field3_kz') }}" placeholder="Field 3">
+                    <br>
                     <label for="mini_card_8_field4" class="control-label">Поле с иконкой 4</label>
                     <input class="form-control" type="text" id="mini_card_8_field4" name="mini_card_8[field4]"
                         value="{{ isset($miniCard8['field4']) ? $miniCard8['field4'] : old('mini_card_8.field4') }}" placeholder="Field 4">
+                    <br>
+                    <label for="mini_card_8_field4_kz" class="control-label">Поле с иконкой 4 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_8_field4_kz" name="mini_card_8[field4_kz]"
+                        value="{{ isset($miniCard8['field4_kz']) ? $miniCard8['field4_kz'] : old('mini_card_8.field4_kz') }}" placeholder="Field 4">
                 </div>
                 @error('card8_title')
                 <span class="error invalid-feedback">{{ $message }} </span>
@@ -499,28 +584,49 @@
                     <input class="form-control" type="text" id="mini_card_9_subtitle" name="mini_card_9[subtitle]"
                         value="{{ isset($miniCard9['subtitle']) ? $miniCard9['subtitle'] : old('mini_card_9.subtitle') }}" placeholder="Field 1">
                     <br>
+                    <label for="mini_card_9_subtitle_kz" class="control-label">Поздаголовок при открытии (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_9_subtitle_kz" name="mini_card_9[subtitle_kz]"
+                        value="{{ isset($miniCard9['subtitle_kz']) ? $miniCard9['subtitle_kz'] : old('mini_card_9.subtitle_kz') }}" placeholder="Field 1">
+                    <br>
                     <label for="mini_card_9_annotation" class="control-label">Текст с *</label>
                     <input class="form-control" type="text" id="mini_card_9_annotation" name="mini_card_9[annotation]"
                         value="{{ isset($miniCard9['annotation']) ? $miniCard9['annotation'] : old('mini_card_9.annotation') }}" placeholder="Field 1">
+                    <br>
+                    <label for="mini_card_9_annotation_kz" class="control-label">Текст с * (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_9_annotation_kz" name="mini_card_9[annotation_kz]"
+                        value="{{ isset($miniCard9['annotation_kz']) ? $miniCard9['annotation_kz'] : old('mini_card_9.annotation_kz') }}" placeholder="Field 1">
                     <br>
                     <label for="mini_card_9_field1" class="control-label">Поле с иконкой 1</label>
                     <input class="form-control" type="text" id="mini_card_9_field1" name="mini_card_9[field1]"
                         value="{{ isset($miniCard9['field1']) ? $miniCard9['field1'] : old('mini_card_9.field1') }}" placeholder="Field 1">
                     <br>
-
+                    <label for="mini_card_9_field1_kz" class="control-label">Поле с иконкой 1 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_9_field1_kz" name="mini_card_9[field1_kz]"
+                        value="{{ isset($miniCard9['field1_kz']) ? $miniCard9['field1_kz'] : old('mini_card_9.field1_kz') }}" placeholder="Field 1">
+                    <br>
                     <label for="mini_card_9_field2" class="control-label">Поле с иконкой 2</label>
                     <input class="form-control" type="text" id="mini_card_9_field2" name="mini_card_9[field2]"
                         value="{{ isset($miniCard9['field2']) ? $miniCard9['field2'] : old('mini_card_9.field2') }}" placeholder="Field 2">
                     <br>
-
+                    <label for="mini_card_9_field2_kz" class="control-label">Поле с иконкой 2 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_9_field2_kz" name="mini_card_9[field2_kz]"
+                        value="{{ isset($miniCard9['field2_kz']) ? $miniCard9['field2_kz'] : old('mini_card_9.field2_kz') }}" placeholder="Field 2">
+                    <br>
                     <label for="mini_card_9_field3" class="control-label">Поле с иконкой 3</label>
                     <input class="form-control" type="text" id="mini_card_9_field3" name="mini_card_9[field3]"
                         value="{{ isset($miniCard9['field3']) ? $miniCard9['field3'] : old('mini_card_9.field3') }}" placeholder="Field 3">
                     <br>
-
+                    <label for="mini_card_9_field3_kz" class="control-label">Поле с иконкой 3 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_9_field3_kz" name="mini_card_9[field3_kz]"
+                        value="{{ isset($miniCard9['field3_kz']) ? $miniCard9['field3_kz'] : old('mini_card_9.field3_kz') }}" placeholder="Field 3">
+                    <br>
                     <label for="mini_card_9_field4" class="control-label">Поле с иконкой 4</label>
                     <input class="form-control" type="text" id="mini_card_9_field4" name="mini_card_9[field4]"
                         value="{{ isset($miniCard9['field4']) ? $miniCard9['field4'] : old('mini_card_9.field4') }}" placeholder="Field 4">
+                    <br>
+                    <label for="mini_card_9_field4_kz" class="control-label">Поле с иконкой 4 (kz)</label>
+                    <input class="form-control" type="text" id="mini_card_9_field4_kz" name="mini_card_9[field4_kz]"
+                        value="{{ isset($miniCard9['field4_kz']) ? $miniCard9['field4_kz'] : old('mini_card_9.field4_kz') }}" placeholder="Field 4">
                 </div>
                 @error('card9_title')
                 <span class="error invalid-feedback">{{ $message }} </span>

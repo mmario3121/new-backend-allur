@@ -15,33 +15,15 @@ class Social extends Model
     const CACHE_TIME = 60 * 60 * 24;
     const IMAGE_PATH = 'images/socials';
 
-    protected $appends = ['block1_image_url', 'block2_image_url', 'block3_image_url', 'block4_image_url'];
-    protected $fillable = ['block1_title', 'block1_image', 'block1_text', 'block2_title', 'block2_image', 'block2_text', 'block3_title', 'block3_image', 'block3_text', 'block4_title', 'block4_image', 'block4_text'];
+    protected $appends = ['image_url'];
+    protected $fillable = ['title', 'title_kz', 'text', 'text_kz', 'image', 'type'];
 
     protected $hidden = ['updated_at', 'created_at'];
 
 
-    public function getBlock1ImageUrlAttribute(): string|null
+    public function getImageUrlAttribute(): string|null
     {
-        return $this->block1_image ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->block1_image) : null;
-    }
-
-    
-    public function getBlock2ImageUrlAttribute(): string|null
-    {
-        return $this->block2_image ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->block2_image) : null;
-    }
-
-
-    public function getBlock3ImageUrlAttribute(): string|null
-    {
-        return $this->block3_image ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->block3_image) : null;
-    }
-
-
-    public function getBlock4ImageUrlAttribute(): string|null
-    {
-        return $this->block4_image ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->block4_image) : null;
+        return $this->image ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->image) : null;
     }
 
 }

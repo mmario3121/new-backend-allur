@@ -41,13 +41,24 @@ class KomekService
         $komek->title_kz = $data['title_kz'];
         $komek->text = $data['text'];
         $komek->text_kz = $data['text_kz'];
+        $komek->subtitle = $data['subtitle'];
+        $komek->subtitle_kz = $data['subtitle_kz'];
         $komek->card1 = $data['card1'];
+        $komek->card1_kz = $data['card1_kz'];
         $komek->card2 = $data['card2'];
+        $komek->card2_kz = $data['card2_kz'];
         $komek->card3 = $data['card3'];
+        $komek->card3_kz = $data['card3_kz'];
         $komek->card4 = $data['card4'];
+        $komek->card4_kz = $data['card4_kz'];
         $komek->card5 = $data['card5'];
+        $komek->card5_kz = $data['card5_kz'];
         $komek->card6 = $data['card6'];
+        $komek->card6_kz = $data['card6_kz'];
         $komek->services = json_encode($data['services']);
+        $komek->services_kz = json_encode($data['services_kz']);
+        $komek->annotation = $data['annotation'];
+        $komek->annotation_kz = $data['annotation_kz'];
         if (isset($data['image'])) {
             $komek->image = $this->fileService->saveFile($data['image'], Komek::IMAGE_PATH, $komek->image);
         }

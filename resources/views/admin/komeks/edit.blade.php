@@ -79,4 +79,43 @@
     });
 });
     </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const servicesListKz = document.getElementById('services-kz-list');
+    const addServiceKzButton = document.getElementById('add-service-kz');
+
+    addServiceKzButton.addEventListener('click', function () {
+        const index = servicesListKz.children.length;
+        const serviceContainerKz = document.createElement('div');
+        serviceContainerKz.classList.add('service-kz');
+
+        const newInputKz = document.createElement('input');
+        newInputKz.type = 'text';
+        newInputKz.name = `services_kz[${index}]`;
+        newInputKz.classList.add('form-control');
+        newInputKz.placeholder = 'Введите название услуги';
+
+        const removeButton = document.createElement('button');
+        removeButton.type = 'button';
+        removeButton.textContent = 'Удалить';
+        removeButton.classList.add('remove-service-kz');
+        removeButton.addEventListener('click', function () {
+            serviceContainerKz.remove();
+        });
+
+        serviceContainerKz.appendChild(newInputKz);
+        serviceContainerKz.appendChild(removeButton);
+
+        servicesListKz.appendChild(serviceContainerKz);
+    });
+
+    // Добавляем обработчики событий для уже существующих кнопок удаления
+    document.querySelectorAll('.remove-service-kz').forEach(button => {
+        button.addEventListener('click', function () {
+            button.closest('.service-kz').remove();
+        });
+    });
+});
+</script>
 @endpush

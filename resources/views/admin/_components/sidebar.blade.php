@@ -121,7 +121,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.socials.edit', ['social' => 1]) }}" class="nav-link">
+                    <a href="{{ route('admin.socials.index') }}" class="nav-link">
                         <i class="far fa-fw fa-circle text-cyan"></i>
                         <p>Соц Ответственность</p>
                     </a>
@@ -162,7 +162,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.financePages.index') }}" class="nav-link">
+                    <a href="{{ route('admin.financePages.edit', ['financePage' => 1]) }}" class="nav-link">
                         <i class="far fa-fw fa-circle text-cyan"></i>
                         <p>Страница Finance</p>
                     </a>

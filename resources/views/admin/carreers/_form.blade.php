@@ -617,19 +617,6 @@
 </div>
 
         <div class="form-group  ">
-            <label for="block10_image" class="control-label" title="Заполните обязательно!">
-                Изображение
-            </label>
-            <input class="form-control @error('block10_image') is-invalid @enderror" title="block10_image" type="file"
-                   id="block10_image" value="{{  isset($carreer) ? $carreer->block10_image : (old('block10_image') ?? '') }}"
-                   name="block10_image"
-                   >
-            @error('block10_image')
-            <span class="error invalid-feedback">{{ $message }} </span>
-            @enderror
-        </div>
-        <h2 class="h2">Блок 11 - Завод</h2>
-        <div class="form-group  ">
             <label for="card1_title" class="control-label" title="Заполните обязательно!">
                 Карточка 1
             </label>

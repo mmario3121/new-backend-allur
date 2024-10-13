@@ -12,7 +12,7 @@ class CarModel extends Model
     use HasFactory;
 
     const IMAGE_PATH = 'images/car-models';
-    protected $appends = ['logo_url', 'video_url', 'price_list_url', 'document_url', 'main_page_image_url'];
+    protected $appends = ['logo_url', 'video_url', 'price_list_url', 'document_url', 'main_page_image_url', 'price_list_kz_url', 'document_kz_url'];
 
     protected $fillable = ['type_id', 'slug', 'title', 'title_kz', 'logo', 'video', 'price_list', 'document', 'bitrix_id', 'is_active'];
 
@@ -39,9 +39,17 @@ class CarModel extends Model
     {
         return $this->price_list ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->price_list) : null;
     }
+    public function getPriceListKzUrlAttribute(): string|null
+    {
+        return $this->price_list_kz ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->price_list_kz) : null;
+    }
     public function getDocumentUrlAttribute(): string|null
     {
         return $this->document ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->document) : null;
+    }
+    public function getDocumentKzUrlAttribute(): string|null
+    {
+        return $this->document_kz ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->document_kz) : null;
     }
 
     public function getMainPageImageUrlAttribute(): string|null

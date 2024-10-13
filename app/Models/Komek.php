@@ -14,7 +14,7 @@ class Komek extends Model
     const CACHE_TIME = 60 * 60 * 24;
     const IMAGE_PATH = 'images/komeks';
 
-    protected $fillable = ['title', 'title_kz', 'text', 'text_kz', 'image', 'form_image', 'card1', 'card2', 'card3', 'card4', 'card5', 'card6', 'list'];
+    protected $fillable = ['title', 'title_kz', 'text', 'text_kz', 'image', 'form_image', 'card1', 'card2', 'card3', 'card4', 'card5', 'card6', 'list', 'subtitle', 'subtitle_kz', 'annotation', 'annotation_kz', 'card1_kz', 'card2_kz', 'card3_kz', 'card4_kz', 'card5_kz', 'card6_kz', 'services', 'services_kz'];
 
     protected $appends = ['image_url', 'form_image_url'];
 

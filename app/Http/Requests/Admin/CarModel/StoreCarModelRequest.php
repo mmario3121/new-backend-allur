@@ -33,7 +33,9 @@ class StoreCarModelRequest extends FormRequest
             'main_page_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
             'video' => 'nullable',
             'price_list' => 'nullable',
+            'price_list_kz' => 'nullable',
             'document' => 'nullable',
+            'document_kz' => 'nullable',
             'is_active' => 'nullable|boolean',
             'brand_id' => 'required',
             'char1_title' => 'nullable|max:255',
@@ -44,6 +46,14 @@ class StoreCarModelRequest extends FormRequest
             'char3_value' => 'nullable|max:255',
             'char4_title' => 'nullable|max:255',
             'char4_value' => 'nullable|max:255',
+            'char1_title_kz' => 'nullable|max:255',
+            'char1_value_kz' => 'nullable|max:255',
+            'char2_title_kz' => 'nullable|max:255',
+            'char2_value_kz' => 'nullable|max:255',
+            'char3_title_kz' => 'nullable|max:255',
+            'char3_value_kz' => 'nullable|max:255',
+            'char4_title_kz' => 'nullable|max:255',
+            'char4_value_kz' => 'nullable|max:255',
         ];
     }
 }
