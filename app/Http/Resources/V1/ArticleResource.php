@@ -27,7 +27,7 @@ class ArticleResource extends JsonResource
         $connectedNews = [];
         if ($model != null) {
             $models = CarModel::where('brand_id', $model->brand_id)->pluck('id')->toArray();
-            $cn = Article::whereIn('model_id', $models)->where('id', '!=', $this->id)->orderBy('time', 'desc')->limit(3)->get();
+            $cn = Article::whereIn('model_id', $models)->where('id', '!=', $this->id)->orderBy('time', 'desc')->get();
             foreach ($cn as $news) {
                 $connectedNews[] = [
                     'slug' => $news->slug,
@@ -42,7 +42,7 @@ class ArticleResource extends JsonResource
                 ];
             }
         }else{
-            $cn = Article::where('id', '!=', $this->id)->orderBy('time', 'desc')->limit(3)->get();
+            $cn = Article::where('id', '!=', $this->id)->orderBy('time', 'desc')->get();
             foreach ($cn as $news) {
                 $connectedNews[] = [
                     'slug' => $news->slug,
