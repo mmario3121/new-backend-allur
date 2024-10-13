@@ -34,7 +34,7 @@ class KomekResource extends JsonResource
             $card4 = $this->card4_kz;
             $card5 = $this->card5_kz;
             $card6 = $this->card6_kz;
-            $services = $this->services_kz;
+            $services = $this->services_kz ?? [];
         }
         return [
             'id' => $this->id,
