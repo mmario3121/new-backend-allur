@@ -30,6 +30,8 @@ class StoreSliderRequest extends FormRequest
             'image_mob' => 'required|image',
             'image_kz' => 'required|image',
             'image_mob_kz' => 'required|image',
+            'title' => 'required|max:255',
+            'title_kz' => 'required|max:255',
         ];
     }
 }

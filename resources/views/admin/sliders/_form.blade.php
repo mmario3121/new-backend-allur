@@ -10,6 +10,27 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
+
+        <div class="form-group required ">
+            <label for="title" class="control-label" title="Заполните обязательно!">
+                Заголовок
+            </label>
+            <input class="form-control @error('title') is-invalid @enderror" title="title" type="text"
+                   id="title" name="title" value="{{  isset($slider) ? $slider->title : (old('title') ?? '') }}">
+            @error('title')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+        <div class="form-group required ">
+            <label for="title_kz" class="control-label" title="Заполните обязательно!">
+                Заголовок KZ
+            </label>
+            <input class="form-control @error('title_kz') is-invalid @enderror" title="title_kz" type="text"
+                   id="title_kz" name="title_kz" value="{{  isset($slider) ? $slider->title_kz : (old('title_kz') ?? '') }}">
+            @error('title_kz')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
         <div class="form-group required ">
             <label for="image" class="control-label" title="Заполните обизательно!">
                 Картинка </label>

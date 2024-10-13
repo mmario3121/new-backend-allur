@@ -15,7 +15,7 @@ class Slider extends Model
 
     protected $appends = ['image_url', 'image_mob_url', 'link_url', 'image_kz_url', 'image_mob_kz_url'];
 
-    protected $fillable = ['image', 'link', 'position', 'image_mob', 'image_kz', 'image_mob_kz'];
+    protected $fillable = ['image', 'link', 'position', 'image_mob', 'image_kz', 'image_mob_kz', 'title', 'title_kz'];
 
     protected $hidden = ['updated_at', 'created_at'];
 

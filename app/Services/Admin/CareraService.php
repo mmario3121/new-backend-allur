@@ -23,10 +23,14 @@ class CareraService
         //4 cards
         return Carera::query()->create([
             'block1_title' => $data['block1_title'],
+            'block1_title_kz' => $data['block1_title_kz'],
             'block1_text' => $data['block1_text'],
+            'block1_text_kz' => $data['block1_text_kz'],
             'block1_image' => $this->fileService->saveFile($data['block1_image'], Carera::IMAGE_PATH),
             'block2_title' => $data['block2_title'],
+            'block2_title_kz' => $data['block2_title_kz'],
             'block2_text' => $data['block2_text'],
+            'block2_text_kz' => $data['block2_text_kz'],
             'block2_image' => $this->fileService->saveFile($data['block2_image'], Carera::IMAGE_PATH),
             'block3_image' => $this->fileService->saveFile($data['block3_image'], Carera::IMAGE_PATH),
         ]);
@@ -35,9 +39,13 @@ class CareraService
     public function update(Carera $carera, array $data)
     {
         $carera->block1_title = $data['block1_title'];
+        $carera->block1_title_kz = $data['block1_title_kz'];
         $carera->block1_text = $data['block1_text'];
+        $carera->block1_text_kz = $data['block1_text_kz'];
         $carera->block2_title = $data['block2_title'];
+        $carera->block2_title_kz = $data['block2_title_kz'];
         $carera->block2_text = $data['block2_text'];
+        $carera->block2_text_kz = $data['block2_text_kz'];
         $carera->block4_title = $data['block4_title'];
         $carera->block4_title_kz = $data['block4_title_kz'];
         $carera->block4_text = $data['block4_text'];

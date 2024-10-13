@@ -125,6 +125,7 @@ class FinancePageService
         $financePage->mini_card_7 = $miniCard7;
         $financePage->mini_card_8 = $miniCard8;
         $financePage->mini_card_9 = $miniCard9;
+        $financePage->form_image = $this->fileService->saveFile($data['form_image'], FinancePage::IMAGE_PATH, $financePage->form_image);
 
         return $financePage->save();
     }

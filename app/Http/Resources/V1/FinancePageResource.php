@@ -179,6 +179,7 @@ class FinancePageResource extends JsonResource
             'card9_subtitle' => $card9_subtitle,
             'mini_card_9' => $mini_card_9,
             'block2_image' => $block2_image,
+            'form_image' => $this->form_image_url,
             'news' => $news
         ];
     }

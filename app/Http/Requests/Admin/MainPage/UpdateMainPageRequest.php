@@ -29,6 +29,11 @@ class UpdateMainPageRequest extends FormRequest
             'production_description' => 'required',
             'production_description_kz' => 'required',
             'consultation_photo' => 'nullable|image',
+            'carreer_title' => 'required',
+            'carreer_title_kz' => 'required',
+            'carreer_text' => 'required',
+            'carreer_text_kz' => 'required',
+            'carreer_photo1' => 'nullable|image',
         ];
     }
 }

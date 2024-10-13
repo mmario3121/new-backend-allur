@@ -115,6 +115,16 @@
                     <span class="error invalid-feedback">{{ $message }} </span>
                 @enderror
         </div>
+
+        <div class="form-group">
+            <label for="document_kz" class="control-label" title="Заполните обизательно!">
+                Брошюра KZ</label>
+            <input class="form-control @error('document_kz') is-invalid @enderror"
+                name="document_kz" type="file" id="document_kz">
+                @error('document_kz')
+                    <span class="error invalid-feedback">{{ $message }} </span>
+                @enderror
+        </div>
         <div class="form-group ">
             <label for="main_page_image" class="control-label" title="Заполните обязательно!">
                 Изображение на Главной</label>

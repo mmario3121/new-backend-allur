@@ -21,10 +21,15 @@ class MainPageResource extends JsonResource
         if($lang == 'kz'){
             $production_title = $this->production_title_kz;
             $production_description = $this->production_description_kz;
+            $map_title = $this->career_title_kz;
+            $map_text = $this->career_text_kz;
         } else {
             $production_title = $this->production_title;
             $production_description = $this->production_description;
+            $map_title = $this->career_title;
+            $map_text = $this->career_text;
         }
+        $map_image = $this->career_image_url;
 
         $brands = BrandMainResource::collection(Brand::all());
         $brandsNew = BrandNewMainResource::collection(Brand::all());
@@ -43,6 +48,11 @@ class MainPageResource extends JsonResource
             'abt_company_image' => $this->consultation_photo_url,
             'cities' => $cities,
             'banners' => $banners,
+            'map'=> [
+                'title' => $map_title,
+                'text' => $map_text,
+                'image' => $map_image
+            ]
         ];
     }
 }

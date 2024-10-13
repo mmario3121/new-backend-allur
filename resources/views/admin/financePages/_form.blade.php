@@ -633,6 +633,13 @@
                 @enderror
             </div>
         </div>
+        <div class="form-group required">
+            <label for="form_image" class="control-label">Изображение Формы</label>
+            <input class="form-control @error('form_image') is-invalid @enderror" title="form_image" type="file" id="form_image" name="form_image">
+            @error('form_image')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>  
     </div>
         <br>
         <div class="form-group">

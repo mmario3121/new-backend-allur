@@ -26,6 +26,8 @@ class SliderService
             'image_mob_kz' => $this->fileService->saveFile($data['image_mob'], Slider::IMAGE_PATH),
             'link' => $data['link'],
             'position' => $data['position'],
+            'title' => $data['title'],
+            'title_kz' => $data['title_kz'],
         ]);
     }
 
@@ -33,6 +35,8 @@ class SliderService
     {
         $slider->link = $data['link'];
         $slider->position = $data['position'];
+        $slider->title = $data['title'];
+        $slider->title_kz = $data['title_kz'];
         if (isset($data['image'])) {
             $slider->image = $this->fileService->saveFile($data['image'], Slider::IMAGE_PATH, $slider->image);
         }

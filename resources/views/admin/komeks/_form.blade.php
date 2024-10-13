@@ -52,7 +52,11 @@
         </div>
         <div class="form-group required ">
             <label for="form_image" class="control-label" title="Заполните обязательно!">
-                Изображение формы
+                @if($komek->id == 1)
+                    Изображение формы    
+                @else
+                    Изображение перечень услуг
+                @endif
             </label>
             <input class="form-control @error('form_image') is-invalid @enderror" title="form_image" type="file"
                    id="form_image" name="form_image">
@@ -106,13 +110,10 @@
                 <button type="button" id="add-service-kz">Добавить услугу</button>
             </div>
         @endif
+        @if($komek->id == 2)
         <div class="form-group required ">
             <label for="annotation" class="control-label" title="Заполните обязательно!">
-                @if($komek->id == 1)
-                    Текст с * в конце
-                @else
                     Текст под баннером
-                @endif
             </label>
             <input class="form-control @error('annotation') is-invalid @enderror" title="annotation" type="text"
                    id="annotation" name="annotation" value="{{  isset($komek) ? $komek->annotation : (old('annotation') ?? '') }}">
@@ -122,11 +123,7 @@
         </div>
         <div class="form-group required ">
             <label for="annotation_kz" class="control-label" title="Заполните обязательно!">
-                @if($komek->id == 1)
-                    Текст с * в конце KZ
-                @else
                     Текст под баннером KZ
-                @endif
             </label>
             <input class="form-control @error('annotation_kz') is-invalid @enderror" title="annotation_kz" type="text"
                    id="annotation_kz" name="annotation_kz" value="{{  isset($komek) ? $komek->annotation_kz : (old('annotation_kz') ?? '') }}">
@@ -134,6 +131,7 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
+        @endif
 
         <div class="form-group required ">
             <label for="subtitle" class="control-label" title="Заполните обязательно!">
@@ -282,6 +280,28 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
+        @if($komek->id == 1)
+        <div class="form-group required ">
+            <label for="annotation" class="control-label" title="Заполните обязательно!">
+                    Текст с *
+            </label>
+            <input class="form-control @error('annotation') is-invalid @enderror" title="annotation" type="text"
+                   id="annotation" name="annotation" value="{{  isset($komek) ? $komek->annotation : (old('annotation') ?? '') }}">
+            @error('annotation')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+        <div class="form-group required ">
+            <label for="annotation_kz" class="control-label" title="Заполните обязательно!">
+                Текст с * KZ
+            </label>
+            <input class="form-control @error('annotation_kz') is-invalid @enderror" title="annotation_kz" type="text"
+                   id="annotation_kz" name="annotation_kz" value="{{  isset($komek) ? $komek->annotation_kz : (old('annotation_kz') ?? '') }}">
+            @error('annotation_kz')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+        @endif
         <div class="form-group">
             <button type="submit" class="btn btn-primary">
                 Сохранить

@@ -26,9 +26,13 @@ class UpdateCareraRequest extends FormRequest
         return [
             'block1_title' => 'nullable|string',
             'block1_text' => 'nullable|string',
+            'block1_title_kz' => 'nullable|string',
+            'block1_text_kz' => 'nullable|string',
             'block1_image' => 'nullable',
             'block2_title' => 'nullable|string',
             'block2_text' => 'nullable|string',
+            'block2_title_kz' => 'nullable|string',
+            'block2_text_kz' => 'nullable|string',
             'block2_image' => 'nullable|image',
             'block3_image' => 'nullable|image',
             'block4_title' => 'nullable|string',

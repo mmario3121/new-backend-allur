@@ -151,6 +151,7 @@ class UpdateFinancePageRequest extends FormRequest
             'mini_card_9.field4' => 'nullable|string',
             'mini_card_9.field4_kz' => 'nullable|string',
             ],
+            'form_image' => 'nullable|image',
         ];
     }
 }

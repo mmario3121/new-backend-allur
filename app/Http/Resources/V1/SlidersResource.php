@@ -20,12 +20,14 @@ class SlidersResource extends JsonResource
                 'image' => $this->image_kz_url,
                 'image_mob' => $this->image_mob_kz_url,
                 'link' => $this->link,
+                'title' => $this->title_kz,
             ];
         }
         return [
             'image' => $this->image_url,
             'image_mob' => $this->image_mob_url,
             'link' => $this->link,
+            'title' => $this->title,
         ];
     }
 }
