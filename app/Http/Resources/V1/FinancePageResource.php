@@ -33,8 +33,8 @@ class FinancePageResource extends JsonResource
             $card5_text = $this->card5_text;
             //mini_card_5 is a json
             $mini_card_5_array = json_decode($this->mini_card_5);
-            $mini_card_5['subtitle'] = $mini_card_5_array->subtitle;
-            $mini_card_5['annotation'] = $mini_card_5_array->annotation;
+            $mini_card_5['subtitle'] = $mini_card_5_array->subtitle ?? '';
+            $mini_card_5['annotation'] = $mini_card_5_array->annotation ?? '';
             $mini_card_5['field1'] = $mini_card_5_array->field1;
             $mini_card_5['field2'] = $mini_card_5_array->field2;
             $mini_card_5['field3'] = $mini_card_5_array->field3;
@@ -44,8 +44,8 @@ class FinancePageResource extends JsonResource
             $card6_text = $this->card6_text;
             $card6_subtitle = $this->card6_subtitle;
             $mini_card_6_array = json_decode($this->mini_card_6);
-            $mini_card_6['subtitle'] = $mini_card_6_array->subtitle;
-            $mini_card_6['annotation'] = $mini_card_6_array->annotation;
+            $mini_card_6['subtitle'] = $mini_card_6_array->subtitle ?? '';
+            $mini_card_6['annotation'] = $mini_card_6_array->annotation ?? '';
             $mini_card_6['field1'] = $mini_card_6_array->field1;
             $mini_card_6['field2'] = $mini_card_6_array->field2;
             $mini_card_6['field3'] = $mini_card_6_array->field3;
@@ -54,8 +54,8 @@ class FinancePageResource extends JsonResource
             $card7_text = $this->card7_text;
             $card7_subtitle = $this->card7_subtitle;
             $mini_card_7_array = json_decode($this->mini_card_7);
-            $mini_card_7['subtitle'] = $mini_card_7_array->subtitle;
-            $mini_card_7['annotation'] = $mini_card_7_array->annotation;
+            $mini_card_7['subtitle'] = $mini_card_7_array->subtitle ?? '';
+            $mini_card_7['annotation'] = $mini_card_7_array->annotation ?? '';
             $mini_card_7['field1'] = $mini_card_7_array->field1;
             $mini_card_7['field2'] = $mini_card_7_array->field2;
             $mini_card_7['field3'] = $mini_card_7_array->field3;
@@ -64,8 +64,8 @@ class FinancePageResource extends JsonResource
             $card8_text = $this->card8_text;
             $card8_subtitle = $this->card8_subtitle;
             $mini_card_8_array = json_decode($this->mini_card_8);
-            $mini_card_8['subtitle'] = $mini_card_8_array->subtitle;
-            $mini_card_8['annotation'] = $mini_card_8_array->annotation;
+            $mini_card_8['subtitle'] = $mini_card_8_array->subtitle ?? '';
+            $mini_card_8['annotation'] = $mini_card_8_array->annotation ?? '';
             $mini_card_8['field1'] = $mini_card_8_array->field1;
             $mini_card_8['field2'] = $mini_card_8_array->field2;
             $mini_card_8['field3'] = $mini_card_8_array->field3;
@@ -74,8 +74,8 @@ class FinancePageResource extends JsonResource
             $card9_text = $this->card9_text;
             $card9_subtitle = $this->card9_subtitle;
             $mini_card_9_array = json_decode($this->mini_card_9);
-            $mini_card_9['subtitle'] = $mini_card_9_array->subtitle;
-            $mini_card_9['annotation'] = $mini_card_9_array->annotation;
+            $mini_card_9['subtitle'] = $mini_card_9_array->subtitle ?? '';
+            $mini_card_9['annotation'] = $mini_card_9_array->annotation ?? '';
             $mini_card_9['field1'] = $mini_card_9_array->field1;
             $mini_card_9['field2'] = $mini_card_9_array->field2;
             $mini_card_9['field3'] = $mini_card_9_array->field3;
@@ -96,8 +96,8 @@ class FinancePageResource extends JsonResource
             $card5_text = $this->card5_text_kz;
             //mini_card_5 is a json
             $mini_card_5_array = json_decode($this->mini_card_5);
-            $mini_card_5['subtitle'] = $mini_card_5_array->subtitle_kz;
-            $mini_card_5['annotation'] = $mini_card_5_array->annotation_kz;
+            $mini_card_5['subtitle'] = $mini_card_5_array->subtitle_kz ?? '';
+            $mini_card_5['annotation'] = $mini_card_5_array->annotation_kz ?? '';
             $mini_card_5['field1'] = $mini_card_5_array->field1_kz;
             $mini_card_5['field2'] = $mini_card_5_array->field2_kz;
             $mini_card_5['field3'] = $mini_card_5_array->field3_kz;
@@ -107,8 +107,8 @@ class FinancePageResource extends JsonResource
             $card6_text = $this->card6_text_kz;
             $card6_subtitle = $this->card6_subtitle_kz;
             $mini_card_6_array = json_decode($this->mini_card_6);
-            $mini_card_6['subtitle'] = $mini_card_6_array->subtitle_kz;
-            $mini_card_6['annotation'] = $mini_card_6_array->annotation_kz;
+            $mini_card_6['subtitle'] = $mini_card_6_array->subtitle_kz ?? '';
+            $mini_card_6['annotation'] = $mini_card_6_array->annotation_kz ?? '';
             $mini_card_6['field1'] = $mini_card_6_array->field1_kz;
             $mini_card_6['field2'] = $mini_card_6_array->field2_kz;
             $mini_card_6['field3'] = $mini_card_6_array->field3_kz;
@@ -117,8 +117,8 @@ class FinancePageResource extends JsonResource
             $card7_text = $this->card7_text_kz;
             $card7_subtitle = $this->card7_subtitle_kz;
             $mini_card_7_array = json_decode($this->mini_card_7);
-            $mini_card_7['subtitle'] = $mini_card_7_array->subtitle_kz;
-            $mini_card_7['annotation'] = $mini_card_7_array->annotation_kz;
+            $mini_card_7['subtitle'] = $mini_card_7_array->subtitle_kz ?? '';
+            $mini_card_7['annotation'] = $mini_card_7_array->annotation_kz ?? '';
             $mini_card_7['field1'] = $mini_card_7_array->field1_kz;
             $mini_card_7['field2'] = $mini_card_7_array->field2_kz;
             $mini_card_7['field3'] = $mini_card_7_array->field3_kz;
@@ -127,8 +127,8 @@ class FinancePageResource extends JsonResource
             $card8_text = $this->card8_text_kz;
             $card8_subtitle = $this->card8_subtitle_kz;
             $mini_card_8_array = json_decode($this->mini_card_8);
-            $mini_card_8['subtitle'] = $mini_card_8_array->subtitle_kz;
-            $mini_card_8['annotation'] = $mini_card_8_array->annotation_kz;
+            $mini_card_8['subtitle'] = $mini_card_8_array->subtitle_kz ?? '';
+            $mini_card_8['annotation'] = $mini_card_8_array->annotation_kz ?? '';
             $mini_card_8['field1'] = $mini_card_8_array->field1_kz;
             $mini_card_8['field2'] = $mini_card_8_array->field2_kz;
             $mini_card_8['field3'] = $mini_card_8_array->field3_kz;
@@ -137,8 +137,8 @@ class FinancePageResource extends JsonResource
             $card9_text = $this->card9_text_kz;
             $card9_subtitle = $this->card9_subtitle_kz;
             $mini_card_9_array = json_decode($this->mini_card_9);
-            $mini_card_9['subtitle'] = $mini_card_9_array->subtitle_kz;
-            $mini_card_9['annotation'] = $mini_card_9_array->annotation_kz;
+            $mini_card_9['subtitle'] = $mini_card_9_array->subtitle_kz ?? '';
+            $mini_card_9['annotation'] = $mini_card_9_array->annotation_kz ?? '';
             $mini_card_9['field1'] = $mini_card_9_array->field1_kz;
             $mini_card_9['field2'] = $mini_card_9_array->field2_kz;
             $mini_card_9['field3'] = $mini_card_9_array->field3_kz;
