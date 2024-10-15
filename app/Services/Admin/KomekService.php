@@ -55,8 +55,10 @@ class KomekService
         $komek->card5_kz = $data['card5_kz'];
         $komek->card6 = $data['card6'];
         $komek->card6_kz = $data['card6_kz'];
-        $komek->services = json_encode($data['services']);
-        $komek->services_kz = json_encode($data['services_kz']);
+        if ($komek->id ==1){
+            $komek->services = json_encode($data['services']);
+            $komek->services_kz = json_encode($data['services_kz']);
+        }   
         $komek->annotation = $data['annotation'];
         $komek->annotation_kz = $data['annotation_kz'];
         if (isset($data['image'])) {

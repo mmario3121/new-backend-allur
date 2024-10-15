@@ -15,17 +15,27 @@ class ModelComplectationsResource extends JsonResource
     public function toArray($request)
     {
         $lang = $request->lang;
+        if ($lang == 'ru') {
+            $specs =  $this->specs->map(function ($spec) use ($lang) {
+                return [
+                    'type' => $spec->type,
+                    'value' => $spec->value,
+                ];
+            });
+        }else{
+            $specs =  $this->specs->map(function ($spec) use ($lang) {
+                return [
+                    'type' => $spec->type,
+                    'value' => $spec->value_kz,
+                ];
+            });
+        }
         return [
             'price' => $this->price,
             'title' => $this->title,
             'bitrix_id' => $this->bitrix_id,
             
-            'specs' => $this->specs->map(function ($spec) use ($lang) {
-                return [
-                    'type' => $spec->type,
-                    'value' => $spec->value,
-                ];
-            }),
+            'specs' => $specs,
         ];
     }
 }

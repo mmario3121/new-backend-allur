@@ -78,6 +78,7 @@
                 <thead>
                     <tr>
                         <th>Значение</th>
+                        <th>Значение KZ</th>
                         <th>Действия</th>
                     </tr>
                 </thead>
@@ -85,6 +86,7 @@
                     @foreach($specs as $spec)
                         <tr>
                             <td>{{ $spec->value }}</td>
+                            <td>{{ $spec->value_kz }}</td>
                             <td>
                                 <!-- Кнопка редактирования -->
                                 <a href="{{ route('admin.specs.edit', $spec->id) }}" class="btn btn-primary btn-sm">Редактировать</a>

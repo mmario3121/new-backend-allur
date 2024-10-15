@@ -41,6 +41,18 @@
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>
+        <div class="form-group required ">
+            <label for="value_kz" class="control-label" title="Заполните обязательно!">
+                Значение KZ
+            </label>
+            <input class="form-control @error('value_kz') is-invalid @enderror" title="value_kz" type="text"
+                   id="value_kz" value="{{  isset($spec) ? $spec->value_kz : (old('value_kz') ?? '') }}"
+                   name="value_kz"
+                   >
+            @error('value_kz')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
 
         <div class="form-group required ">
             <label for="complectation_id" class="control-label" title="Заполните обязательно!">

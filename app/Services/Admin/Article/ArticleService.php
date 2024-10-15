@@ -31,7 +31,7 @@ class ArticleService
             'time' => $data['time'],
             'isForm' => isset($data['isForm']) ? 1 : 0,
             //model_id, isFinance, isMainPage, type, banner
-            'model_id' => json_encode($data['model_id']),
+            'model_id' => $data['model_id'] ? json_encode($data['model_id']) : null,
             'isFinance' => isset($data['isFinance']) ? 1 : 0,
             'isMainPage' => isset($data['isMainPage']) ? 1 : 0,
             'isSlider' => isset($data['isSlider']) ? 1 : 0,

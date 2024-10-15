@@ -81,6 +81,18 @@
             @enderror
         </div>
         <div class="form-group required ">
+            <label for="block2_title_kz" class="control-label" title="Заполните обязательно!">
+                Заголовок KZ
+            </label>
+            <input class="form-control @error('title') is-invalid @enderror" title="block2_title_kz" type="text"
+                   id="block2_title_kz" value="{{  isset($carera) ? $carera->block2_title_kz : (old('block2_title_kz') ?? '') }}"
+                   name="block2_title_kz"
+                   >
+            @error('block2_title_kz')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+        <div class="form-group required ">
             <label for="block2_image" class="control-label" title="Заполните обязательно!">
                 Изображение
             </label>
@@ -102,6 +114,18 @@
                    name="block2_text"
                    >
             @error('block2_text')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+        <div class="form-group required ">
+            <label for="block2_text_kz" class="control-label" title="Заполните обязательно!">
+                Текст KZ
+            </label>
+            <input class="form-control @error('text') is-invalid @enderror" title="block2_text_kz" type="text"
+                   id="block2_text_kz" value="{{  isset($carera) ? $carera->block2_text_kz : (old('block2_text_kz') ?? '') }}"
+                   name="block2_text_kz"
+                   >
+            @error('block2_text_kz')
             <span class="error invalid-feedback">{{ $message }} </span>
             @enderror
         </div>

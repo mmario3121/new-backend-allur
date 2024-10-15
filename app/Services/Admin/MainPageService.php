@@ -40,10 +40,10 @@ class MainPageService
         $mainPage->production_description = $data['production_description'];
         $mainPage->production_description_kz = $data['production_description_kz'];
         //carreer_title, carreer_title_kz, carreer_text, carreer_text_kz, carreer_photo1
-        $mainPage->carreer_title = $data['carreer_title'];
-        $mainPage->carreer_title_kz = $data['carreer_title_kz'];
-        $mainPage->carreer_text = $data['carreer_text'];
-        $mainPage->carreer_text_kz = $data['carreer_text_kz'];
+        $mainPage->career_title = $data['carreer_title'];
+        $mainPage->career_title_kz = $data['carreer_title_kz'];
+        $mainPage->career_text = $data['carreer_text'];
+        $mainPage->career_text_kz = $data['carreer_text_kz'];
         if (isset($data['carreer_photo1'])) {
             $mainPage->carreer_photo1 = $this->fileService->saveFile($data['carreer_photo1'], MainPage::IMAGE_PATH, $mainPage->carreer_photo1);
         }
