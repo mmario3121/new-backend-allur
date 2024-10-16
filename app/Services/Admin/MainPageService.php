@@ -40,12 +40,12 @@ class MainPageService
         $mainPage->production_description = $data['production_description'];
         $mainPage->production_description_kz = $data['production_description_kz'];
         //carreer_title, carreer_title_kz, carreer_text, carreer_text_kz, carreer_photo1
-        $mainPage->career_title = $data['carreer_title'];
-        $mainPage->career_title_kz = $data['carreer_title_kz'];
-        $mainPage->career_text = $data['carreer_text'];
-        $mainPage->career_text_kz = $data['carreer_text_kz'];
-        if (isset($data['carreer_photo1'])) {
-            $mainPage->carreer_photo1 = $this->fileService->saveFile($data['carreer_photo1'], MainPage::IMAGE_PATH, $mainPage->carreer_photo1);
+        $mainPage->career_title = $data['career_title'];
+        $mainPage->career_title_kz = $data['career_title_kz'];
+        $mainPage->career_text = $data['career_text'];
+        $mainPage->career_text_kz = $data['career_text_kz'];
+        if (isset($data['career_photo1'])) {
+            $mainPage->career_photo1 = $this->fileService->saveFile($data['career_photo1'], MainPage::IMAGE_PATH, $mainPage->career_photo1);
         }
         if (isset($data['consultation_photo'])) {
             $mainPage->consultation_photo = $this->fileService->saveFile($data['consultation_photo'], MainPage::IMAGE_PATH, $mainPage->consultation_photo);

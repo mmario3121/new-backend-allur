@@ -29,7 +29,7 @@ class MainPageResource extends JsonResource
             $map_title = $this->career_title;
             $map_text = $this->career_text;
         }
-        $map_image = $this->career_image_url;
+        $map_image = $this->career_photo1_url;
 
         $brands = BrandMainResource::collection(Brand::all());
         $brandsNew = BrandNewMainResource::collection(Brand::all());

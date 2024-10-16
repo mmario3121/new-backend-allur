@@ -56,51 +56,51 @@
         <div class="col-md-12">
             <h1 class="h1">Карта</h1>
             <div class="form-group required ">
-                <label for="carreer_title" class="control-label" title="Заполните обязательно!">
+                <label for="career_title" class="control-label" title="Заполните обязательно!">
                     Заголовок
                 </label>
-                <input class="form-control @error('carreer_title') is-invalid @enderror" title="carreer_title" type="text"
-                       id="carreer_title" name="carreer_title" value="{{  isset($mainPage) ? $mainPage->carreer_title : (old('carreer_title') ?? '') }}">
-                @error('carreer_title')
+                <input class="form-control @error('career_title') is-invalid @enderror" title="career_title" type="text"
+                       id="career_title" name="career_title" value="{{  isset($mainPage) ? $mainPage->career_title : (old('career_title') ?? '') }}">
+                @error('career_title')
                 <span class="error invalid-feedback">{{ $message }} </span>
                 @enderror
             </div>
 
             <div class="form-group required ">
-                <label for="carreer_title_kz" class="control-label" title="Заполните обязательно!">
+                <label for="career_title_kz" class="control-label" title="Заполните обязательно!">
                     Заголовок KZ
                 </label>
-                <input class="form-control @error('carreer_title_kz') is-invalid @enderror" title="carreer_title_kz" type="text"
-                       id="carreer_title_kz" name="carreer_title_kz" value="{{  isset($mainPage) ? $mainPage->carreer_title_kz : (old('carreer_title_kz') ?? '') }}">
-                @error('carreer_title_kz')
+                <input class="form-control @error('career_title_kz') is-invalid @enderror" title="career_title_kz" type="text"
+                       id="career_title_kz" name="career_title_kz" value="{{  isset($mainPage) ? $mainPage->career_title_kz : (old('career_title_kz') ?? '') }}">
+                @error('career_title_kz')
                 <span class="error invalid-feedback">{{ $message }} </span>
                 @enderror
             </div>
             <div class="form-group required ">
-                <label for="carreer_text" class="control-label" title="Заполните обязательно!">
+                <label for="career_text" class="control-label" title="Заполните обязательно!">
                     Текст
                 </label>
-                <textarea class="form-control @error('carreer_text') is-invalid @enderror" title="carreer_text" id="carreer_text" name="carreer_text" rows="4">{{  isset($mainPage) ? $mainPage->carreer_text : (old('carreer_text') ?? '') }}</textarea>
-                @error('carreer_text')
+                <textarea class="form-control @error('career_text') is-invalid @enderror" title="career_text" id="career_text" name="career_text" rows="4">{{  isset($mainPage) ? $mainPage->career_text : (old('career_text') ?? '') }}</textarea>
+                @error('career_text')
                 <span class="error invalid-feedback">{{ $message }} </span>
                 @enderror
             </div>
             <div class="form-group required ">
-                <label for="carreer_text_kz" class="control-label" title="Заполните обязательно!">
+                <label for="career_text_kz" class="control-label" title="Заполните обязательно!">
                     Текст KZ
                 </label>
-                <textarea class="form-control @error('carreer_text_kz') is-invalid @enderror" title="carreer_text_kz" id="carreer_text_kz" name="carreer_text_kz" rows="4">{{  isset($mainPage) ? $mainPage->carreer_text_kz : (old('carreer_text_kz') ?? '') }}</textarea>
-                @error('carreer_text_kz')
+                <textarea class="form-control @error('career_text_kz') is-invalid @enderror" title="career_text_kz" id="career_text_kz" name="career_text_kz" rows="4">{{  isset($mainPage) ? $mainPage->career_text_kz : (old('career_text_kz') ?? '') }}</textarea>
+                @error('career_text_kz')
                 <span class="error invalid-feedback">{{ $message }} </span>
                 @enderror
             </div>
             <div class="form-group required ">
-                <label for="carreer_photo1" class="control-label" title="Заполните обязательно!">
+                <label for="career_photo1" class="control-label" title="Заполните обязательно!">
                     Фото
                 </label>
-                <input class="form-control @error('carreer_photo1') is-invalid @enderror" title="carreer_photo1" type="file"
-                       id="carreer_photo1" name="carreer_photo1" value="{{  isset($mainPage) ? $mainPage->carreer_photo1 : (old('carreer_photo1') ?? '') }}">
-                @error('carreer_photo1')
+                <input class="form-control @error('career_photo1') is-invalid @enderror" title="career_photo1" type="file"
+                       id="career_photo1" name="career_photo1" value="{{  isset($mainPage) ? $mainPage->career_photo1 : (old('career_photo1') ?? '') }}">
+                @error('career_photo1')
                 <span class="error invalid-feedback">{{ $message }} </span>
                 @enderror
             </div>

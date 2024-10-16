@@ -34,7 +34,6 @@ class ModelComplectationsResource extends JsonResource
             'price' => $this->price,
             'title' => $this->title,
             'bitrix_id' => $this->bitrix_id,
-            
             'specs' => $specs,
         ];
     }
