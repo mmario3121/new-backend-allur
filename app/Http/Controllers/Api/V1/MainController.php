@@ -215,7 +215,7 @@ class MainController extends Controller
     }
 
     public function tradeIn(Request $request){
-        $data = Komek::where('id', 2)->first();
+        $data = new TradeInResource(Komek::where('id', 2)->first());
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
