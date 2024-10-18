@@ -18,10 +18,12 @@
                             @if(isset($spec) && $spec->type == "interior") selected @endif>
                         Интерьер
                     </option>
-                    <option value="comfort">
+                    <option value="comfort"
+                            @if(isset($spec) && $spec->type == "comfort") selected @endif>
                         Комфорт
                     </option>
-                    <option value="safety">
+                    <option value="safety"
+                            @if(isset($spec) && $spec->type == "safety") selected @endif>
                         Безопасность
                     </option>
             </select>

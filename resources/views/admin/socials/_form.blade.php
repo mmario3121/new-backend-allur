@@ -2,7 +2,6 @@
     <div class="col-md-12">
         <div class="form-group required">
             <select name="type" class="form-control select2" style="width: 100%;" required>
-                <option>Тип</option>
                 <option value="charity" {{ (isset($social) && $social->type === 'charity') || old('type') == 'charity' ? 'selected' : '' }}>
                     Благотворительность
                 </option>
