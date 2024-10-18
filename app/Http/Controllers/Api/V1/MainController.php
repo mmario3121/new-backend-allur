@@ -30,6 +30,7 @@ use App\Models\Promo;
 
 use App\Http\Resources\V1\SlidersResource;
 use App\Http\Resources\V1\FinancePageResource;
+use App\Http\Resources\V1\TradeInResource;
 use App\Http\Resources\V1\CarTypeResource;
 use App\Http\Resources\V1\ArticleResource;
 use App\Http\Resources\V1\LibraryModelResource;
