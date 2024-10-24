@@ -42,7 +42,7 @@ class BrandResource extends JsonResource
             return [
                 'title' => $title,
                 'id' => $type->id,
-                'models' => CarTypeModelResource::collection($models),
+                'models' => CarTypeModelLogoResource::collection($models),
             ];
         });
         //add one more entry to array which is all types, which has title and models of any type
