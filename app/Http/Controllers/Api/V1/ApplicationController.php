@@ -28,7 +28,7 @@ class ApplicationController extends Controller
                 'model' => 'required',
                 'city' => 'required|string|in:al,as',
                 'type' => 'nullable|string',
-                'brand' => 'required|string|in:kia,hongqi,jac,skoda,chevrolet,lada',
+                'brand' => 'required|string|in:kia,jetour,hongqi,jac,skoda,chevrolet,lada',
             ]);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return new JsonResponse([
