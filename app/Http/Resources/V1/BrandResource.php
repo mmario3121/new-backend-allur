@@ -21,25 +21,45 @@ class BrandResource extends JsonResource
     public function toArray($request)
     {
         $lang = $request->lang;
+
         $brandId = $this->id;
         $brandPage = BrandPage::where('brand_id', $this->id)->first();
+       
         
-        $types = CarType::all()->map(function ($type) use ($brandId) {
+        
+        $types = CarType::all()->map(function ($type) use ($brandId, $lang) {
             $models = CarModel::where('type_id', $type->id)
                 ->where('brand_id', $brandId)
                 ->where('is_active', 1)
                 ->get();
     
+            if ($lang == 'ru'){
+                $title = $type->title;
+            }else{
+                $title = $type->title_kz;
+            }
+
             return [
-                'title' => $type->title,
+                'title' => $title,
                 'id' => $type->id,
                 'models' => CarTypeModelResource::collection($models),
             ];
         });
         //add one more entry to array which is all types, which has title and models of any type
 
+        if ($lang == 'ru'){
+            $subTitle = $brandPage ? $brandPage->title : '';
+            $description = $brandPage ? $brandPage->description : '';
+            $allModels = 'Все модели';
+        }else{
+            $subTitle = $brandPage ? $brandPage->title_kz : '';
+            $description = $brandPage ? $brandPage->description_kz : '';
+            $allModels = 'Барлық модельдер';
+        }
+
+            
         $types[] = [
-            'title' => 'Все модели',
+            'title' => $allModels,
             'id' => 0,
             'models' => CarTypeModelResource::collection(CarModel::where('is_active', 1)->where('brand_id', $this->id)->get())->jsonSerialize(),
         ];
@@ -62,8 +82,8 @@ class BrandResource extends JsonResource
             'logo' => $this->logo_url,
             'title' => $this->title,
             'image' => $brandPage ? $brandPage->image_url : null,
-            'subTitle' => $brandPage ? $brandPage->title : '',
-            'description' => $brandPage ? $brandPage->description : '',
+            'subTitle' => $subTitle,
+            'description' => $description,
             'types' => $types,
             'cities' => $cityArray,
         ];

@@ -42,6 +42,7 @@ class CareraResource extends JsonResource
             $block4_title = $this->block4_title_kz;
             $block4_text = $this->block4_text_kz;
             $block4_image = $this->block4_image_url;
+            $block5_image = $this->block5_image_url;
         }
         
         $banner_block = CareraBannerResource::collection(CareraBanner::all());
