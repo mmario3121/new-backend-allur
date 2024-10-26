@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Resources\V1\BannerResource;
 use App\Http\Resources\V1\ShortModelResource;
+use App\Http\Resources\V1\CarreerKzResource;
 use App\Models\Banner;
+use App\Models\CarreerKz;
 use App\Models\Carera;
 use App\Models\City;
 use App\Models\CompanySlider;
@@ -147,7 +149,11 @@ class MainController extends Controller
     //production
 
     public function production(Request $request){
-        $data = new CarreerResource(Carreer::first());
+        if ($request->lang == 'ru') {
+            $data = new CarreerResource(Carreer::first());
+        }else{
+            $data = new CarreerKzResource(CarreerKz::first());
+        }
         return new JsonResponse($data, Response::HTTP_OK);
     }
     //socials
