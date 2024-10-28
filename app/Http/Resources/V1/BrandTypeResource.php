@@ -55,12 +55,12 @@ class BrandTypeResource extends JsonResource
                 'id' => 0,
                 'models' => CarTypeModelLogoResource::collection(CarModel::where('is_active', 1)->where('brand_id', $this->id)->get())->jsonSerialize(),
             ];
+        }
 
             return [
                 'logo' => $this->logo_url,
                 'title' => $this->title,
                 'types' => $types,
             ];
-        }
     }
 }
