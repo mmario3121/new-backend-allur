@@ -22,8 +22,6 @@ class ArticleResource extends JsonResource
         }else{
             $image = $this->image_kz_url;
         }
-
-        $model = $this->model;
         $connectedNews = [];
         $modelId = $this->model_id;
         $models = [];
