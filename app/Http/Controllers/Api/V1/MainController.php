@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Resources\V1\BannerResource;
 use App\Http\Resources\V1\ShortModelResource;
 use App\Http\Resources\V1\CarreerKzResource;
+use App\Http\Resources\V1\SocialResource;
 use App\Models\Banner;
 use App\Models\CarreerKz;
 use App\Models\Carera;
@@ -158,7 +159,11 @@ class MainController extends Controller
     }
     //socials
     public function socials(Request $request){
-        $data['socials'] = Social::first();
+        $data['charity'] = SocialResource::collection(Social::where('type', 'charity')->get());
+        $data['education'] = SocialResource::collection(Social::where('type', 'education')->get());
+        $data['material_aid'] = SocialResource::collection(Social::where('type', 'material_aid')->get());
+        $data['sport'] = SocialResource::collection(Social::where('type', 'sport')->get());
+
         return new JsonResponse($data, Response::HTTP_OK);
     }
 

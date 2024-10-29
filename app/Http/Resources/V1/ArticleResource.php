@@ -25,38 +25,30 @@ class ArticleResource extends JsonResource
 
         $model = $this->model;
         $connectedNews = [];
-        if ($model != null) {
-            $models = CarModel::where('brand_id', $model->brand_id)->pluck('id')->toArray();
-            $cn = Article::whereIn('model_id', $models)->where('id', '!=', $this->id)->orderBy('time', 'desc')->get();
-            foreach ($cn as $news) {
-                $connectedNews[] = [
-                    'slug' => $news->slug,
-                    'title' => $news->titleTranslate?->{$lang},
-                    'description' => $news->descriptionTranslate?->{$lang},
-                    'description_mob' => $news->descriptionMobTranslate?->{$lang},
-                    'image' => $news->image_url,
-                    'time' => $news->time,
-                    'isForm' => $news->isForm,
-                    'banner' => $news->banner_url,
-                    'type' => $news->type,
-                ];
-            }
-        }else{
-            $cn = Article::where('id', '!=', $this->id)->orderBy('time', 'desc')->get();
-            foreach ($cn as $news) {
-                $connectedNews[] = [
-                    'slug' => $news->slug,
-                    'title' => $news->titleTranslate?->{$lang},
-                    'description' => $news->descriptionTranslate?->{$lang},
-                    'description_mob' => $news->descriptionMobTranslate?->{$lang},
-                    'image' => $news->image_url,
-                    'time' => $news->time,
-                    'isForm' => $news->isForm,
-                    'banner' => $news->banner_url,
-                    'type' => $news->type,
-                ];
-            }
+        $modelId = $this->model_id;
+        $models = [];
+        if ($modelId != null) {
+            $carModel = CarModel::where('id', $modelId)->first();
+                $model['title'] = $carModel->title;
+                $model['bitrix_id'] = $carModel->bitrix_id;
+                $model['brand'] = $carModel->brand->code;
+                $models[] = $model;
         }
+
+            $cn = Article::where('id', '!=', $this->id)->orderBy('time', 'desc')->take(20)->get();
+            foreach ($cn as $news) {
+                $connectedNews[] = [
+                    'slug' => $news->slug,
+                    'title' => $news->titleTranslate?->{$lang},
+                    'description' => $news->descriptionTranslate?->{$lang},
+                    'description_mob' => $news->descriptionMobTranslate?->{$lang},
+                    'image' => $news->image_url,
+                    'time' => $news->time,
+                    'isForm' => $news->isForm,
+                    'banner' => $news->banner_url,
+                    'type' => $news->type,
+                ];
+            }
         
         return [
             'slug' => $this->slug,
@@ -68,6 +60,7 @@ class ArticleResource extends JsonResource
             'isForm' => $this->isForm,
             'banner' => $this->banner_url,
             'type' => $this->type,
+            'models' => $models,
             'connectedNews' => $connectedNews,
         ];
     }
