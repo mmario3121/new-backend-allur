@@ -17,7 +17,11 @@ class CarModelResource extends JsonResource
         $lang = $request->lang;
         if($lang == 'kz'){
             $title = $this->title_kz;
-            $price_list = $this->price_list_kz;
+            if ($this->price_list_kz == null) {
+                $price_list = $this->price_list;
+            }else{
+                $price_list = $this->price_list_kz;
+            }
             $document = $this->document_kz; 
             $char1_title = $this->char1_title_kz;
             $char1_value = $this->char1_value_kz;
