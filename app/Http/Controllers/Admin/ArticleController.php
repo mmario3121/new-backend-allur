@@ -42,7 +42,7 @@ class ArticleController extends Controller
             })
             ->latest()
             ->paginate(15);
-
+            $data['models'] = CarModel::all();
         return view('admin.articles.index', $data);
     }
 

@@ -77,49 +77,55 @@ class AboutResource extends JsonResource
             $block6_image = $this->block6_image_url;
             $block7_image = $this->block7_image_url;
         }
+
+        $blocks = [
+            [
+                'title' => $block1_title,
+                'text' => $block1_text,
+                'image' => $block1_image
+            ],
+            [
+                'title' => $block2_title,
+                'text' => $block2_text,
+                'image' => $block2_image
+            ],
+            [
+                'title' => $block3_title,
+                'text' => $block3_text,
+                'image' => $block3_image,
+                'card1' => $block3_card1,
+                'card1_text' => $block3_card1_text,
+                'card2' => $block3_card2,
+                'card2_text' => $block3_card2_text
+            ],
+            [
+                'title' => $block4_title,
+                'text' => $block4_text,
+                'image' => $block4_image
+            ],
+            [
+                'title' => $block5_title,
+                'text' => $block5_text,
+                'image' => $block5_image
+            ]
+            ];
+        if ($block6_title != null) {
+            $blocks[] = [
+                'title' => $block6_title,
+                'text' => $block6_text,
+                'image' => $block6_image
+            ];
+        }
+        if ($block7_title != null) {
+            $blocks[] = [
+                'title' => $block7_title,
+                'text' => $block7_text,
+                'image' => $block7_image
+            ];
+        }
         
         return [
-            'blocks' => [
-                [
-                    'title' => $block1_title,
-                    'text' => $block1_text,
-                    'image' => $block1_image
-                ],
-                [
-                    'title' => $block2_title,
-                    'text' => $block2_text,
-                    'image' => $block2_image
-                ],
-                [
-                    'title' => $block3_title,
-                    'text' => $block3_text,
-                    'image' => $block3_image,
-                    'card1' => $block3_card1,
-                    'card1_text' => $block3_card1_text,
-                    'card2' => $block3_card2,
-                    'card2_text' => $block3_card2_text
-                ],
-                [
-                    'title' => $block4_title,
-                    'text' => $block4_text,
-                    'image' => $block4_image
-                ],
-                [
-                    'title' => $block5_title,
-                    'text' => $block5_text,
-                    'image' => $block5_image
-                ],
-                [
-                    'title' => $block6_title,
-                    'text' => $block6_text,
-                    'image' => $block6_image
-                ],
-                [
-                    'title' => $block7_title,
-                    'text' => $block7_text,
-                    'image' => $block7_image
-                ]
-            ]
+            'blocks' => $blocks
         ];
     }
 }

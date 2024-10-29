@@ -132,18 +132,22 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="model_id" class="control-label">Модель </label>
-            <select class="form-control @error('model_id') is-invalid @enderror" title="model_id" id="model_id" name="model_id">
-                <option value="">Выберите модель</option>
-                @foreach($models as $model)
-                    <option value="{{ $model->id }}"
-                            @if(isset($article) && $article->model_id == $model->id) selected @endif>
+            <label for="model_ids" class="control-label">Модель</label>
+            @foreach($models as $model)
+                <div class="form-check">
+                    <input class="form-check-input @error('model_id') is-invalid @enderror"
+                        type="checkbox"
+                        name="model_ids[]"
+                        id="model_{{ $model->id }}"
+                        value="{{ $model->id }}"
+                        @if(isset($article) && in_array($model->id, $article->model_ids ?? [])) checked @endif>
+                    <label class="form-check-label" for="model_{{ $model->id }}">
                         {{ $model->title }}
-                    </option>
-                @endforeach
-            </select>
-            @error('model_id')
-            <span class="error invalid-feedback">{{ $message }} </span>
+                    </label>
+                </div>
+            @endforeach
+            @error('model_ids')
+            <span class="error invalid-feedback">{{ $message }}</span>
             @enderror
         </div>
 

@@ -55,6 +55,10 @@ class Article extends Model
         });
     }
 
+    protected $casts = [
+        'model_ids' => 'array', // Автоматическое преобразование JSON в массив
+    ];
+
     public function titleTranslate(): HasOne
     {
         return $this->hasOne(Translate::class, 'id', 'title');
