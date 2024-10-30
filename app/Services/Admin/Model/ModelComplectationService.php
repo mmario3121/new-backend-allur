@@ -19,7 +19,6 @@ class ModelComplectationService
             'model_id' => $data['model_id'],
             'title' => $data['title'],
             'price' => $data['price'],
-            'bitrix_id' => $data['bitrix_id'],
             'is_active' => $data['is_active'] ?? 0,
         ]);
     }
@@ -32,7 +31,6 @@ class ModelComplectationService
         // $color->model_id = $data['model_id'];
         $color->price = $data['price'];
         $color->title = $data['title'];
-        $color->bitrix_id = $data['bitrix_id'];
         $color->is_active = $data['is_active'] ?? 0;
         return $color->save();
     }

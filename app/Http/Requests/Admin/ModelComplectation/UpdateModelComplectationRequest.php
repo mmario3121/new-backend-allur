@@ -26,7 +26,6 @@ class UpdateModelComplectationRequest extends FormRequest
         return [
             // 'model_id' => 'required',
             'title' => 'required|max:255',
-            'bitrix_id' => 'nullable|max:255',
             'price' => 'nullable',
             'is_active' => 'nullable|boolean',
         ];
