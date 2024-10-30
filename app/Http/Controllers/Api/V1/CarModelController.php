@@ -45,7 +45,7 @@ class CarModelController extends Controller
         });
 
         $data['slider'] = $sliderResources;
-        $complectations = ModelComplectation::where('model_id', $model->id)->get();
+        $complectations = ModelComplectation::where('model_id', $model->id)->where('is_active', 1)->get();
 
         $data['model'] = new CarModelResource($model);
         $data['complectations'] = ModelComplectationsResource::collection($complectations);

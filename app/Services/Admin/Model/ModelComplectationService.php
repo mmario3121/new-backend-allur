@@ -41,4 +41,19 @@ class ModelComplectationService
     {
         return $color->delete();
     }
+
+    public function copy(ModelComplectation $complectation)
+    {
+        $newComplectation = $complectation->replicate();
+        $newComplectation->title = $complectation->title . ' (copy)';
+        $specs = $complectation->specs;
+        
+        $newComplectation->save();
+        foreach ($specs as $spec) {
+            $newSpec = $spec->replicate();
+            $newSpec->complectation_id = $newComplectation->id;
+            $newSpec->save();
+        }
+        return $newComplectation;
+    }
 }

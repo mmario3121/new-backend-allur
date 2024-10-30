@@ -18,9 +18,9 @@ class CarModelResource extends JsonResource
         if($lang == 'kz'){
             $title = $this->title_kz;
             if ($this->price_list_kz == null) {
-                $price_list = $this->price_list;
+                $price_list = $this->price_list_url;
             }else{
-                $price_list = $this->price_list_kz;
+                $price_list = $this->price_list_kz_url;
             }
             $document = $this->document_kz; 
             $char1_title = $this->char1_title_kz;
@@ -34,7 +34,7 @@ class CarModelResource extends JsonResource
 
         }else{
             $title = $this->title;
-            $price_list = $this->price_list;
+            $price_list = $this->price_list_url;
             $document = $this->document;
             $char1_title = $this->char1_title;
             $char1_value = $this->char1_value;

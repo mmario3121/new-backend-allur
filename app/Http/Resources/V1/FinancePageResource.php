@@ -21,6 +21,7 @@ class FinancePageResource extends JsonResource
         if($request->lang == 'ru'){
             $title = $this->title;
             $text = $this->text;
+            $image = $this->image_url;
             $card1_title = $this->card1_title;
             $card1_text = $this->card1_text;
             $card2_title = $this->card2_title;
@@ -84,6 +85,7 @@ class FinancePageResource extends JsonResource
         } else {
             $title = $this->title_kz;
             $text = $this->text_kz;
+            $image = $this->image_url;
             $card1_title = $this->card1_title_kz;
             $card1_text = $this->card1_text_kz;
             $card2_title = $this->card2_title_kz;
@@ -150,6 +152,7 @@ class FinancePageResource extends JsonResource
         return [
             'title' => $title,
             'text' => $text,
+            'image' => $image,
             'card1_title' => $card1_title,
             'card1_text' => $card1_text,
             'card2_title' => $card2_title,

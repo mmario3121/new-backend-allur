@@ -63,6 +63,7 @@ Route::prefix('admin')->name('admin.')->scopeBindings()->group(function () {
     Route::resource('colors', \App\Http\Controllers\Admin\Model\ModelColorController::class)->except('show');
     Route::resource('specificationCategories', \App\Http\Controllers\Admin\Model\SpecificationCategoryController::class)->except('show');
     Route::resource('complectations', \App\Http\Controllers\Admin\Model\ModelComplectationController::class)->except('show');
+    Route::post('complectations/{complectation}/copy', [\App\Http\Controllers\Admin\Model\ModelComplectationController::class, 'copy'])->name('complectations.copy');
     Route::resource('sections', \App\Http\Controllers\Admin\Model\ModelSectionController::class)->except('show');
     Route::resource('specs', \App\Http\Controllers\Admin\SpecController::class)->except('show');
     Route::resource('sectionItems', \App\Http\Controllers\Admin\Model\ModelSectionItemController::class)->except('show');

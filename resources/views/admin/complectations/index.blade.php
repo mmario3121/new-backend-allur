@@ -79,6 +79,15 @@
                                                     Удалить
                                                 </button>
                                             </form>
+                                            <form
+                                            action="{{route('admin.complectations.copy', ['complectation' => $complectation])}}"
+                                                method="post">
+                                                @csrf
+                                                @method('POST')
+                                                <button title="Копировать" type="submit" class="dropdown-item">
+                                                    Копировать
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

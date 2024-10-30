@@ -87,6 +87,7 @@ class CarreerKzResource extends JsonResource
                     'image' => $block2_image,
                 ],
             ],
+            'slider_title' => $block3_title,
             'slider' =>[
                 [
                     'title' => $block3_title,
@@ -123,17 +124,12 @@ class CarreerKzResource extends JsonResource
                     'text' => $block9_text,
                     'image' => $block9_image,
                 ],
-                [
-                    'title' => $block10_title,
-                    'text' => $block10_text,
-                    'image' => $block10_image,
-                ],
             ],
             'factory' =>                
             [
-                'title' => $block11_title,
-                'text' => $block11_text,
-                'image' => $block11_image,
+                'title' => $block10_title,
+                'text' => $block10_text,
+                'image' => $block10_image,
                 'cards' => [
                     [
                         'title' => $card1_title,
@@ -152,6 +148,11 @@ class CarreerKzResource extends JsonResource
                         'text' => $card4_text,
                     ],
                 ],
+            ],
+            'block' => [
+                'title' => $block10_title,
+                'text' => $block10_text,
+                'image' => $block10_image,
             ],
           'news' => $news
         ];

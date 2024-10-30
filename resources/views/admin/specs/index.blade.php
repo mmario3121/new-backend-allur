@@ -21,6 +21,10 @@
             <label for="value" class="sr-only">Значение</label>
             <input type="text" class="form-control" id="value" name="value" required placeholder="Значение">
         </div>
+        <div class="form-group mb-2">
+            <label for="value_kz" class="sr-only">Значение KZ </label>
+            <input type="text" class="form-control" id="value_kz" name="value_kz" required placeholder="Значение">
+        </div>
 
         <div class="form-group mx-sm-3 mb-2">
             <label for="type" class="sr-only">Тип</label>

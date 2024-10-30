@@ -24,6 +24,8 @@ class KomekResource extends JsonResource
             $card4 = $this->card4;
             $card5 = $this->card5;
             $card6 = $this->card6;
+            $subtitle = $this->subtitle;
+            $annotation = $this->annotation;
             $services = $this->services;
         } else {
             $title = $this->title_kz;
@@ -34,6 +36,8 @@ class KomekResource extends JsonResource
             $card4 = $this->card4_kz;
             $card5 = $this->card5_kz;
             $card6 = $this->card6_kz;
+            $subtitle = $this->subtitle_kz;
+            $annotation = $this->annotation_kz;
             $services = $this->services_kz ?? [];
         }
         return [
@@ -42,6 +46,7 @@ class KomekResource extends JsonResource
             'text' => $text,
             'image' => $this->image_url,
             'form_image' => $this->form_image_url,
+            'cards_title' => $subtitle,
             'card1' => $card1,
             'card2' => $card2,
             'card3' => $card3,
@@ -49,6 +54,7 @@ class KomekResource extends JsonResource
             'card5' => $card5,
             'card6' => $card6,
             'services' => $services,
+            'annotation' => $annotation,
         ];
     }
 }

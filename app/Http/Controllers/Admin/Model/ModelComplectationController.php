@@ -82,4 +82,19 @@ class ModelComplectationController extends Controller
         return back()->with('success', trans('messages.success_deleted'));
     }
 
+    public function copy(ModelComplectation $complectation)
+    {
+        DB::beginTransaction();
+        try {
+            $this->service->copy($complectation);
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return back()->withErrors($exception->getMessage());
+        }
+
+        return back()->with('success', 'Комплектация успешно скопирована');
+
+    }
+
 }

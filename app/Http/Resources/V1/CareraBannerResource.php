@@ -17,7 +17,7 @@ class CareraBannerResource extends JsonResource
         $lang = $request->lang;
         if($lang == 'kz'){
             return [
-                'image' => $this->image_kz_url,
+                'image' => $this->image_url,
                 'title' => $this->title_kz,
                 'text' => $this->text_kz,
             ];
