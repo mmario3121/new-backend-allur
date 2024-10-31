@@ -21,6 +21,7 @@ class SlidersResource extends JsonResource
                 'image_mob' => $this->image_mob_kz_url,
                 'link' => $this->link,
                 'title' => $this->title_kz,
+                'icon' => $this->icon_url,
             ];
         }
         return [
@@ -28,6 +29,7 @@ class SlidersResource extends JsonResource
             'image_mob' => $this->image_mob_url,
             'link' => $this->link,
             'title' => $this->title,
+            'icon' => $this->icon_url,
         ];
     }
 }

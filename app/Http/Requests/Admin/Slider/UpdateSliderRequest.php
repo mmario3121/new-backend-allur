@@ -32,6 +32,7 @@ class UpdateSliderRequest extends FormRequest
             'image_mob_kz' => 'nullable|image',
             'title' => 'required|max:255',
             'title_kz' => 'required|max:255',
+            'icon' => 'nullable',
         ];
     }
 }

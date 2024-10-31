@@ -28,6 +28,7 @@ class SliderService
             'position' => $data['position'],
             'title' => $data['title'],
             'title_kz' => $data['title_kz'],
+            'icon' => $this->fileService->saveFile($data['icon'], Slider::IMAGE_PATH),
         ]);
     }
 
@@ -48,6 +49,9 @@ class SliderService
         }
         if (isset($data['image_mob_kz'])) {
             $slider->image_mob_kz = $this->fileService->saveFile($data['image_mob_kz'], Slider::IMAGE_PATH, $slider->image_mob_kz);
+        }
+        if (isset($data['icon'])) {
+            $slider->icon = $this->fileService->saveFile($data['icon'], Slider::IMAGE_PATH, $slider->icon);
         }
         return $slider->save();
     }

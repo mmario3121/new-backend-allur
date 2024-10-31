@@ -13,9 +13,9 @@ class Slider extends Model
     const CACHE_TIME = 60 * 60 * 24;
     const IMAGE_PATH = 'images/sliders';
 
-    protected $appends = ['image_url', 'image_mob_url', 'link_url', 'image_kz_url', 'image_mob_kz_url'];
+    protected $appends = ['image_url', 'image_mob_url', 'link_url', 'image_kz_url', 'image_mob_kz_url', 'icon_url'];
 
-    protected $fillable = ['image', 'link', 'position', 'image_mob', 'image_kz', 'image_mob_kz', 'title', 'title_kz'];
+    protected $fillable = ['image', 'link', 'position', 'image_mob', 'image_kz', 'image_mob_kz', 'title', 'title_kz', 'icon'];
 
     protected $hidden = ['updated_at', 'created_at'];
 
@@ -37,5 +37,11 @@ class Slider extends Model
     public function getImageMobKzUrlAttribute(): string|null
     {
         return $this->image_mob_kz ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->image_mob_kz) : null;
+    }
+
+
+    public function getIconUrlAttribute(): string|null
+    {
+        return $this->icon ? Storage::disk('custom')->url(self::IMAGE_PATH . '/' . $this->icon) : null;
     }
 }

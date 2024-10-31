@@ -38,28 +38,28 @@ class DealerAddressResource extends JsonResource
         $phone = str_replace(' ', '', $this->phone);
         $phone = explode(',', $phone);
 
-        //coordinates is string with comma as separator
-        $coordinates = explode(',', $this->coordinates);
-        //remove spaces
-        $coordinates = array_map('trim', $coordinates);
-        //make first one y => lat, x => lng
-        $coordinates = [
-            'x' => $coordinates[0],
-            'y' => $coordinates[1],
-        ];
+        // //coordinates is string with comma as separator
+        // $coordinates = explode(',', $this->coordinates);
+        // //remove spaces
+        // $coordinates = array_map('trim', $coordinates);
+        // //make first one y => lat, x => lng
+        // $coordinates = [
+        //     'x' => $coordinates[0],
+        //     'y' => $coordinates[1],
+        // ];
 
-        $coordinates2 = explode(',', $this->coordinates2);
-        //remove spaces
-        $coordinates2 = array_map('trim', $coordinates2);
-        //make first one y => lat, x => lng
-        if (count($coordinates2) == 2) {
-            $coordinates2 = [
-                'x' => $coordinates2[0],
-                'y' => $coordinates2[1],
-            ];
-        }else{
-            $coordinates2 = null;
-        }
+        // $coordinates2 = explode(',', $this->coordinates2);
+        // //remove spaces
+        // $coordinates2 = array_map('trim', $coordinates2);
+        // //make first one y => lat, x => lng
+        // if (count($coordinates2) == 2) {
+        //     $coordinates2 = [
+        //         'x' => $coordinates2[0],
+        //         'y' => $coordinates2[1],
+        //     ];
+        // }else{
+        //     $coordinates2 = null;
+        // }
         
         if(isset($this->dealer->brand)){
             $logo = $this->dealer->brand->logo_url;
@@ -70,12 +70,12 @@ class DealerAddressResource extends JsonResource
 
         $adresses[] = [
             'label'=> $address,
-            'coordinates' => $coordinates,
+            'coordinates' => $this->coordinates,
         ];
         if($address2){
             $adresses[] = [
                 'label'=> $address2,
-                'coordinates' => $coordinates2,
+                'coordinates' => $this->coordinates2,
             ];
         }
         return [

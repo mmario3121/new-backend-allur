@@ -68,6 +68,16 @@
                 @enderror
         </div>
         <div class="form-group required ">
+            <label for="icon" class="control-label" title="Заполните обязательно!">
+                Иконка
+            </label>
+            <input class="form-control @error('icon') is-invalid @enderror"
+            name="icon" type="file" id="icon">
+            @error('icon')
+            <span class="error invalid-feedback">{{ $message }} </span>
+            @enderror
+        </div>
+        <div class="form-group required ">
             <label for="position" class="control-label" title="Заполните обязательно!">
                 Очередность
             </label>

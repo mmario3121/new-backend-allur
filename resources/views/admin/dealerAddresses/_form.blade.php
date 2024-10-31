@@ -65,14 +65,14 @@
                             >{{ isset($dealerAddress) ? $dealerAddress->phone : (old("phone") ?? '') }}</textarea>
         </div>
         <div class="form-group required">
-            <label for="coordinates" class="control-label">Координаты </label>
+            <label for="coordinates" class="control-label">Ссылка на 2Гис </label>
             <textarea id="coordinates"
                                       class="form-control @error('coordinates') is-invalid @enderror"
                                       rows="3" name="coordinates"
                             >{{ isset($dealerAddress) ? $dealerAddress->coordinates : (old("coordinates") ?? '') }}</textarea>
         </div>
         <div class="form-group">
-            <label for="coordinates2" class="control-label">Координаты 2</label>
+            <label for="coordinates2" class="control-label">Ссылка на 2Гис 2</label>
             <textarea id="coordinates2"
                                       class="form-control @error('coordinates2') is-invalid @enderror"
                                       rows="3" name="coordinates2"
