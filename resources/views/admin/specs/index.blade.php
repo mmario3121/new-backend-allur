@@ -23,7 +23,7 @@
         </div>
         <div class="form-group mb-2">
             <label for="value_kz" class="sr-only">Значение KZ </label>
-            <input type="text" class="form-control" id="value_kz" name="value_kz" required placeholder="Значение">
+            <input type="text" class="form-control" id="value_kz" name="value_kz" required placeholder="Значение KZ">
         </div>
 
         <div class="form-group mx-sm-3 mb-2">

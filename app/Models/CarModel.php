@@ -14,7 +14,9 @@ class CarModel extends Model
     const IMAGE_PATH = 'images/car-models';
     protected $appends = ['logo_url', 'video_url', 'price_list_url', 'document_url', 'main_page_image_url', 'price_list_kz_url', 'document_kz_url'];
 
-    protected $fillable = ['type_id', 'slug', 'title', 'title_kz', 'logo', 'video', 'price_list', 'document', 'bitrix_id', 'is_active'];
+    protected $fillable = ['type_id', 'slug', 'title', 'title_kz', 'logo', 'video', 'price_list', 'document', 'bitrix_id', 'is_active', 'brand_id',
+        'char1_title', 'char1_value', 'char2_title', 'char2_value', 'char3_title', 'char3_value', 'char4_title', 'char4_value',
+        'char1_title_kz', 'char1_value_kz', 'char2_title_kz', 'char2_value_kz', 'char3_title_kz', 'char3_value_kz', 'char4_title_kz', 'char4_value_kz', 'main_page_image'];
 
     public function type(): HasOne
     {
