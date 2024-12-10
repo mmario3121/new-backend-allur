@@ -12,6 +12,7 @@ class Spec extends Model
     protected $fillable = [
         'type',
         'value',
+        'value_kz',
         'complectation_id',
     ];
 
