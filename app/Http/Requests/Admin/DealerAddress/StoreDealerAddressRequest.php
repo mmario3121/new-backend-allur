@@ -27,13 +27,13 @@ class StoreDealerAddressRequest extends FormRequest
             'dealer_id' => 'required',
             'address' => 'required',
             'address_kz' => 'required',
-            'address2' => 'required',
-            'address2_kz' => 'required',
+            'address2' => '',
+            'address2_kz' => '',
             'worktime' => 'required',
             'worktime_kz' => 'required',
             'phone' => 'required',
             'coordinates' => 'required',
-            'coordinates2' => 'required',
+            'coordinates2' => '',
         ];
     }
 }

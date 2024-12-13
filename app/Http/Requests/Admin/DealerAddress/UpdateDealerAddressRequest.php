@@ -26,14 +26,14 @@ class UpdateDealerAddressRequest extends FormRequest
         return [
             'address' => 'required',
             'address_kz' => 'required',
-            'address2' => 'nullable',
-            'address2_kz' => 'nullable',
+            'address2' => '',
+            'address2_kz' => '',
             'phone' => 'required',
             'worktime' => 'required',
             'worktime_kz' => 'required',
             'coordinates' => 'nullable',
             'dealer_id' => 'required|exists:dealers,id',
-            'coordinates2' => 'nullable',
+            'coordinates2' => '',
         ];
     }
 }
