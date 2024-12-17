@@ -57,7 +57,7 @@ class ArticleService
         }else{
             $article->isForm = 0;
         }
-        $article->model_ids = $data['model_ids'];
+        $article->model_ids = isset($data['model_ids']) ? $data['model_ids'] : null;
         if(isset($data['isFinance'])){
             $article->isFinance = 1;
         }else{
