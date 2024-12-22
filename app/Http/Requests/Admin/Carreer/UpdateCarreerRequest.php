@@ -95,6 +95,9 @@ class UpdateCarreerRequest extends FormRequest
             'card3_text_kz' => 'nullable|string',
             'card4_title_kz' => 'nullable|string',
             'card4_text_kz' => 'nullable|string',
+            'seo_title' => 'nullable|string',
+            'seo_description' => 'nullable|string',
+            'seo_keywords' => 'nullable|string',
         ];
     }
 }

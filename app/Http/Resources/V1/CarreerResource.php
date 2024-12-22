@@ -146,7 +146,8 @@ class CarreerResource extends JsonResource
                 'text' => $block11_text,
                 'image' => $block11_image,
             ],
-          'news' => $news
+          'news' => $news,
+          'meta' => new SEOResource(SEO::where('page', 'production')->first())
         ];
     }
 }

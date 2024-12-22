@@ -6,6 +6,7 @@ use App\Models\Carreer;
 use App\Models\CarreerKz;
 use App\Services\FileService;
 use App\Services\TranslateService;
+use App\Models\SEO;
 
 class CarreerService
 {
@@ -204,7 +205,17 @@ class CarreerService
             $carreer_kz->card4_text_kz = isset($data['card4_text_kz']) ? $data['card4_text_kz'] : '';
             $carreer_kz->save();
 
-
+        if (isset($data['seo_title'])) {
+            $seo = SEO::query()->where('page', 'production')->first();
+            if (!$seo) {
+                $seo = new SEO();
+                $seo->page = 'production';
+            }
+            $seo->title = $data['seo_title'];
+            $seo->description = $data['seo_description'];
+            $seo->keywords = $data['seo_keywords'];
+            $seo->save();
+        }
         return $carreer->save();
     }
 

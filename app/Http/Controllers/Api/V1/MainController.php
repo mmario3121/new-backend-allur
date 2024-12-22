@@ -29,6 +29,7 @@ use App\Models\DealerAddress;
 use App\Models\Brand;
 use App\Models\Carreer;
 use App\Models\Promo;
+use App\Models\SEO;
 
 
 use App\Http\Resources\V1\SlidersResource;
@@ -51,7 +52,6 @@ use App\Http\Resources\V1\BrandTypeResource;
 use App\Http\Resources\V1\CompanySliderResource;
 use App\Http\Resources\V1\CarreerResource;
 use App\Http\Resources\V1\SEOResource;
-use App\Models\SEO;
 use App\Http\Resources\V1\AboutResource;
 use App\Http\Resources\V1\CareraResource;
 use App\Http\Resources\V1\PromoResource;
@@ -139,7 +139,6 @@ class MainController extends Controller
     //finance
     public function finance(Request $request){
         $data = FinancePageResource::collection(FinancePage::all());
-        $data['meta'] = new SEOResource(SEO::where('page', 'finance_page')->first());
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
@@ -148,6 +147,7 @@ class MainController extends Controller
         $data['about'] = new AboutResource(AboutCompany::first());
         $data['slider'] = CompanySliderResource::collection(CompanySlider::orderBy('position', 'asc')->get());
         $data['news'] = ArticleResource::collection(Article::where('isAbout', 1)->get());
+        $data['meta'] = new SEOResource(SEO::where('page', 'about')->first());
         return new JsonResponse($data, Response::HTTP_OK);
     }
 

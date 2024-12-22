@@ -5,6 +5,8 @@ namespace App\Http\Resources\V1;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\V1\ArticleResource;
 use App\Models\Article;
+use App\Http\Resources\V1\SEOResource;
+use App\Models\SEO;
 
 class FinancePageResource extends JsonResource
 {
@@ -148,7 +150,7 @@ class FinancePageResource extends JsonResource
             $block2_image = $this->block2_image_url;
         }
             $news = ArticleResource::collection(Article::where('isFinance', 1)->get());
-        
+            $seo = new SEOResource(SEO::where('page', 'finance_page')->first());
         return [
             'title' => $title,
             'text' => $text,
@@ -183,7 +185,8 @@ class FinancePageResource extends JsonResource
             'mini_card_9' => $mini_card_9,
             'block2_image' => $block2_image,
             'form_image' => $this->form_image_url,
-            'news' => $news
+            'news' => $news,
+            'meta' => $seo
         ];
     }
 }

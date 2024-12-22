@@ -6,6 +6,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\V1\ArticleResource;
 use App\Models\Article;
 use App\Models\Carreer;
+use App\Http\Resources\V1\SEOResource;
+use App\Models\SEO;
 
 class CarreerKzResource extends JsonResource
 {
@@ -159,7 +161,8 @@ class CarreerKzResource extends JsonResource
                 'text' => $block11_text,
                 'image' => $block11_image,
             ],
-          'news' => $news
+          'news' => $news,
+          'meta' => new SEOResource(SEO::where('page', 'production')->first())
         ];
     }
 }
