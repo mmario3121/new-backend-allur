@@ -3,6 +3,7 @@
 namespace App\Services\Admin\Model;
 
 use App\Models\CarModel;
+use App\Models\SEO;
 use App\Services\FileService;
 
 class CarModelService
@@ -15,6 +16,22 @@ class CarModelService
     }
     public function create(array $data)
     {
+        if (isset($data['seo_title'])) {
+            $seo = SEO::query()->where('page', $data['slug'])->first();
+            if ($seo) {
+                $seo->title = $data['seo_title'];
+                $seo->description = $data['seo_description'];
+                $seo->keywords = $data['seo_keywords'];
+                $seo->save();
+            } else {
+                SEO::query()->create([
+                    'page' => $data['slug'],
+                    'title' => $data['seo_title'],
+                    'description' => $data['seo_description'],
+                    'keywords' => $data['seo_keywords'],
+                ]);
+            }
+        }
         return CarModel::query()->create([
             'type_id' => $data['type_id'],
             'slug' => $data['slug'],
@@ -95,6 +112,22 @@ class CarModelService
         $model->char3_value_kz = $data['char3_value_kz'];
         $model->char4_title_kz = $data['char4_title_kz'];
         $model->char4_value_kz = $data['char4_value_kz'];
+        if (isset($data['seo_title'])) {
+            $seo = SEO::query()->where('page', $model->slug)->first();
+            if ($seo) {
+                $seo->title = $data['seo_title'];
+                $seo->description = $data['seo_description'];
+                $seo->keywords = $data['seo_keywords'];
+                $seo->save();
+            } else {
+                SEO::query()->create([
+                    'page' => $model->slug,
+                    'title' => $data['seo_title'],
+                    'description' => $data['seo_description'],
+                    'keywords' => $data['seo_keywords'],
+                ]);
+            }
+        }
         return $model->save();
     }
 

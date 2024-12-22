@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\CarModel\StoreCarModelRequest;
 use App\Http\Requests\Admin\CarModel\UpdateCarModelRequest;
 use App\Models\CarModel;
 use App\Models\CarType;
+use App\Models\SEO;
 use App\Services\Admin\Model\CarModelService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -56,7 +57,8 @@ class CarModelController extends Controller
     {
         $types = CarType::query()->get();
         $brands = Brand::query()->get();
-        return view('admin.models.edit', ['model' => $model, 'types' => $types, 'brands' => $brands]);
+        $seo = SEO::query()->where('page', $model->slug)->first();
+        return view('admin.models.edit', ['model' => $model, 'types' => $types, 'brands' => $brands, 'seo' => $seo]);
     }
 
     public function update(UpdateCarModelRequest $request, CarModel $model)

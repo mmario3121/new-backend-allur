@@ -54,6 +54,9 @@ class UpdateCarModelRequest extends FormRequest
             'char3_value_kz' => 'nullable|max:255',
             'char4_title_kz' => 'nullable|max:255',
             'char4_value_kz' => 'nullable|max:255',
+            'seo_title' => 'nullable|max:255',
+            'seo_description' => 'nullable|max:255',
+            'seo_keywords' => 'nullable|max:255',
         ];
     }
 }
