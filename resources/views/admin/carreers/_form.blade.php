@@ -815,8 +815,6 @@
     @enderror
 </div>
 
-
-//seo_title, seo_description, seo_keywords
 <div class="form-group">
     <label for="seo_title" class="control-label" title="Заполните обязательно!">
         SEO Заголовок

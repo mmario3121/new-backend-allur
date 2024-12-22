@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Carreer\StoreCarreerRequest;
 use App\Http\Requests\Admin\Carreer\UpdateCarreerRequest;
 use App\Models\Carreer;
 use App\Models\CarreerKz;
+use App\Models\SEO;
 use App\Services\Admin\CarreerService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -46,7 +47,8 @@ class CarreerController extends Controller
     public function edit(Carreer $carreer)
     {
         $carreer_kz = CarreerKz::first();
-        return view('admin.carreers.edit', ['carreer' => $carreer, 'carreer_kz' => $carreer_kz]);
+        $seo = SEO::query()->where('page', 'production')->first();
+        return view('admin.carreers.edit', ['carreer' => $carreer, 'carreer_kz' => $carreer_kz, 'seo' => $seo]);
     }
 
     public function update(UpdateCarreerRequest $request, Carreer $carreer)
