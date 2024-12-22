@@ -5,6 +5,7 @@ namespace App\Services\Admin;
 use App\Models\FinancePage;
 use App\Services\FileService;
 use App\Services\TranslateService;
+use App\Models\SEO;
 
 class FinancePageService
 {
@@ -129,6 +130,22 @@ class FinancePageService
             $financePage->form_image = $this->fileService->saveFile($data['form_image'], FinancePage::IMAGE_PATH, $financePage->form_image);
         }
 
+        if (isset($data['seo_title'])) {
+            $seo = SEO::query()->where('page', 'finance_page')->first();
+            if ($seo) {
+                $seo->title = $data['seo_title'];
+                $seo->description = $data['seo_description'];
+                $seo->keywords = $data['seo_keywords'];
+                $seo->save();
+            } else {
+                SEO::query()->create([
+                    'page' => 'finance_page',
+                    'title' => $data['seo_title'],
+                    'description' => $data['seo_description'],
+                    'keywords' => $data['seo_keywords'],
+                ]);
+            }
+        }
         return $financePage->save();
     }
 

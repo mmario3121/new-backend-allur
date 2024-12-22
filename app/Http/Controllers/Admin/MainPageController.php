@@ -51,7 +51,12 @@ class MainPageController extends Controller
         $data['mainPage'] = $mainPage;
         $data['seo'] = SEO::query()->where('page', 'main_page')->first();
         if (!$data['seo']) {
-            $data['seo'] = new SEO();
+            $data['seo'] = SEO::query()->create([
+                'page' => 'main_page',
+                'title' => '',
+                'description' => '',
+                'keywords' => '',
+            ]);
         }
         return view('admin.mainPages.edit', $data);
     }

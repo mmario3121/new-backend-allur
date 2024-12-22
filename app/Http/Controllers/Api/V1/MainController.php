@@ -50,6 +50,8 @@ use App\Http\Resources\V1\CityShortResource;
 use App\Http\Resources\V1\BrandTypeResource;
 use App\Http\Resources\V1\CompanySliderResource;
 use App\Http\Resources\V1\CarreerResource;
+use App\Http\Resources\V1\SEOResource;
+use App\Models\SEO;
 use App\Http\Resources\V1\AboutResource;
 use App\Http\Resources\V1\CareraResource;
 use App\Http\Resources\V1\PromoResource;
@@ -62,6 +64,7 @@ class MainController extends Controller
 {
     public function home(Request $request){
         $data['main'] = new MainPageResource(MainPage::first());
+        $data['seo'] = new SEOResource(SEO::where('page', 'main_page')->first());
         // $data['banners'] = MainPageBanner::all();
 
         return new JsonResponse($data, Response::HTTP_OK);

@@ -641,6 +641,30 @@
             @enderror
         </div>  
     </div>
+
+    //seo_title, seo_description, seo_keywords
+    <div class="form-group required">
+        <label for="seo_title" class="control-label">SEO Title</label>
+        <input class="form-control @error('seo_title') is-invalid @enderror" title="seo_title" type="text" id="seo_title" value="{{  isset($seo) ? $seo->title : (old('seo_title') ?? '') }}" name="seo_title" placeholder="SEO Title">
+        @error('seo_title')
+        <span class="error invalid-feedback">{{ $message }} </span>
+        @enderror
+    </div>
+    <div class="form-group required">
+        <label for="seo_description" class="control-label">SEO Description</label>
+        <input class="form-control @error('seo_description') is-invalid @enderror" title="seo_description" type="text" id="seo_description" value="{{  isset($seo) ? $seo->description : (old('seo_description') ?? '') }}" name="seo_description" placeholder="SEO Description">
+        @error('seo_description')
+        <span class="error invalid-feedback">{{ $message }} </span>
+        @enderror
+    </div>
+    <div class="form-group required">
+        <label for="seo_keywords" class="control-label">SEO Keywords</label>
+        <input class="form-control @error('seo_keywords') is-invalid @enderror" title="seo_keywords" type="text" id="seo_keywords" value="{{  isset($seo) ? $seo->keywords : (old('seo_keywords') ?? '') }}" name="seo_keywords" placeholder="SEO Keywords">
+        @error('seo_keywords')
+        <span class="error invalid-feedback">{{ $message }} </span>
+        @enderror
+        </div> 
+
         <br>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">

@@ -10,6 +10,5 @@ class SEO extends Model
     use HasFactory;
 
     protected $fillable = ['page', 'title', 'description', 'keywords'];
-    //table name
     protected $table = 'seos';
 }
