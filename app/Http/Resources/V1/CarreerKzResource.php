@@ -73,7 +73,7 @@ class CarreerKzResource extends JsonResource
             $card3_text = $this->card3_text_kz;
             $card4_title = $this->card4_title_kz;
             $card4_text = $this->card4_text_kz;
-        $news = ArticleResource::collection(Article::where('isProduction', 1)->get());
+        $news = ArticleResource::collection(Article::where('isProduction', 1)->limit(10));
         return [
             'production' => [
                 [
@@ -86,6 +86,11 @@ class CarreerKzResource extends JsonResource
                     'text' => $block2_text,
                     'image' => $block2_image,
                 ],
+                [
+                    'title' => $block11_title,
+                    'text' => $block11_text,
+                    'image' => $block11_image,
+                ]
             ],
             'slider_title' => $block3_title,
             'slider' =>[
@@ -153,6 +158,11 @@ class CarreerKzResource extends JsonResource
                 'title' => $block10_title,
                 'text' => $block10_text,
                 'image' => $block10_image,
+            ],
+            'block2' => [
+                'title' => $block11_title,
+                'text' => $block11_text,
+                'image' => $block11_image,
             ],
           'news' => $news
         ];

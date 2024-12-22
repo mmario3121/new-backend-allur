@@ -60,7 +60,7 @@ class CarreerResource extends JsonResource
             $card4_title = $this->card4_title;
             $card4_text = $this->card4_text;
         
-        $news = ArticleResource::collection(Article::where('isProduction', 1)->get());
+        $news = ArticleResource::collection(Article::where('isProduction', 1)->limit(10));
         return [
             'production' => [
                 [
@@ -140,6 +140,11 @@ class CarreerResource extends JsonResource
                 'title' => $block10_title,
                 'text' => $block10_text,
                 'image' => $block10_image,
+            ],
+            'block2' => [
+                'title' => $block11_title,
+                'text' => $block11_text,
+                'image' => $block11_image,
             ],
           'news' => $news
         ];
