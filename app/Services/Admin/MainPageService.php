@@ -5,6 +5,7 @@ namespace App\Services\Admin;
 use App\Models\MainPage;
 use App\Services\FileService;
 use App\Services\TranslateService;
+use App\Models\SEO;
 
 class MainPageService
 {
@@ -49,6 +50,23 @@ class MainPageService
         }
         if (isset($data['consultation_photo'])) {
             $mainPage->consultation_photo = $this->fileService->saveFile($data['consultation_photo'], MainPage::IMAGE_PATH, $mainPage->consultation_photo);
+        }
+
+        if (isset($data['seo_title'])) {
+            $seo = SEO::query()->where('page', 'main_page')->first();
+            if ($seo) {
+                $seo->title = $data['seo_title'];
+                $seo->description = $data['seo_description'];
+                $seo->keywords = $data['seo_keywords'];
+                $seo->save();
+            } else {
+                SEO::query()->create([
+                    'page' => 'main_page',
+                    'title' => $data['seo_title'],
+                    'description' => $data['seo_description'],
+                    'keywords' => $data['seo_keywords'],
+                ]);
+            }
         }
 
         return $mainPage->save();

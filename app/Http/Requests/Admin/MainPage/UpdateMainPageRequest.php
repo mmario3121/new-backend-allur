@@ -34,6 +34,9 @@ class UpdateMainPageRequest extends FormRequest
             'career_text' => 'required',
             'career_text_kz' => 'required',
             'career_photo1' => 'nullable|image',
+            'seo_title' => 'required',
+            'seo_description' => 'required',
+            'seo_keywords' => 'required',
         ];
     }
 }

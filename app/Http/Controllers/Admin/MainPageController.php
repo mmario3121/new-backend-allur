@@ -10,6 +10,7 @@ use App\Models\MainPageBanner;
 use App\Services\Admin\MainPageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\SEO;
 
 class MainPageController extends Controller
 {
@@ -48,6 +49,7 @@ class MainPageController extends Controller
     {
         $data['mainPageBanners'] = MainPageBanner::all();
         $data['mainPage'] = $mainPage;
+        $data['seo'] = SEO::query()->where('page', 'main_page')->first();
         return view('admin.mainPages.edit', $data);
     }
 
