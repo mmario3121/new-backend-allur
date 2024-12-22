@@ -8,10 +8,12 @@ use App\Models\CarType;
 use App\Models\ModelColor;
 use App\Models\ModelSection;
 use App\Models\ModelSlider;
+use App\Models\SEO;
 use App\Models\SpecificationCategory;
 use App\Models\ModelComplectation;
 use App\Http\Resources\V1\CarModelResource;
 use App\Http\Resources\V1\CarTypeResource;
+use App\Http\Resources\V1\SEOResource;
 use App\Http\Resources\V1\ModelSliderResource;
 use App\Http\Resources\V1\ModelComplectationsResource;
 use App\Http\Resources\V1\ModelColorsResource;
@@ -50,6 +52,7 @@ class CarModelController extends Controller
         $data['model'] = new CarModelResource($model);
         $data['complectations'] = ModelComplectationsResource::collection($complectations);
         $data['slider']['main'] = ModelColorsResource::collection($colors);
+        $data['meta'] = new SEOResource(SEO::where('page', $model->slug)->first());
         return new JsonResponse($data, Response::HTTP_OK);
     }
     public function getAll(Request $request){

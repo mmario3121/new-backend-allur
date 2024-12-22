@@ -67,6 +67,9 @@ class UpdateAboutCompanyRequest extends FormRequest
             'block7_text' => 'nullable|string',
             'block7_text_kz' => 'nullable|string',
             'block7_image' => 'nullable|image',
+            'seo_title' => 'nullable|string',
+            'seo_description' => 'nullable|string',
+            'seo_keywords' => 'nullable|string',
         ];
     }
 }

@@ -270,6 +270,25 @@
             <label for="block7_image">Изображение блока 7</label>
             <input id="block7_image" type="file" class="form-control" name="block7_image">
         </div>
+
+        <div class="form-group">
+            <label for="seo_title">SEO Заголовок</label>
+            <input id="seo_title" type="text" class="form-control" name="seo_title" value="{{ 
+                isset($seo) ? $seo->title : (old('seo_title') ?? '')
+            }}">
+        </div>
+        <div class="form-group">
+            <label for="seo_description">SEO Описание</label>
+            <input id="seo_description" type="text" class="form-control" name="seo_description" value="{{ 
+                isset($seo) ? $seo->description : (old('seo_description') ?? '')
+            }}">
+        </div>
+        <div class="form-group">
+            <label for="seo_keywords">SEO Ключевые слова</label>
+            <input id="seo_keywords" type="text" class="form-control" name="seo_keywords" value="{{ 
+                isset($seo) ? $seo->keywords : (old('seo_keywords') ?? '')
+            }}">
+        </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">
                 Сохранить

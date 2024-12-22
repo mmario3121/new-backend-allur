@@ -64,7 +64,7 @@ class MainController extends Controller
 {
     public function home(Request $request){
         $data['main'] = new MainPageResource(MainPage::first());
-        $data['seo'] = new SEOResource(SEO::where('page', 'main_page')->first());
+        $data['meta'] = new SEOResource(SEO::where('page', 'main_page')->first());
         // $data['banners'] = MainPageBanner::all();
 
         return new JsonResponse($data, Response::HTTP_OK);
@@ -139,7 +139,7 @@ class MainController extends Controller
     //finance
     public function finance(Request $request){
         $data = FinancePageResource::collection(FinancePage::all());
-        $data['seo'] = new SEOResource(SEO::where('page', 'finance_page')->first());
+        $data['meta'] = new SEOResource(SEO::where('page', 'finance_page')->first());
         return new JsonResponse($data, Response::HTTP_OK);
     }
 

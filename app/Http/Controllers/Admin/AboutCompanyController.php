@@ -9,6 +9,7 @@ use App\Models\AboutCompany;
 use App\Services\Admin\AboutCompanyService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\SEO;
 
 class AboutCompanyController extends Controller
 {
@@ -44,7 +45,8 @@ class AboutCompanyController extends Controller
 
     public function edit(AboutCompany $aboutCompany)
     {
-        return view('admin.aboutCompanies.edit', ['aboutCompany' => $aboutCompany]);
+        $seo = SEO::query()->where('page', 'about')->first();
+        return view('admin.aboutCompanies.edit', ['aboutCompany' => $aboutCompany, 'seo' => $seo]);
     }
 
     public function update(UpdateAboutCompanyRequest $request, AboutCompany $aboutCompany)

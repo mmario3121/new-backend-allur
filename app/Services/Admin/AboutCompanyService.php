@@ -5,6 +5,7 @@ namespace App\Services\Admin;
 use App\Models\AboutCompany;
 use App\Services\FileService;
 use App\Services\TranslateService;
+use App\Models\SEO;
 
 class AboutCompanyService
 {
@@ -112,6 +113,22 @@ class AboutCompanyService
         }
         if (isset($data['block7_image'])) {
             $aboutCompany->block7_image = $this->fileService->saveFile($data['block7_image'], AboutCompany::IMAGE_PATH, $aboutCompany->block7_image);
+        }
+        if (isset($data['seo_title'])) {
+            $seo = SEO::query()->where('page', 'about')->first();
+            if ($seo) {
+                $seo->title = $data['seo_title'];
+                $seo->description = $data['seo_description'];
+                $seo->keywords = $data['seo_keywords'];
+                $seo->save();
+            } else {
+                SEO::query()->create([
+                    'page' => 'about',
+                    'title' => $data['seo_title'],
+                    'description' => $data['seo_description'],
+                    'keywords' => $data['seo_keywords'],
+                ]);
+            }
         }
         return $aboutCompany->save();
     }
