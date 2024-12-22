@@ -642,7 +642,6 @@
         </div>  
     </div>
 
-    //seo_title, seo_description, seo_keywords
     <div class="form-group required">
         <label for="seo_title" class="control-label">SEO Title</label>
         <input class="form-control @error('seo_title') is-invalid @enderror" title="seo_title" type="text" id="seo_title" value="{{  isset($seo) ? $seo->title : (old('seo_title') ?? '') }}" name="seo_title" placeholder="SEO Title">

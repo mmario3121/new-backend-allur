@@ -139,6 +139,7 @@ class MainController extends Controller
     //finance
     public function finance(Request $request){
         $data = FinancePageResource::collection(FinancePage::all());
+        $data['seo'] = new SEOResource(SEO::where('page', 'finance_page')->first());
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
