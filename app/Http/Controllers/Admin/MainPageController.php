@@ -50,6 +50,9 @@ class MainPageController extends Controller
         $data['mainPageBanners'] = MainPageBanner::all();
         $data['mainPage'] = $mainPage;
         $data['seo'] = SEO::query()->where('page', 'main_page')->first();
+        if (!$data['seo']) {
+            $data['seo'] = new SEO();
+        }
         return view('admin.mainPages.edit', $data);
     }
 
