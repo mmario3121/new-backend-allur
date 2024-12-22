@@ -86,11 +86,6 @@ class CarreerKzResource extends JsonResource
                     'text' => $block2_text,
                     'image' => $block2_image,
                 ],
-                [
-                    'title' => $block11_title,
-                    'text' => $block11_text,
-                    'image' => $block11_image,
-                ]
             ],
             'slider_title' => $block3_title,
             'slider' =>[
