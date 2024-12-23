@@ -52,7 +52,16 @@ class CarModelController extends Controller
         $data['model'] = new CarModelResource($model);
         $data['complectations'] = ModelComplectationsResource::collection($complectations);
         $data['slider']['main'] = ModelColorsResource::collection($colors);
-        $data['meta'] = new SEOResource(SEO::where('page', $model->slug)->first());
+        $seo = SEO::where('page', $model->slug)->first();
+        if ($seo == null) {
+            $seo = SEO::query()->create([
+                'page' => $model->slug,
+                'title' => '',
+                'description' => '',
+                'keywords' => '',
+            ]);
+        }
+        $data['meta'] = new SEOResource($seo);
         return new JsonResponse($data, Response::HTTP_OK);
     }
     public function getAll(Request $request){
