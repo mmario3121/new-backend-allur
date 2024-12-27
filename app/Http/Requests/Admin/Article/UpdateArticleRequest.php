@@ -40,7 +40,7 @@ class UpdateArticleRequest extends FormRequest
             'isSlider' => 'nullable|boolean',
             'isAbout' => 'nullable|boolean',
             'isProduction' => 'nullable|boolean',
-            'type' => 'required|string',
+            'type' => 'nullable|string',
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
 
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',

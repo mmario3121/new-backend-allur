@@ -195,7 +195,7 @@
             @enderror
             </div>
 
-            <div class="form-group required">
+            <div class="form-group">
             <label for="type" class="control-label">Тип </label>
             <select class="form-control @error('type') is-invalid @enderror" title="type" id="type" name="type">
                 <option value="">Выберите тип</option>
